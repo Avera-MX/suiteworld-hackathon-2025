@@ -1478,17 +1478,100 @@ def business_insights_page():
     
     datasets = st.session_state.datasets
     
+    # Extract unique warehouses and categories from the data
+    warehouses = set()
+    categories = set()
+    
+    for dataset_name in ['train_inflows', 'tune_inflows', 'train_outflows', 'tune_outflows']:
+        if dataset_name in datasets:
+            df = datasets[dataset_name]
+            if 'Warehouse' in df.columns:
+                warehouses.update(df['Warehouse'].dropna().unique())
+            if 'Category' in df.columns:
+                categories.update(df['Category'].dropna().unique())
+    
+    # Filter controls
+    st.subheader("🔍 Filter by Dimension")
+    
+    col1, col2, col3 = st.columns([2, 2, 1])
+    
+    with col1:
+        if warehouses:
+            warehouse_options = ['All Warehouses'] + sorted(list(warehouses))
+            selected_warehouses = st.multiselect(
+                "Select Warehouses",
+                options=warehouse_options,
+                default=['All Warehouses'],
+                help="Compare insights across specific warehouses"
+            )
+        else:
+            selected_warehouses = ['All Warehouses']
+            st.info("No warehouse data available")
+    
+    with col2:
+        if categories:
+            category_options = ['All Categories'] + sorted(list(categories))
+            selected_categories = st.multiselect(
+                "Select Categories",
+                options=category_options,
+                default=['All Categories'],
+                help="Compare insights across specific product categories"
+            )
+        else:
+            selected_categories = ['All Categories']
+            st.info("No category data available")
+    
+    with col3:
+        st.markdown("#### Active Filters")
+        filter_warehouse = 'All Warehouses' not in selected_warehouses and selected_warehouses
+        filter_category = 'All Categories' not in selected_categories and selected_categories
+        
+        if filter_warehouse:
+            st.metric("Warehouses", len(selected_warehouses))
+        if filter_category:
+            st.metric("Categories", len(selected_categories))
+        if not filter_warehouse and not filter_category:
+            st.info("No filters active")
+    
+    st.divider()
+    
+    # Apply filters to datasets
+    filtered_datasets = datasets.copy()
+    
+    if filter_warehouse or filter_category:
+        for dataset_name in ['train_inflows', 'tune_inflows', 'train_outflows', 'tune_outflows']:
+            if dataset_name in filtered_datasets:
+                df = filtered_datasets[dataset_name].copy()
+                
+                # Apply warehouse filter
+                if filter_warehouse and 'Warehouse' in df.columns:
+                    df = df[df['Warehouse'].isin(selected_warehouses)]
+                
+                # Apply category filter
+                if filter_category and 'Category' in df.columns:
+                    df = df[df['Category'].isin(selected_categories)]
+                
+                filtered_datasets[dataset_name] = df
+        
+        # Show filter summary
+        st.info(f"📊 Generating insights for {len(selected_warehouses) if filter_warehouse else 'all'} warehouse(s) and {len(selected_categories) if filter_category else 'all'} category(ies)")
+    
     # Generate insights
-    if st.button("Generate Business Insights"):
+    if st.button("Generate Business Insights", type="primary"):
         with st.spinner("Generating actionable insights..."):
             try:
                 insights = st.session_state.insights_generator.generate_insights(
-                    datasets, 
+                    filtered_datasets, 
                     st.session_state.get('forecast_results'),
                     st.session_state.get('anomaly_results')
                 )
                 
                 if insights['success']:
+                    # Store filters with insights
+                    insights['filters'] = {
+                        'warehouses': selected_warehouses if filter_warehouse else ['All Warehouses'],
+                        'categories': selected_categories if filter_category else ['All Categories']
+                    }
                     st.session_state.business_insights = insights
                     display_business_insights(insights)
                 else:
@@ -1503,6 +1586,24 @@ def business_insights_page():
 
 def display_business_insights(insights):
     st.success("✅ Business insights generated!")
+    
+    # Display active filters if present
+    if 'filters' in insights:
+        filters = insights['filters']
+        warehouses = filters.get('warehouses', ['All Warehouses'])
+        categories = filters.get('categories', ['All Categories'])
+        
+        if warehouses != ['All Warehouses'] or categories != ['All Categories']:
+            with st.expander("🔍 Active Filters & Comparison Scope", expanded=True):
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.markdown("**📦 Warehouses:**")
+                    for wh in warehouses:
+                        st.markdown(f"• {wh}")
+                with col2:
+                    st.markdown("**🏷️ Categories:**")
+                    for cat in categories:
+                        st.markdown(f"• {cat}")
     
     # Key recommendations
     if 'recommendations' in insights:
