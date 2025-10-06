@@ -1316,7 +1316,7 @@ def partner_analytics_page():
                     labels={'Total_Quantity': 'Total Quantity Shipped'},
                     color='Total_Quantity',
                     color_continuous_scale='Blues')
-        fig.update_xaxis(tickangle=-45)
+        fig.update_xaxes(tickangle=-45)
         st.plotly_chart(fig, use_container_width=True)
     
     with col2:
@@ -1325,7 +1325,7 @@ def partner_analytics_page():
                     labels={'Shipment_Count': 'Number of Shipments'},
                     color='Shipment_Count',
                     color_continuous_scale='Greens')
-        fig.update_xaxis(tickangle=-45)
+        fig.update_xaxes(tickangle=-45)
         st.plotly_chart(fig, use_container_width=True)
     
     # Partner share pie chart
