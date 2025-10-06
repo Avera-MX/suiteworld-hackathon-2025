@@ -42,9 +42,13 @@ class ForecastingEngine:
             train_warehouse_features = config.get('train_warehouse_features')
             tune_warehouse_features = config.get('tune_warehouse_features')
             
-            # Prepare data with warehouse features
-            train_ts = self._prepare_time_series(train_data, train_warehouse_features)
-            tune_ts = self._prepare_time_series(tune_data, tune_warehouse_features)
+            # Extract category features from config
+            train_category_features = config.get('train_category_features')
+            tune_category_features = config.get('tune_category_features')
+            
+            # Prepare data with warehouse and category features
+            train_ts = self._prepare_time_series(train_data, train_warehouse_features, train_category_features)
+            tune_ts = self._prepare_time_series(tune_data, tune_warehouse_features, tune_category_features)
             
             if train_ts is None or tune_ts is None:
                 return {'success': False, 'error': 'Failed to prepare time series data'}
@@ -97,9 +101,9 @@ class ForecastingEngine:
         except Exception as e:
             return {'success': False, 'error': f"Forecasting error: {str(e)}"}
     
-    def _prepare_time_series(self, df: pd.DataFrame, warehouse_features=None) -> Optional[pd.DataFrame]:
+    def _prepare_time_series(self, df: pd.DataFrame, warehouse_features=None, category_features=None) -> Optional[pd.DataFrame]:
         """
-        Prepare time series data for forecasting with optional warehouse features
+        Prepare time series data for forecasting with optional warehouse and category features
         """
         try:
             if 'Date' not in df.columns or 'Inventory_Level' not in df.columns:
@@ -121,6 +125,19 @@ class ForecastingEngine:
                 # Fill missing warehouse features with 0
                 warehouse_cols = ['Total_Daily_Inflows', 'Total_Daily_Outflows', 'Active_Warehouses', 'Warehouse_Diversity']
                 for col in warehouse_cols:
+                    if col in ts_df.columns:
+                        ts_df[col] = ts_df[col].fillna(0)
+            
+            # Merge category features if available
+            if category_features is not None and not category_features.empty:
+                category_features_copy = category_features.copy()
+                category_features_copy['Date'] = pd.to_datetime(category_features_copy['Date'])
+                category_features_copy = category_features_copy.rename(columns={'Date': 'ds'})
+                ts_df = pd.merge(ts_df, category_features_copy, on='ds', how='left')
+                
+                # Fill missing category features with 0
+                category_cols = ['Total_Category_Inflows', 'Total_Category_Outflows', 'Active_Categories', 'Category_Diversity']
+                for col in category_cols:
                     if col in ts_df.columns:
                         ts_df[col] = ts_df[col].fillna(0)
             
@@ -199,6 +216,12 @@ class ForecastingEngine:
             for col in available_warehouse_features:
                 model.add_regressor(col)
             
+            # Add category features as regressors if available
+            category_features = ['Total_Category_Inflows', 'Total_Category_Outflows', 'Active_Categories', 'Category_Diversity']
+            available_category_features = [col for col in category_features if col in train_ts.columns]
+            for col in available_category_features:
+                model.add_regressor(col)
+            
             # Fit model
             model.fit(train_ts)
             
@@ -218,6 +241,20 @@ class ForecastingEngine:
                     # For future dates (where merge resulted in NaN), use forward fill or last value
                     future[col] = future[col].fillna(method='ffill')
                     # If still NaN (shouldn't happen), use 0
+                    future[col] = future[col].fillna(0)
+            
+            # Merge category features from historical data and extend to future
+            for col in available_category_features:
+                if col in train_ts.columns:
+                    # Merge historical values from train_ts
+                    future = future.merge(
+                        train_ts[['ds', col]], 
+                        on='ds', 
+                        how='left'
+                    )
+                    # For future dates (where merge resulted in NaN), use forward fill
+                    future[col] = future[col].fillna(method='ffill')
+                    # If still NaN, use 0
                     future[col] = future[col].fillna(0)
             
             # Generate forecast

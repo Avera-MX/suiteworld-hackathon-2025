@@ -42,8 +42,8 @@ def main():
     page = st.sidebar.radio(
         "Select Page",
         ["Data Upload & Validation", "Statistical Analysis", "ML Forecasting", 
-         "What-If Scenarios", "Anomaly Detection", "Model Performance", "Business Insights", 
-         "Partner Analytics", "Automated Alerts", "Export Reports"]
+         "Model Performance", "Actual vs Predicted", "What-If Scenarios", "Anomaly Detection", 
+         "Business Insights", "Partner Analytics", "Automated Alerts", "Export Reports"]
     )
     
     if page == "Data Upload & Validation":
@@ -52,12 +52,14 @@ def main():
         statistical_analysis_page()
     elif page == "ML Forecasting":
         ml_forecasting_page()
+    elif page == "Model Performance":
+        model_performance_page()
+    elif page == "Actual vs Predicted":
+        actual_vs_predicted_page()
     elif page == "What-If Scenarios":
         whatif_scenarios_page()
     elif page == "Anomaly Detection":
         anomaly_detection_page()
-    elif page == "Model Performance":
-        model_performance_page()
     elif page == "Business Insights":
         business_insights_page()
     elif page == "Partner Analytics":
@@ -116,6 +118,17 @@ def data_upload_page():
             tune_inflows_file = st.file_uploader("Tuning Inflows", type=['csv', 'xlsx'])
             tune_outflows_file = st.file_uploader("Tuning Outflows", type=['csv', 'xlsx'])
         
+        st.markdown("---")
+        st.markdown("#### Test Period Data (For Model Comparison)")
+        st.info("📝 Upload test data to compare actual vs predicted inventory levels")
+        
+        col3, col4 = st.columns(2)
+        with col3:
+            test_inventory_file = st.file_uploader("Test Inventory (Actual)", type=['csv', 'xlsx'], key='test_inv')
+        with col4:
+            test_inflows_file = st.file_uploader("Test Inflows (Optional)", type=['csv', 'xlsx'], key='test_inf')
+            test_outflows_file = st.file_uploader("Test Outflows (Optional)", type=['csv', 'xlsx'], key='test_out')
+        
         if st.button("Process Uploaded Data"):
             if train_inventory_file and train_inflows_file and tune_inventory_file and tune_inflows_file:
                 try:
@@ -127,7 +140,10 @@ def data_upload_page():
                         'train_outflows': train_outflows_file,
                         'tune_inventory': tune_inventory_file,
                         'tune_inflows': tune_inflows_file,
-                        'tune_outflows': tune_outflows_file
+                        'tune_outflows': tune_outflows_file,
+                        'test_inventory': test_inventory_file,
+                        'test_inflows': test_inflows_file,
+                        'test_outflows': test_outflows_file
                     }
                     
                     for key, file in files.items():
@@ -137,7 +153,7 @@ def data_upload_page():
                             else:
                                 datasets[key] = pd.read_excel(file)
                     
-                    # Process and validate
+                    # Process and validate train/tune data
                     result = st.session_state.data_handler.process_datasets(
                         datasets.get('train_inventory'),
                         datasets.get('train_inflows'),
@@ -149,7 +165,21 @@ def data_upload_page():
                     
                     if result['success']:
                         st.session_state.datasets = result['datasets']
-                        st.success("✅ Data processed successfully!")
+                        
+                        # Process test data separately if provided
+                        if datasets.get('test_inventory') is not None:
+                            test_result = st.session_state.data_handler._validate_and_clean_dataset(
+                                datasets['test_inventory'], 'inventory', 'test_inventory'
+                            )
+                            if test_result['success']:
+                                st.session_state.datasets['test_inventory'] = test_result['data']
+                                st.success("✅ Data processed successfully (including test data)!")
+                            else:
+                                st.warning(f"⚠️ Test inventory validation failed: {test_result['error']}")
+                                st.success("✅ Training and tuning data processed successfully!")
+                        else:
+                            st.success("✅ Data processed successfully!")
+                        
                         display_data_overview(result['datasets'])
                     else:
                         st.error(f"❌ Data processing failed: {result['error']}")
@@ -399,9 +429,11 @@ def ml_forecasting_page():
                     train_data = datasets['train_inventory'].copy()
                     tune_data = datasets['tune_inventory'].copy()
                     
-                    # Include warehouse features if available
+                    # Include warehouse and category features if available
                     train_warehouse_features = datasets.get('train_warehouse_features')
                     tune_warehouse_features = datasets.get('tune_warehouse_features')
+                    train_category_features = datasets.get('train_category_features')
+                    tune_category_features = datasets.get('tune_category_features')
                     
                     # Configure forecasting engine
                     forecast_config = {
@@ -412,7 +444,9 @@ def ml_forecasting_page():
                         'scale_normalization': scale_normalization,
                         'trend_detection': trend_detection,
                         'train_warehouse_features': train_warehouse_features,
-                        'tune_warehouse_features': tune_warehouse_features
+                        'tune_warehouse_features': tune_warehouse_features,
+                        'train_category_features': train_category_features,
+                        'tune_category_features': tune_category_features
                     }
                     
                     # Generate forecasts
@@ -1099,6 +1133,287 @@ def model_performance_page():
             st.metric("Scale Adaptability", stability.get('scale_adaptation', 'N/A'))
         with col3:
             st.metric("Prediction Consistency", stability.get('consistency', 'N/A'))
+
+def actual_vs_predicted_page():
+    st.header("📊 Actual vs Predicted Comparison")
+    
+    # Check if test data exists
+    if 'datasets' not in st.session_state or 'test_inventory' not in st.session_state.datasets:
+        st.warning("⚠️ Please upload test data first in the Data Upload page!")
+        st.info("Test data is used to compare actual inventory levels against model predictions.")
+        return
+    
+    # Check if training data exists
+    if 'train_inventory' not in st.session_state.datasets or 'tune_inventory' not in st.session_state.datasets:
+        st.warning("⚠️ Please upload and process training and tuning data first!")
+        return
+    
+    test_data = st.session_state.datasets['test_inventory']
+    datasets = st.session_state.datasets
+    
+    st.subheader("📈 Generate Predictions for Test Period")
+    
+    # Model selection
+    available_models = ['Prophet', 'SARIMA', 'XGBoost', 'All']
+    selected_model = st.selectbox("Select Model for Comparison", available_models)
+    
+    if st.button("Generate Test Predictions"):
+        with st.spinner(f"Generating {selected_model} predictions for test period..."):
+            try:
+                # Combine training and tuning data for forecasting
+                # This ensures forecasts start from the most recent data point (tuning end)
+                train_data = datasets['train_inventory'].copy()
+                tune_data = datasets['tune_inventory'].copy()
+                
+                # Combine train and tune data to use as the complete historical dataset
+                combined_data = pd.concat([train_data, tune_data], ignore_index=True)
+                combined_data['Date'] = pd.to_datetime(combined_data['Date'])
+                combined_data = combined_data.sort_values('Date').drop_duplicates(subset=['Date'], keep='last')
+                
+                # Get test period date range
+                test_df = test_data.copy()
+                test_df['Date'] = pd.to_datetime(test_df['Date'])
+                test_start = test_df['Date'].min()
+                test_end = test_df['Date'].max()
+                
+                # Get the end date of combined data
+                combined_end = pd.to_datetime(combined_data['Date'].max())
+                
+                # Calculate periods needed to reach from combined data end to test end
+                forecast_periods = (test_end - combined_end).days
+                
+                if forecast_periods <= 0:
+                    st.error(f"❌ Test period must be after the latest training/tuning data. Latest data: {combined_end.date()}, Test starts: {test_start.date()}")
+                    return
+                
+                st.info(f"Test period: {test_start.date()} to {test_end.date()}")
+                st.info(f"Forecasting {forecast_periods} days from latest data ({combined_end.date()}) to test end ({test_end.date()})")
+                
+                # Extract features for training and tuning periods
+                train_warehouse_features = datasets.get('train_warehouse_features')
+                tune_warehouse_features = datasets.get('tune_warehouse_features')
+                train_category_features = datasets.get('train_category_features')
+                tune_category_features = datasets.get('tune_category_features')
+                
+                # Configure forecasting for test period
+                forecast_config = {
+                    'method': selected_model,
+                    'periods': forecast_periods,
+                    'confidence_level': 0.95,
+                    'handle_outliers': True,
+                    'scale_normalization': True,
+                    'trend_detection': True,
+                    'train_warehouse_features': train_warehouse_features,
+                    'tune_warehouse_features': tune_warehouse_features,
+                    'train_category_features': train_category_features,
+                    'tune_category_features': tune_category_features
+                }
+                
+                # Generate forecasts using combined data
+                # Use combined data as both train and tune to ensure forecasts start from latest point
+                results = st.session_state.forecasting_engine.generate_forecasts(
+                    combined_data, combined_data, forecast_config
+                )
+                
+                if results['success']:
+                    st.session_state.test_forecast_results = results
+                    st.success("✅ Test predictions generated successfully!")
+                else:
+                    st.error(f"❌ Forecast generation failed: {results.get('error')}")
+                    return
+                    
+            except Exception as e:
+                st.error(f"❌ Error generating predictions: {str(e)}")
+                return
+    
+    # Display comparison if forecasts are available
+    if 'test_forecast_results' not in st.session_state:
+        st.info("👆 Click 'Generate Test Predictions' to create forecasts for comparison")
+        return
+    
+    forecast_results = st.session_state.test_forecast_results
+    
+    st.subheader("📊 Comparison Results")
+    
+    # Get forecast results for selected model
+    model_key = selected_model if selected_model in forecast_results['forecasts'] else list(forecast_results['forecasts'].keys())[0]
+    model_result = forecast_results['forecasts'][model_key]
+    forecast_df = model_result['forecast'].copy()
+    
+    # Prepare test data
+    test_df = test_data.copy()
+    test_df['Date'] = pd.to_datetime(test_df['Date'])
+    
+    # Prepare forecast data
+    if 'ds' in forecast_df.columns:
+        forecast_df['Date'] = pd.to_datetime(forecast_df['ds'])
+    
+    # Get only future predictions (after the historical data)
+    # Get the latest date from combined training+tuning data
+    train_data = datasets['train_inventory'].copy()
+    tune_data = datasets['tune_inventory'].copy()
+    combined_data = pd.concat([train_data, tune_data], ignore_index=True)
+    historical_end = pd.to_datetime(combined_data['Date'].max())
+    forecast_df = forecast_df[forecast_df['Date'] > historical_end]
+    
+    # Merge actual and predicted
+    comparison_df = test_df.merge(
+        forecast_df[['Date', 'yhat', 'yhat_lower', 'yhat_upper']], 
+        on='Date', 
+        how='inner',
+        suffixes=('', '_forecast')
+    )
+    
+    if len(comparison_df) == 0:
+        st.error("❌ No overlapping dates between test data and forecast")
+        st.info(f"Test data range: {test_df['Date'].min().date()} to {test_df['Date'].max().date()}")
+        if len(forecast_df) > 0:
+            st.info(f"Forecast range (future only): {forecast_df['Date'].min().date()} to {forecast_df['Date'].max().date()}")
+        st.info(f"Historical data ended: {historical_end.date()}")
+        return
+    
+    comparison_df = comparison_df.rename(columns={
+        'Inventory_Level': 'Actual',
+        'yhat': 'Predicted'
+    })
+    
+    # Calculate metrics
+    actual = comparison_df['Actual'].values
+    predicted = comparison_df['Predicted'].values
+    
+    mae = np.mean(np.abs(actual - predicted))
+    rmse = np.sqrt(np.mean((actual - predicted) ** 2))
+    mape = np.mean(np.abs((actual - predicted) / np.where(actual != 0, actual, 1))) * 100
+    
+    # Display metrics
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric("Comparison Points", len(comparison_df))
+    with col2:
+        st.metric("MAE", f"{mae:.2f}")
+    with col3:
+        st.metric("RMSE", f"{rmse:.2f}")
+    with col4:
+        st.metric("MAPE", f"{mape:.2f}%")
+    
+    # Visualization
+    st.subheader("📉 Actual vs Predicted Over Time")
+    
+    fig = go.Figure()
+    
+    # Actual values
+    fig.add_trace(go.Scatter(
+            x=comparison_df['Date'],
+            y=comparison_df['Actual'],
+            mode='lines+markers',
+            name='Actual',
+            line=dict(color='blue', width=2),
+            marker=dict(size=6)
+    ))
+    
+    # Predicted values
+    fig.add_trace(go.Scatter(
+            x=comparison_df['Date'],
+            y=comparison_df['Predicted'],
+            mode='lines+markers',
+            name='Predicted',
+            line=dict(color='red', width=2, dash='dash'),
+            marker=dict(size=6)
+    ))
+    
+    # Confidence intervals if available
+    if 'yhat_lower' in comparison_df.columns and 'yhat_upper' in comparison_df.columns:
+            fig.add_trace(go.Scatter(
+                x=comparison_df['Date'],
+                y=comparison_df['yhat_upper'],
+                mode='lines',
+                line=dict(width=0),
+                showlegend=False,
+                name='Upper Bound'
+            ))
+            
+            fig.add_trace(go.Scatter(
+                x=comparison_df['Date'],
+                y=comparison_df['yhat_lower'],
+                mode='lines',
+                line=dict(width=0),
+                fillcolor='rgba(255,0,0,0.2)',
+                fill='tonexty',
+                showlegend=True,
+                name='Confidence Interval'
+            ))
+    
+    fig.update_layout(
+            title=f'{selected_model} Model: Actual vs Predicted Inventory Levels',
+            xaxis_title='Date',
+            yaxis_title='Inventory Level',
+            hovermode='x unified',
+            height=500
+    )
+    
+    st.plotly_chart(fig, use_container_width=True)
+    
+    # Error analysis
+    st.subheader("🔍 Error Analysis")
+    
+    comparison_df['Error'] = comparison_df['Actual'] - comparison_df['Predicted']
+    comparison_df['Absolute_Error'] = np.abs(comparison_df['Error'])
+    comparison_df['Percentage_Error'] = (comparison_df['Error'] / np.where(comparison_df['Actual'] != 0, comparison_df['Actual'], 1)) * 100
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+            # Error distribution
+            fig_error = go.Figure()
+            fig_error.add_trace(go.Histogram(
+                x=comparison_df['Error'],
+                nbinsx=30,
+                name='Error Distribution'
+            ))
+            fig_error.update_layout(
+                title='Prediction Error Distribution',
+                xaxis_title='Error (Actual - Predicted)',
+                yaxis_title='Frequency',
+                height=400
+            )
+            st.plotly_chart(fig_error, use_container_width=True)
+    
+    with col2:
+            # Error over time
+            fig_error_time = go.Figure()
+            fig_error_time.add_trace(go.Scatter(
+                x=comparison_df['Date'],
+                y=comparison_df['Error'],
+                mode='lines+markers',
+                name='Error',
+                line=dict(color='orange', width=2)
+            ))
+            fig_error_time.add_hline(y=0, line_dash="dash", line_color="gray")
+            fig_error_time.update_layout(
+                title='Prediction Error Over Time',
+                xaxis_title='Date',
+                yaxis_title='Error',
+                height=400
+            )
+            st.plotly_chart(fig_error_time, use_container_width=True)
+    
+    # Detailed comparison table
+    st.subheader("📋 Detailed Comparison Table")
+    
+    display_df = comparison_df[['Date', 'Actual', 'Predicted', 'Error', 'Absolute_Error', 'Percentage_Error']].copy()
+    display_df['Date'] = display_df['Date'].dt.strftime('%Y-%m-%d')
+    display_df = display_df.round(2)
+    
+    st.dataframe(display_df, use_container_width=True)
+    
+    # Download button
+    csv = display_df.to_csv(index=False)
+    st.download_button(
+            label="📥 Download Comparison Data",
+            data=csv,
+            file_name=f"actual_vs_predicted_{selected_model}.csv",
+            mime="text/csv"
+        )
 
 def business_insights_page():
     st.header("💡 Business Insights & Recommendations")

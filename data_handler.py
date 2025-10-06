@@ -85,6 +85,19 @@ class DataHandler:
                     datasets.get('tune_outflows')
                 )
             
+            # Extract category features from inflows/outflows
+            if train_inflows is not None and 'train_inflows' in datasets:
+                datasets['train_category_features'] = self._extract_category_features(
+                    datasets['train_inflows'], 
+                    datasets.get('train_outflows')
+                )
+            
+            if tune_inflows is not None and 'tune_inflows' in datasets:
+                datasets['tune_category_features'] = self._extract_category_features(
+                    datasets['tune_inflows'], 
+                    datasets.get('tune_outflows')
+                )
+            
             return {'success': True, 'datasets': datasets}
             
         except Exception as e:
@@ -327,4 +340,68 @@ class DataHandler:
             
         except Exception as e:
             print(f"Error extracting warehouse features: {str(e)}")
+            return pd.DataFrame()
+    
+    def _extract_category_features(self, inflows_df: pd.DataFrame, 
+                                   outflows_df: Optional[pd.DataFrame] = None) -> pd.DataFrame:
+        """
+        Extract category-based features from inflows and outflows data
+        Aggregates category activity by date to create features for forecasting
+        """
+        try:
+            category_features = pd.DataFrame()
+            
+            # Check if Category column exists in inflows
+            if 'Category' not in inflows_df.columns:
+                return category_features
+            
+            # Aggregate inflows by date and category
+            inflows_agg = inflows_df.groupby(['Date', 'Category']).agg({
+                'Quantity': 'sum'
+            }).reset_index()
+            inflows_agg.rename(columns={'Quantity': 'Inflow_Quantity'}, inplace=True)
+            
+            # Aggregate outflows if available
+            if outflows_df is not None and 'Category' in outflows_df.columns:
+                outflows_agg = outflows_df.groupby(['Date', 'Category']).agg({
+                    'Quantity': 'sum'
+                }).reset_index()
+                outflows_agg.rename(columns={'Quantity': 'Outflow_Quantity'}, inplace=True)
+                
+                # Merge inflows and outflows
+                category_features = pd.merge(
+                    inflows_agg, outflows_agg, 
+                    on=['Date', 'Category'], 
+                    how='outer'
+                ).fillna(0)
+            else:
+                category_features = inflows_agg.copy()
+                category_features['Outflow_Quantity'] = 0
+            
+            # Create aggregated features by date (across all categories)
+            daily_features = category_features.groupby('Date').agg({
+                'Inflow_Quantity': 'sum',
+                'Outflow_Quantity': 'sum',
+                'Category': 'nunique'
+            }).reset_index()
+            
+            daily_features.rename(columns={
+                'Inflow_Quantity': 'Total_Category_Inflows',
+                'Outflow_Quantity': 'Total_Category_Outflows',
+                'Category': 'Active_Categories'
+            }, inplace=True)
+            
+            # Add category activity concentration (measure of category diversity)
+            category_counts = category_features.groupby('Date')['Category'].value_counts()
+            category_diversity = category_counts.groupby(level=0).apply(
+                lambda x: 1 - (x ** 2).sum() / (x.sum() ** 2) if x.sum() > 0 else 0
+            ).reset_index(name='Category_Diversity')
+            
+            daily_features = pd.merge(daily_features, category_diversity, on='Date', how='left')
+            daily_features['Category_Diversity'] = daily_features['Category_Diversity'].fillna(0)
+            
+            return daily_features
+            
+        except Exception as e:
+            print(f"Error extracting category features: {str(e)}")
             return pd.DataFrame()
