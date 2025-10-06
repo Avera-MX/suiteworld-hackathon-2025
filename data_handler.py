@@ -72,6 +72,19 @@ class DataHandler:
                     return {'success': False, 'error': f"Tuning outflows validation failed: {result['error']}"}
                 datasets['tune_outflows'] = result['data']
             
+            # Extract warehouse features from inflows/outflows
+            if train_inflows is not None and 'train_inflows' in datasets:
+                datasets['train_warehouse_features'] = self._extract_warehouse_features(
+                    datasets['train_inflows'], 
+                    datasets.get('train_outflows')
+                )
+            
+            if tune_inflows is not None and 'tune_inflows' in datasets:
+                datasets['tune_warehouse_features'] = self._extract_warehouse_features(
+                    datasets['tune_inflows'], 
+                    datasets.get('tune_outflows')
+                )
+            
             return {'success': True, 'datasets': datasets}
             
         except Exception as e:
@@ -251,3 +264,67 @@ class DataHandler:
         result_df['y'] = result_df['y'].fillna(method='bfill')
         
         return result_df
+    
+    def _extract_warehouse_features(self, inflows_df: pd.DataFrame, 
+                                   outflows_df: Optional[pd.DataFrame] = None) -> pd.DataFrame:
+        """
+        Extract warehouse-based features from inflows and outflows data
+        Aggregates warehouse activity by date to create features for forecasting
+        """
+        try:
+            warehouse_features = pd.DataFrame()
+            
+            # Check if Warehouse column exists in inflows
+            if 'Warehouse' not in inflows_df.columns:
+                return warehouse_features
+            
+            # Aggregate inflows by date and warehouse
+            inflows_agg = inflows_df.groupby(['Date', 'Warehouse']).agg({
+                'Quantity': 'sum'
+            }).reset_index()
+            inflows_agg.rename(columns={'Quantity': 'Inflow_Quantity'}, inplace=True)
+            
+            # Aggregate outflows if available
+            if outflows_df is not None and 'Warehouse' in outflows_df.columns:
+                outflows_agg = outflows_df.groupby(['Date', 'Warehouse']).agg({
+                    'Quantity': 'sum'
+                }).reset_index()
+                outflows_agg.rename(columns={'Quantity': 'Outflow_Quantity'}, inplace=True)
+                
+                # Merge inflows and outflows
+                warehouse_features = pd.merge(
+                    inflows_agg, outflows_agg, 
+                    on=['Date', 'Warehouse'], 
+                    how='outer'
+                ).fillna(0)
+            else:
+                warehouse_features = inflows_agg.copy()
+                warehouse_features['Outflow_Quantity'] = 0
+            
+            # Create aggregated features by date (across all warehouses)
+            daily_features = warehouse_features.groupby('Date').agg({
+                'Inflow_Quantity': 'sum',
+                'Outflow_Quantity': 'sum',
+                'Warehouse': 'nunique'
+            }).reset_index()
+            
+            daily_features.rename(columns={
+                'Inflow_Quantity': 'Total_Daily_Inflows',
+                'Outflow_Quantity': 'Total_Daily_Outflows',
+                'Warehouse': 'Active_Warehouses'
+            }, inplace=True)
+            
+            # Add warehouse activity concentration (measure of warehouse diversity)
+            warehouse_counts = warehouse_features.groupby('Date')['Warehouse'].value_counts()
+            warehouse_diversity = warehouse_counts.groupby(level=0).apply(
+                lambda x: 1 - (x ** 2).sum() / (x.sum() ** 2) if x.sum() > 0 else 0
+            ).reset_index(name='Warehouse_Diversity')
+            
+            daily_features = pd.merge(daily_features, warehouse_diversity, on='Date', how='left')
+            daily_features['Warehouse_Diversity'] = daily_features['Warehouse_Diversity'].fillna(0)
+            
+            return daily_features
+            
+        except Exception as e:
+            print(f"Error extracting warehouse features: {str(e)}")
+            return pd.DataFrame()

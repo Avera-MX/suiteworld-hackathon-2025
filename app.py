@@ -399,6 +399,10 @@ def ml_forecasting_page():
                     train_data = datasets['train_inventory'].copy()
                     tune_data = datasets['tune_inventory'].copy()
                     
+                    # Include warehouse features if available
+                    train_warehouse_features = datasets.get('train_warehouse_features')
+                    tune_warehouse_features = datasets.get('tune_warehouse_features')
+                    
                     # Configure forecasting engine
                     forecast_config = {
                         'method': forecast_method,
@@ -406,7 +410,9 @@ def ml_forecasting_page():
                         'confidence_level': confidence_level,
                         'handle_outliers': handle_outliers,
                         'scale_normalization': scale_normalization,
-                        'trend_detection': trend_detection
+                        'trend_detection': trend_detection,
+                        'train_warehouse_features': train_warehouse_features,
+                        'tune_warehouse_features': tune_warehouse_features
                     }
                     
                     # Generate forecasts

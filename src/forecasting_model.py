@@ -44,9 +44,12 @@ class ForecastingModel:
         self.training_data = train_data
         self.tuning_data = tune_data
         
-        # Prepare inventory time series
-        train_ts = self._prepare_time_series(train_data['inventory'])
-        tune_ts = self._prepare_time_series(tune_data['inventory'])
+        # Prepare inventory time series with warehouse features
+        train_warehouse_features = train_data.get('warehouse_features')
+        tune_warehouse_features = tune_data.get('warehouse_features')
+        
+        train_ts = self._prepare_time_series(train_data['inventory'], train_warehouse_features)
+        tune_ts = self._prepare_time_series(tune_data['inventory'], tune_warehouse_features)
         
         # Detect scale differences
         scale_adjustment = self._detect_scale_adjustment(train_ts, tune_ts)
@@ -123,9 +126,9 @@ class ForecastingModel:
         self.forecasts = forecasts
         return forecasts
     
-    def _prepare_time_series(self, inventory_df):
+    def _prepare_time_series(self, inventory_df, warehouse_features=None):
         """
-        Prepare inventory data as a proper time series
+        Prepare inventory data as a proper time series with optional warehouse features
         """
         ts_df = inventory_df.copy()
         ts_df = ts_df.sort_values('Date')
@@ -142,6 +145,18 @@ class ForecastingModel:
         ts_df['Inventory_Level'] = ts_df['Inventory_Level'].fillna(method='bfill')
         ts_df = ts_df.reset_index()
         ts_df.rename(columns={'index': 'Date'}, inplace=True)
+        
+        # Merge warehouse features if available
+        if warehouse_features is not None and not warehouse_features.empty:
+            warehouse_features_copy = warehouse_features.copy()
+            warehouse_features_copy['Date'] = pd.to_datetime(warehouse_features_copy['Date'])
+            ts_df = pd.merge(ts_df, warehouse_features_copy, on='Date', how='left')
+            
+            # Fill missing warehouse features with 0 (days with no warehouse activity)
+            warehouse_cols = ['Total_Daily_Inflows', 'Total_Daily_Outflows', 'Active_Warehouses', 'Warehouse_Diversity']
+            for col in warehouse_cols:
+                if col in ts_df.columns:
+                    ts_df[col] = ts_df[col].fillna(0)
         
         # Add time features
         ts_df['DayOfWeek'] = ts_df['Date'].dt.dayofweek
@@ -198,7 +213,7 @@ class ForecastingModel:
     
     def _train_prophet_model(self, train_ts, include_external):
         """
-        Train Prophet model
+        Train Prophet model with warehouse features
         """
         if not PROPHET_AVAILABLE:
             return self._train_sklearn_model(train_ts, include_external)
@@ -215,6 +230,13 @@ class ForecastingModel:
             changepoint_prior_scale=0.05,
             seasonality_prior_scale=10.0
         )
+        
+        # Add warehouse features as regressors if available
+        warehouse_features = ['Total_Daily_Inflows', 'Total_Daily_Outflows', 'Active_Warehouses', 'Warehouse_Diversity']
+        for col in warehouse_features:
+            if col in train_ts.columns:
+                model.add_regressor(col)
+                prophet_df[col] = train_ts[col]
         
         # Add regressors if including external factors
         if include_external:
@@ -270,10 +292,14 @@ class ForecastingModel:
     
     def _train_sklearn_model(self, train_ts, include_external):
         """
-        Train sklearn-based model as fallback
+        Train sklearn-based model with warehouse features
         """
         # Prepare features
         feature_cols = []
+        
+        # Warehouse features
+        warehouse_features = ['Total_Daily_Inflows', 'Total_Daily_Outflows', 'Active_Warehouses', 'Warehouse_Diversity']
+        feature_cols.extend([col for col in warehouse_features if col in train_ts.columns])
         
         # Time features
         time_features = ['DayOfWeek', 'Month', 'Quarter', 'DayOfYear']
@@ -566,12 +592,29 @@ class ForecastingModel:
     
     def _generate_prophet_forecasts(self, model_dict, future_dates):
         """
-        Generate forecasts using Prophet model
+        Generate forecasts using Prophet model with warehouse features
         """
         model = model_dict['model']
+        training_data = model_dict.get('training_data')
         
         # Create future dataframe
         future_df = pd.DataFrame({'ds': future_dates})
+        
+        # Add warehouse features from training data if available
+        warehouse_features = ['Total_Daily_Inflows', 'Total_Daily_Outflows', 'Active_Warehouses', 'Warehouse_Diversity']
+        if training_data is not None:
+            for col in warehouse_features:
+                if col in training_data.columns:
+                    # Merge historical values from training data
+                    future_df = future_df.merge(
+                        training_data[['ds', col]], 
+                        on='ds', 
+                        how='left'
+                    )
+                    # For future dates, use forward fill
+                    future_df[col] = future_df[col].fillna(method='ffill')
+                    # If still NaN, use 0
+                    future_df[col] = future_df[col].fillna(0)
         
         # Add external regressors if needed
         if model_dict.get('include_external', False):

@@ -38,9 +38,13 @@ class ForecastingEngine:
         try:
             results = {'success': True, 'forecasts': {}, 'metrics': {}}
             
-            # Prepare data
-            train_ts = self._prepare_time_series(train_data)
-            tune_ts = self._prepare_time_series(tune_data)
+            # Extract warehouse features from config
+            train_warehouse_features = config.get('train_warehouse_features')
+            tune_warehouse_features = config.get('tune_warehouse_features')
+            
+            # Prepare data with warehouse features
+            train_ts = self._prepare_time_series(train_data, train_warehouse_features)
+            tune_ts = self._prepare_time_series(tune_data, tune_warehouse_features)
             
             if train_ts is None or tune_ts is None:
                 return {'success': False, 'error': 'Failed to prepare time series data'}
@@ -93,9 +97,9 @@ class ForecastingEngine:
         except Exception as e:
             return {'success': False, 'error': f"Forecasting error: {str(e)}"}
     
-    def _prepare_time_series(self, df: pd.DataFrame) -> Optional[pd.DataFrame]:
+    def _prepare_time_series(self, df: pd.DataFrame, warehouse_features=None) -> Optional[pd.DataFrame]:
         """
-        Prepare time series data for forecasting
+        Prepare time series data for forecasting with optional warehouse features
         """
         try:
             if 'Date' not in df.columns or 'Inventory_Level' not in df.columns:
@@ -107,11 +111,24 @@ class ForecastingEngine:
             # Convert date column
             ts_df['ds'] = pd.to_datetime(ts_df['ds'])
             
+            # Merge warehouse features if available
+            if warehouse_features is not None and not warehouse_features.empty:
+                warehouse_features_copy = warehouse_features.copy()
+                warehouse_features_copy['Date'] = pd.to_datetime(warehouse_features_copy['Date'])
+                warehouse_features_copy = warehouse_features_copy.rename(columns={'Date': 'ds'})
+                ts_df = pd.merge(ts_df, warehouse_features_copy, on='ds', how='left')
+                
+                # Fill missing warehouse features with 0
+                warehouse_cols = ['Total_Daily_Inflows', 'Total_Daily_Outflows', 'Active_Warehouses', 'Warehouse_Diversity']
+                for col in warehouse_cols:
+                    if col in ts_df.columns:
+                        ts_df[col] = ts_df[col].fillna(0)
+            
             # Sort and remove duplicates
             ts_df = ts_df.sort_values('ds').drop_duplicates(subset=['ds'], keep='last')
             
-            # Remove missing values
-            ts_df = ts_df.dropna()
+            # Remove missing values in critical columns
+            ts_df = ts_df.dropna(subset=['ds', 'y'])
             
             return ts_df
             
@@ -155,7 +172,7 @@ class ForecastingEngine:
     def _generate_prophet_forecast(self, train_ts: pd.DataFrame, tune_ts: pd.DataFrame, 
                                   config: Dict[str, Any]) -> Dict[str, Any]:
         """
-        Generate Prophet forecast
+        Generate Prophet forecast with warehouse features
         """
         if not PROPHET_AVAILABLE:
             return {'success': False, 'error': 'Prophet not available'}
@@ -176,12 +193,32 @@ class ForecastingEngine:
                 model.add_seasonality(name='monthly', period=30.5, fourier_order=5)
                 model.add_seasonality(name='quarterly', period=91.25, fourier_order=8)
             
+            # Add warehouse features as regressors if available
+            warehouse_features = ['Total_Daily_Inflows', 'Total_Daily_Outflows', 'Active_Warehouses', 'Warehouse_Diversity']
+            available_warehouse_features = [col for col in warehouse_features if col in train_ts.columns]
+            for col in available_warehouse_features:
+                model.add_regressor(col)
+            
             # Fit model
             model.fit(train_ts)
             
             # Create future dataframe
             periods = config.get('periods', 90)
             future = model.make_future_dataframe(periods=periods)
+            
+            # Merge warehouse features from historical data and extend to future
+            for col in available_warehouse_features:
+                if col in train_ts.columns:
+                    # Merge historical values from train_ts
+                    future = future.merge(
+                        train_ts[['ds', col]], 
+                        on='ds', 
+                        how='left'
+                    )
+                    # For future dates (where merge resulted in NaN), use forward fill or last value
+                    future[col] = future[col].fillna(method='ffill')
+                    # If still NaN (shouldn't happen), use 0
+                    future[col] = future[col].fillna(0)
             
             # Generate forecast
             forecast = model.predict(future)
