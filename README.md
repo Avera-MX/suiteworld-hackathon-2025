@@ -552,6 +552,221 @@ Data uploaded through Streamlit is automatically saved to JSON files, making it 
 
 ---
 
+## 🎯 Hackathon Challenge Q&A
+
+### How does your model handle the individual project proposals?
+
+Our platform processes individual project proposals through a comprehensive inventory analysis pipeline. Each project's donation requests and distribution needs are tracked through the inflows and outflows datasets. The system:
+
+- **Validates project data** against predefined schemas to ensure data quality
+- **Tracks project-specific metrics** including product categories, quantities, warehouses, and partners
+- **Analyzes historical patterns** from past projects (2017-2018 training data) and recent trends (2023 tuning data)
+- **Generates project-level forecasts** by incorporating category and warehouse dimensions as regressors
+- **Provides project recommendations** through the Business Insights module, suggesting optimal inventory allocation strategies
+
+### What information can you now deliver to NetSuite from OCI to create meaningful reports?
+
+Through our FastAPI REST API, the platform delivers structured JSON data to NetSuite including:
+
+- **Inventory Forecasts**: Daily predictions with confidence intervals (upper/lower bounds) for future inventory levels
+- **Performance Metrics**: RMSE, MAE, and MAPE scores to quantify forecast accuracy
+- **Anomaly Alerts**: Detected outliers, data drift, and scale shifts in inventory patterns
+- **Business Insights**: Automated recommendations for reorder points, safety stock levels, and optimization opportunities
+- **Partner Performance**: Distribution partner analytics with efficiency metrics and fulfillment rates
+- **Category Analysis**: Product category trends, diversity metrics, and category-specific forecasts
+- **Warehouse Metrics**: Daily aggregated warehouse activity (inflows, outflows, active warehouses)
+- **Summary Statistics**: Aggregate metrics across all time periods with filtering by date range, warehouse, category, and partner
+
+All data is available via paginated REST endpoints with flexible query parameters for seamless NetSuite integration.
+
+### What inferences can be made from your ML solution?
+
+The ML solution provides actionable inferences across multiple dimensions:
+
+**Demand Patterns**:
+- Seasonal trends in donation inflows and distribution outflows
+- Cyclical patterns in inventory accumulation and depletion
+- Long-term growth or decline trends in specific product categories
+
+**Risk Assessment**:
+- Predicted stockout probabilities with early warning alerts
+- Overstock risk identification for warehouse capacity planning
+- Supply chain bottleneck detection through partner analytics
+
+**Operational Insights**:
+- Optimal reorder points based on historical consumption patterns
+- Safety stock requirements accounting for demand variability
+- Warehouse utilization efficiency and capacity recommendations
+- Category-level performance comparisons for resource allocation
+
+**Scale Adaptation**:
+- Detection and adjustment for scale shifts between 2017-2018 and 2023 data periods
+- Adaptive forecasting that accounts for organizational growth and changing donation volumes
+
+### What information can you share about your Time-Series Forecasting Model for incoming donations and outgoing shipments?
+
+**Model Architecture**:
+- **Primary Model**: Facebook Prophet with custom seasonality detection
+- **Additional Models**: SARIMA for seasonal patterns, XGBoost for non-linear relationships
+- **Ensemble Approach**: Combines multiple models for robust predictions
+
+**Incoming Donations (Inflows)**:
+- **Features**: Vendor patterns, product categories, warehouse locations, brand trends
+- **Aggregation**: Daily total quantities with category and warehouse dimensions
+- **Seasonality Detection**: Automatic identification of weekly, monthly, and yearly patterns
+- **Forecast Horizon**: Configurable from 1 to 730 days
+
+**Outgoing Shipments (Outflows)**:
+- **Features**: Partner distribution patterns, shipment types, program affiliations
+- **Partner Analytics**: Individual partner performance and fulfillment capacity
+- **Demand Modeling**: Category-specific demand patterns by distribution partner
+- **Confidence Intervals**: 95% prediction intervals to quantify uncertainty
+
+**Temporal Gap Handling**:
+- Combines 2017-2018 training data with 2023 tuning data
+- Adaptive scaling to handle 5-year gap between periods
+- Scale shift detection and normalization for accurate predictions
+
+### How does your solution address challenges around forecasting future supply?
+
+**Multi-Period Data Integration**:
+- Bridges the 5-year gap between historical (2017-2018) and recent (2023) data
+- Uses adaptive training techniques to prevent model bias toward outdated patterns
+- Applies scale normalization to handle changes in organizational capacity
+
+**Feature Engineering**:
+- **Warehouse Features**: Daily inflows, outflows, active warehouse count, warehouse diversity
+- **Category Features**: Product category inflows/outflows, category diversity metrics
+- These features serve as regressors in Prophet models, improving forecast accuracy by capturing operational dynamics
+
+**Handling Data Irregularities**:
+- **Outlier Detection**: IQR and Isolation Forest methods identify extreme values
+- **Missing Data**: Intelligent imputation strategies for gaps in time series
+- **Data Drift**: Automatic detection of distribution changes between periods
+
+**Scenario Modeling**:
+- What-if analysis for different inventory strategies (aggressive vs. conservative)
+- Impact assessment of policy changes on future supply levels
+- Sensitivity analysis for demand fluctuations
+
+**Automated Alerts**:
+- Stockout predictions with configurable thresholds
+- Overstock warnings for warehouse capacity management
+- Critical inventory level alerts for urgent action
+
+### Does your model solve the challenge in a unique way? How so?
+
+**Yes, our solution offers several unique approaches**:
+
+1. **Dual-Dimension Forecasting**: Unlike traditional inventory forecasting that only considers total inventory levels, our model incorporates both warehouse and category dimensions as regressors. This provides granular insights into how specific warehouses and product categories influence overall inventory patterns.
+
+2. **Temporal Gap Adaptation**: The platform uniquely handles a 5-year gap between training (2017-2018) and tuning (2023) data through:
+   - Adaptive scaling algorithms that detect and adjust for magnitude shifts
+   - Data drift analysis to identify distribution changes
+   - Combined training approach that preserves historical patterns while adapting to recent trends
+
+3. **Hybrid Data Persistence**: Automatic synchronization between Streamlit web interface and FastAPI backend through JSON-based storage ensures data uploaded via UI is immediately available for API consumption without manual export/import.
+
+4. **Multi-Model Ensemble**: Rather than relying on a single forecasting method, the platform combines Prophet, SARIMA, and XGBoost models, weighting predictions based on historical accuracy to produce more robust forecasts.
+
+5. **Real-Time Business Translation**: The system doesn't just provide forecasts—it automatically translates predictions into actionable business recommendations (reorder points, safety stock levels, optimization opportunities) through the Insights Generator.
+
+### What can you share about your Inventory Optimization Analysis?
+
+**Optimization Dimensions**:
+
+**Reorder Point Optimization**:
+- Calculates optimal reorder triggers based on lead time demand
+- Accounts for demand variability using historical standard deviations
+- Provides confidence-based thresholds for different service levels
+
+**Safety Stock Analysis**:
+- Recommends minimum safety stock levels by category and warehouse
+- Factors in forecast uncertainty (prediction intervals)
+- Balances stockout risk against holding costs
+
+**Warehouse Capacity Planning**:
+- Analyzes warehouse utilization patterns
+- Identifies over/under-utilized facilities
+- Suggests redistribution strategies for balanced capacity usage
+
+**Category Performance Analysis**:
+- Ranks product categories by turnover rate
+- Identifies slow-moving vs. high-velocity categories
+- Recommends category-specific inventory policies
+
+**Partner Distribution Optimization**:
+- Evaluates partner fulfillment efficiency
+- Identifies high-performing vs. underutilized partners
+- Suggests optimal allocation across distribution network
+
+### What value or deliverables does your analysis provide to the customer?
+
+**Strategic Planning**:
+- **90-730 Day Forecasts**: Long-term supply planning with confidence intervals
+- **Scenario Analysis**: Test different strategies before implementation
+- **Trend Identification**: Understand seasonal patterns and growth trajectories
+
+**Operational Efficiency**:
+- **Automated Alerts**: Proactive notifications for stockouts and overstock situations
+- **Partner Analytics**: Data-driven partner selection and allocation
+- **Warehouse Optimization**: Maximize facility utilization
+
+**Financial Impact**:
+- **Reduced Holding Costs**: Optimize inventory levels to minimize excess stock
+- **Stockout Prevention**: Avoid lost opportunities and emergency procurement costs
+- **Resource Allocation**: Data-driven decisions for warehouse and distribution investments
+
+**Reporting & Integration**:
+- **Multi-Format Exports**: CSV, Excel, and PDF reports for stakeholder sharing
+- **REST API**: Seamless integration with NetSuite and other enterprise systems
+- **Interactive Dashboards**: Real-time visualization for executive decision-making
+
+**Risk Management**:
+- **Anomaly Detection**: Early warning system for unusual patterns
+- **Data Quality Monitoring**: Automated validation and drift detection
+- **Forecast Accuracy Tracking**: Continuous performance monitoring with RMSE, MAE, and MAPE metrics
+
+### Does your analysis include any unique features? Please describe.
+
+**1. Actual vs. Predicted Comparison Module**:
+- Upload test data to compare actual outcomes against model predictions
+- Generates detailed performance metrics (MAE, RMSE, MAPE)
+- Provides downloadable comparison reports with visual analysis
+- Enables model validation and continuous improvement
+
+**2. Automated Alert System**:
+- Configurable thresholds for stockout (5-30% below average) and overstock (150-300% above average)
+- Critical alert classification for urgent situations
+- Time-to-stockout predictions for proactive planning
+- Historical alert tracking and pattern analysis
+
+**3. What-If Scenario Engine**:
+- Test aggressive vs. conservative inventory policies
+- Simulate impact of demand increases/decreases (±50%)
+- Compare scenarios side-by-side with visual dashboards
+- Quantify risk and opportunity for each strategy
+
+**4. Partner Analytics Dashboard**:
+- Individual partner performance metrics (total shipments, average quantity, fulfillment rate)
+- Category-wise distribution analysis per partner
+- Geographic and temporal partner activity patterns
+- Partner comparison for optimal network design
+
+**5. Multi-Model Performance Tracking**:
+- Real-time comparison of Prophet, SARIMA, and ensemble methods
+- Visual dashboards showing model accuracy across metrics
+- Automatic best-model selection based on performance
+- Retraining recommendations based on accuracy degradation
+
+**6. Comprehensive Export Package**:
+- Single-click ZIP download containing all forecasts, analyses, and insights
+- Formatted reports ready for executive presentation
+- API-ready JSON files for system integration
+- Visualization exports for documentation
+
+---
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please follow these guidelines:
