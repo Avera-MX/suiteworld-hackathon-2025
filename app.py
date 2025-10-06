@@ -12,6 +12,7 @@ from forecasting_engine import ForecastingEngine
 from anomaly_detector import AnomalyDetector
 from insights_generator import InsightsGenerator
 from report_generator import ReportGenerator
+import data_storage
 
 # Page configuration
 st.set_page_config(
@@ -94,6 +95,13 @@ def data_upload_page():
             
             if result['success']:
                 st.session_state.datasets = result['datasets']
+                
+                # Save data to API storage
+                save_results = data_storage.save_all_datasets(result['datasets'])
+                saved_count = sum(1 for v in save_results.values() if v)
+                if saved_count > 0:
+                    st.info(f"💾 Saved {saved_count} datasets for API access")
+                
                 display_data_overview(result['datasets'])
             else:
                 st.error(f"❌ Data processing failed: {result['error']}")
@@ -179,6 +187,12 @@ def data_upload_page():
                                 st.success("✅ Training and tuning data processed successfully!")
                         else:
                             st.success("✅ Data processed successfully!")
+                        
+                        # Save data to API storage
+                        save_results = data_storage.save_all_datasets(st.session_state.datasets)
+                        saved_count = sum(1 for v in save_results.values() if v)
+                        if saved_count > 0:
+                            st.info(f"💾 Saved {saved_count} datasets for API access")
                         
                         display_data_overview(result['datasets'])
                     else:
