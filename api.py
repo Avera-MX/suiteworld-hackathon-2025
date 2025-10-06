@@ -25,7 +25,7 @@ class ForecastRequest(BaseModel):
     """Request model for forecast generation"""
     model: str = Field(
         default="prophet",
-        description="Forecasting model to use: prophet, sarima, xgboost, linear, random_forest"
+        description="Forecasting model to use (currently only 'prophet' is supported)"
     )
     periods: int = Field(
         default=90,
@@ -117,6 +117,16 @@ async def generate_forecast(request: ForecastRequest = Body(...)):
         Forecast results with predictions and metrics
     """
     try:
+        # Validate model request - currently only Prophet is supported
+        supported_models = ['prophet']
+        if request.model.lower() not in supported_models:
+            return ForecastResponse(
+                success=False,
+                model=request.model,
+                periods=request.periods,
+                error=f"Model '{request.model}' not supported. Currently supported models: {supported_models}"
+            )
+        
         # Load training data
         train_inventory = load_dataset('inventory', 'train')
         train_inflows = load_dataset('inflows', 'train')
@@ -182,15 +192,24 @@ async def generate_forecast(request: ForecastRequest = Body(...)):
                 error=f"Forecast generation failed: {forecast_result.get('error', 'Unknown error')}"
             )
         
-        # Extract forecast data for the requested model
-        model_forecast = forecast_result['forecasts'].get(request.model)
+        # Extract forecast data - the engine may return different model names
+        # Try exact match first, then try capitalized version (e.g., 'prophet' -> 'Prophet')
+        available_models = list(forecast_result['forecasts'].keys())
+        
+        model_forecast = None
+        actual_model_name = request.model
+        for model_name in available_models:
+            if model_name.lower() == request.model.lower():
+                model_forecast = forecast_result['forecasts'][model_name]
+                actual_model_name = model_name  # Use the actual model name from engine
+                break
         
         if model_forecast is None:
             return ForecastResponse(
                 success=False,
                 model=request.model,
                 periods=request.periods,
-                error=f"Model '{request.model}' not available or failed"
+                error=f"Model '{request.model}' not available from engine. Available models: {available_models}"
             )
         
         # Prepare forecast data
@@ -221,7 +240,7 @@ async def generate_forecast(request: ForecastRequest = Body(...)):
         
         return ForecastResponse(
             success=True,
-            model=request.model,
+            model=actual_model_name,  # Use actual model name from engine
             periods=request.periods,
             forecast_start_date=forecast_start,
             forecast_end_date=forecast_end,
