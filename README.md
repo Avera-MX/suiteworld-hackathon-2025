@@ -17,10 +17,14 @@ An intelligent inventory management system that uses advanced machine learning m
 - **Data Upload & Validation** - Support for CSV and Excel files with automatic schema validation
 - **Statistical Analysis** - Comprehensive trend analysis, distribution comparisons, and temporal patterns
 - **ML Forecasting** - Prophet-based time series forecasting with confidence intervals
+- **Model Performance** - Performance metrics comparison across different forecasting models with visual dashboards
 - **Actual vs Predicted** - Compare test data against predictions with performance metrics (MAE, RMSE, MAPE)
+- **What-If Scenarios** - Test different inventory strategies and see projected impact on inventory levels
 - **Anomaly Detection** - Outlier detection using IQR, Z-scores, and Isolation Forest algorithms
 - **Business Insights** - Automated recommendations for reorder points, safety stock, and optimization
 - **Partner Analytics** - Performance analysis across distribution partners
+- **Automated Alerts** - Configure alerts for predicted stockout and overstock situations
+- **Export Reports** - Download forecasts and analysis in multiple formats (CSV, Excel, PDF)
 - **Interactive Visualizations** - Plotly-powered charts and dashboards
 
 ### 🔌 REST API (FastAPI)
