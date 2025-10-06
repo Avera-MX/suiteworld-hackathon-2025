@@ -42,7 +42,8 @@ def main():
     page = st.sidebar.radio(
         "Select Page",
         ["Data Upload & Validation", "Statistical Analysis", "ML Forecasting", 
-         "Anomaly Detection", "Model Performance", "Business Insights", "Export Reports"]
+         "What-If Scenarios", "Anomaly Detection", "Model Performance", "Business Insights", 
+         "Automated Alerts", "Export Reports"]
     )
     
     if page == "Data Upload & Validation":
@@ -51,12 +52,16 @@ def main():
         statistical_analysis_page()
     elif page == "ML Forecasting":
         ml_forecasting_page()
+    elif page == "What-If Scenarios":
+        whatif_scenarios_page()
     elif page == "Anomaly Detection":
         anomaly_detection_page()
     elif page == "Model Performance":
         model_performance_page()
     elif page == "Business Insights":
         business_insights_page()
+    elif page == "Automated Alerts":
+        automated_alerts_page()
     elif page == "Export Reports":
         export_reports_page()
 
@@ -412,6 +417,374 @@ def display_forecast_results(results):
                     st.metric("MAE", f"{result['metrics'].get('mae', 0):.2f}")
                 with col3:
                     st.metric("MAPE", f"{result['metrics'].get('mape', 0):.2f}%")
+    
+    # Ensemble forecasting section
+    if 'forecast_results' in st.session_state and len(results.get('forecasts', {})) >= 2:
+        st.divider()
+        st.subheader("🎯 Ensemble Forecasting")
+        st.write("Combine multiple models for improved accuracy and stability")
+        
+        col1, col2 = st.columns([1, 3])
+        
+        with col1:
+            ensemble_method = st.selectbox(
+                "Ensemble Method",
+                ["weighted", "average", "best"],
+                format_func=lambda x: {
+                    'weighted': 'Weighted Average',
+                    'average': 'Simple Average',
+                    'best': 'Best Model'
+                }[x]
+            )
+        
+        with col2:
+            if st.button("Generate Ensemble Forecast"):
+                with st.spinner("Creating ensemble forecast..."):
+                    try:
+                        ensemble_result = st.session_state.forecasting_engine.generate_ensemble_forecast(
+                            results['forecasts'], 
+                            method=ensemble_method
+                        )
+                        
+                        if ensemble_result['success']:
+                            st.session_state.ensemble_result = ensemble_result
+                            display_ensemble_results(ensemble_result)
+                        else:
+                            st.error(f"❌ Ensemble generation failed: {ensemble_result['error']}")
+                    except Exception as e:
+                        st.error(f"❌ Error generating ensemble: {str(e)}")
+        
+        # Display cached ensemble results
+        if 'ensemble_result' in st.session_state:
+            display_ensemble_results(st.session_state.ensemble_result)
+
+def display_ensemble_results(ensemble_result):
+    st.success("✅ Ensemble forecast generated!")
+    
+    # Model weights
+    st.subheader("Model Contribution Weights")
+    weights = ensemble_result['model_weights']
+    
+    col1, col2 = st.columns([1, 1])
+    
+    with col1:
+        weights_df = pd.DataFrame({
+            'Model': list(weights.keys()),
+            'Weight': list(weights.values())
+        })
+        st.dataframe(weights_df, use_container_width=True)
+    
+    with col2:
+        fig = px.pie(weights_df, values='Weight', names='Model', 
+                     title='Ensemble Model Weights')
+        st.plotly_chart(fig, use_container_width=True)
+    
+    # Ensemble forecast plot
+    st.subheader("Ensemble Forecast")
+    
+    fig = go.Figure()
+    
+    # Add forecast trace
+    forecast_df = ensemble_result['forecast']
+    fig.add_trace(go.Scatter(
+        x=forecast_df['ds'],
+        y=forecast_df['yhat'],
+        mode='lines',
+        name='Ensemble Forecast',
+        line=dict(color='purple', width=3)
+    ))
+    
+    # Add confidence intervals
+    if 'yhat_upper' in forecast_df and 'yhat_lower' in forecast_df:
+        fig.add_trace(go.Scatter(
+            x=forecast_df['ds'],
+            y=forecast_df['yhat_upper'],
+            mode='lines',
+            line=dict(width=0),
+            showlegend=False,
+            hoverinfo='skip'
+        ))
+        fig.add_trace(go.Scatter(
+            x=forecast_df['ds'],
+            y=forecast_df['yhat_lower'],
+            mode='lines',
+            line=dict(width=0),
+            fillcolor='rgba(128,0,128,0.2)',
+            fill='tonexty',
+            name='Confidence Interval',
+            hoverinfo='skip'
+        ))
+    
+    fig.update_layout(
+        title=f"Ensemble Forecast ({ensemble_result['method'].title()})",
+        xaxis_title="Date",
+        yaxis_title="Inventory Level",
+        height=400
+    )
+    
+    st.plotly_chart(fig, use_container_width=True)
+    
+    # Ensemble metrics
+    if 'metrics' in ensemble_result:
+        st.subheader("Ensemble Performance Metrics")
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            st.metric("RMSE", f"{ensemble_result['metrics'].get('rmse', 0):.2f}")
+        with col2:
+            st.metric("MAE", f"{ensemble_result['metrics'].get('mae', 0):.2f}")
+        with col3:
+            st.metric("MAPE", f"{ensemble_result['metrics'].get('mape', 0):.2f}%")
+
+def whatif_scenarios_page():
+    st.header("🔮 What-If Scenario Analysis")
+    
+    if 'datasets' not in st.session_state:
+        st.warning("⚠️ Please upload and process data first!")
+        return
+    
+    if 'forecast_results' not in st.session_state:
+        st.warning("⚠️ Please generate forecasts first before running scenario analysis!")
+        st.info("Navigate to the 'ML Forecasting' page to generate forecasts.")
+        return
+    
+    st.write("Test different inventory strategies and see their projected impact on inventory levels and service.")
+    
+    # Get base forecast (use ensemble if available, otherwise use first available model)
+    base_forecast = None
+    if 'ensemble_result' in st.session_state:
+        base_forecast = st.session_state.ensemble_result['forecast']
+        st.info("Using ensemble forecast as baseline for scenario analysis")
+    else:
+        # Use first available forecast
+        for model_name, forecast_data in st.session_state.forecast_results['forecasts'].items():
+            if forecast_data and 'forecast' in forecast_data:
+                base_forecast = forecast_data['forecast']
+                st.info(f"Using {model_name} forecast as baseline for scenario analysis")
+                break
+    
+    if base_forecast is None:
+        st.error("No forecast data available for scenario analysis")
+        return
+    
+    # Calculate baseline stats
+    if 'tune_inventory' in st.session_state.datasets:
+        baseline_inventory = st.session_state.datasets['tune_inventory']['Inventory_Level'].mean()
+    else:
+        baseline_inventory = base_forecast['yhat'].mean()
+    
+    st.subheader("📋 Configure Scenarios")
+    
+    # Create multiple scenarios
+    num_scenarios = st.slider("Number of Scenarios to Compare", 1, 4, 2)
+    
+    scenarios = []
+    
+    cols = st.columns(num_scenarios)
+    
+    for i in range(num_scenarios):
+        with cols[i]:
+            st.markdown(f"### Scenario {i+1}")
+            
+            scenario_name = st.text_input(f"Scenario Name", value=f"Strategy {i+1}", key=f"name_{i}")
+            
+            reorder_point = st.number_input(
+                "Reorder Point",
+                min_value=0,
+                max_value=int(baseline_inventory * 2),
+                value=int(baseline_inventory * 0.3),
+                step=1000,
+                key=f"reorder_{i}",
+                help="Inventory level that triggers a new order"
+            )
+            
+            safety_stock = st.number_input(
+                "Safety Stock",
+                min_value=0,
+                max_value=int(baseline_inventory),
+                value=int(baseline_inventory * 0.15),
+                step=1000,
+                key=f"safety_{i}",
+                help="Minimum inventory level to maintain"
+            )
+            
+            lead_time = st.slider(
+                "Lead Time (days)",
+                min_value=1,
+                max_value=30,
+                value=7 + (i * 3),
+                key=f"lead_{i}",
+                help="Time between order placement and arrival"
+            )
+            
+            order_qty = st.number_input(
+                "Order Quantity",
+                min_value=1000,
+                max_value=int(baseline_inventory * 3),
+                value=int(baseline_inventory * 0.5),
+                step=5000,
+                key=f"order_{i}",
+                help="Quantity to order each time"
+            )
+            
+            scenarios.append({
+                'name': scenario_name,
+                'reorder_point': reorder_point,
+                'safety_stock': safety_stock,
+                'lead_time_days': lead_time,
+                'order_quantity': order_qty,
+                'initial_inventory': baseline_inventory
+            })
+    
+    # Analyze scenarios
+    if st.button("Run Scenario Analysis", type="primary"):
+        with st.spinner("Simulating inventory scenarios..."):
+            try:
+                comparison_result = st.session_state.forecasting_engine.compare_scenarios(
+                    base_forecast, scenarios
+                )
+                
+                if comparison_result['success']:
+                    st.session_state.scenario_results = comparison_result
+                    display_scenario_results(comparison_result)
+                else:
+                    st.error(f"❌ Scenario analysis failed: {comparison_result['error']}")
+                    
+            except Exception as e:
+                st.error(f"❌ Error during scenario analysis: {str(e)}")
+    
+    # Display cached results
+    if 'scenario_results' in st.session_state:
+        display_scenario_results(st.session_state.scenario_results)
+
+def display_scenario_results(results):
+    st.success("✅ Scenario analysis completed!")
+    
+    # Comparison summary table
+    st.subheader("📊 Scenario Comparison Summary")
+    
+    comparison_df = results['comparison_summary']
+    
+    # Style the dataframe
+    styled_df = comparison_df.style.highlight_max(
+        subset=['service_level', 'avg_inventory'], color='lightgreen'
+    ).highlight_min(
+        subset=['stockout_days', 'total_orders_placed'], color='lightgreen'
+    ).format({
+        'service_level': '{:.2f}%',
+        'avg_inventory': '{:.0f}',
+        'min_inventory': '{:.0f}',
+        'max_inventory': '{:.0f}',
+        'stockout_days': '{:.0f}',
+        'total_orders_placed': '{:.0f}'
+    })
+    
+    st.dataframe(styled_df, use_container_width=True)
+    
+    # Key metrics comparison
+    st.subheader("🎯 Key Metrics Comparison")
+    
+    num_scenarios = len(results['scenarios'])
+    cols = st.columns(num_scenarios)
+    
+    for i, scenario in enumerate(results['scenarios']):
+        with cols[i]:
+            st.markdown(f"#### {scenario['name']}")
+            
+            metrics = scenario['result']['metrics']
+            
+            st.metric("Service Level", f"{metrics['service_level']:.1f}%")
+            st.metric("Avg Inventory", f"{metrics['avg_inventory']:,.0f}")
+            st.metric("Stockout Days", f"{metrics['stockout_days']}")
+            st.metric("Orders Placed", f"{metrics['total_orders_placed']}")
+            
+            # Display parameters
+            with st.expander("View Parameters"):
+                params = scenario['result']['parameters']
+                st.write(f"**Reorder Point:** {params['reorder_point']:,}")
+                st.write(f"**Safety Stock:** {params['safety_stock']:,}")
+                st.write(f"**Lead Time:** {params['lead_time_days']} days")
+                st.write(f"**Order Quantity:** {params['order_quantity']:,}")
+    
+    # Inventory level comparison chart
+    st.subheader("📈 Projected Inventory Levels Comparison")
+    
+    fig = go.Figure()
+    
+    colors = ['blue', 'red', 'green', 'purple']
+    
+    for i, scenario in enumerate(results['scenarios']):
+        scenario_data = scenario['result']['scenario_data']
+        
+        fig.add_trace(go.Scatter(
+            x=scenario_data['ds'],
+            y=scenario_data['inventory_level'],
+            mode='lines',
+            name=scenario['name'],
+            line=dict(color=colors[i % len(colors)], width=2)
+        ))
+    
+    fig.update_layout(
+        title="Inventory Level Projections Under Different Scenarios",
+        xaxis_title="Date",
+        yaxis_title="Inventory Level",
+        height=500,
+        hovermode='x unified'
+    )
+    
+    st.plotly_chart(fig, use_container_width=True)
+    
+    # Stockout comparison
+    st.subheader("⚠️ Stockout Risk Analysis")
+    
+    stockout_data = []
+    for scenario in results['scenarios']:
+        scenario_data = scenario['result']['scenario_data']
+        stockout_dates = scenario_data[scenario_data['stockout'] == 1]
+        stockout_data.append({
+            'Scenario': scenario['name'],
+            'Stockout Days': len(stockout_dates),
+            'Risk Level': 'High' if len(stockout_dates) > 10 else 'Medium' if len(stockout_dates) > 5 else 'Low'
+        })
+    
+    stockout_df = pd.DataFrame(stockout_data)
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        fig = px.bar(stockout_df, x='Scenario', y='Stockout Days',
+                    title='Stockout Days by Scenario',
+                    color='Risk Level',
+                    color_discrete_map={'Low': 'green', 'Medium': 'orange', 'High': 'red'})
+        st.plotly_chart(fig, use_container_width=True)
+    
+    with col2:
+        st.dataframe(stockout_df, use_container_width=True)
+    
+    # Recommendations
+    st.subheader("💡 Scenario Recommendations")
+    
+    # Find best scenario by service level
+    best_service = comparison_df.loc[comparison_df['service_level'].idxmax()]
+    best_inventory = comparison_df.loc[comparison_df['avg_inventory'].idxmin()]
+    best_overall = comparison_df.loc[
+        (comparison_df['service_level'] * 0.6 + 
+         (100 - comparison_df['stockout_days']) * 0.4).idxmax()
+    ]
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.info(f"**Best Service Level:** {best_service['scenario']}")
+        st.write(f"Service Level: {best_service['service_level']:.1f}%")
+    
+    with col2:
+        st.info(f"**Lowest Inventory Cost:** {best_inventory['scenario']}")
+        st.write(f"Avg Inventory: {best_inventory['avg_inventory']:,.0f}")
+    
+    with col3:
+        st.success(f"**Recommended Scenario:** {best_overall['scenario']}")
+        st.write(f"Balanced performance across metrics")
 
 def anomaly_detection_page():
     st.header("🔍 Anomaly Detection & Data Drift Analysis")
@@ -676,6 +1049,244 @@ def display_business_insights(insights):
                         st.metric("Avg Value", f"${metrics.get('avg_value', 0):.2f}")
                     with col3:
                         st.metric("Growth Rate", f"{metrics.get('growth_rate', 0):.1f}%")
+
+def automated_alerts_page():
+    st.header("🚨 Automated Inventory Alerts")
+    
+    if 'datasets' not in st.session_state:
+        st.warning("⚠️ Please upload and process data first!")
+        return
+    
+    if 'forecast_results' not in st.session_state:
+        st.warning("⚠️ Please generate forecasts first before configuring alerts!")
+        st.info("Navigate to the 'ML Forecasting' page to generate forecasts.")
+        return
+    
+    st.write("Configure automated alerts for predicted stockout and overstock situations.")
+    
+    # Alert configuration
+    st.subheader("⚙️ Alert Configuration")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        stockout_threshold = st.slider(
+            "Stockout Threshold (%)",
+            min_value=5,
+            max_value=30,
+            value=15,
+            step=1,
+            help="Alert when predicted inventory falls below this % of average"
+        )
+        
+        critical_threshold = st.slider(
+            "Critical Threshold (%)",
+            min_value=1,
+            max_value=10,
+            value=5,
+            step=1,
+            help="Critical alert when inventory falls below this % of average"
+        )
+    
+    with col2:
+        overstock_threshold = st.slider(
+            "Overstock Threshold (%)",
+            min_value=150,
+            max_value=400,
+            value=250,
+            step=10,
+            help="Alert when predicted inventory exceeds this % of average"
+        )
+        
+        warning_days = st.slider(
+            "Warning Window (days)",
+            min_value=7,
+            max_value=60,
+            value=14,
+            step=1,
+            help="Generate alerts for predictions within this many days"
+        )
+    
+    with col3:
+        st.markdown("#### Alert Options")
+        enable_critical = st.checkbox("Enable Critical Alerts", value=True)
+        enable_stockout = st.checkbox("Enable Stockout Warnings", value=True)
+        enable_overstock = st.checkbox("Enable Overstock Warnings", value=True)
+    
+    # Generate alerts button
+    if st.button("Generate Inventory Alerts", type="primary"):
+        with st.spinner("Analyzing forecasts and generating alerts..."):
+            try:
+                alert_config = {
+                    'stockout_threshold_ratio': stockout_threshold / 100,
+                    'critical_stockout_ratio': critical_threshold / 100,
+                    'overstock_threshold_ratio': overstock_threshold / 100,
+                    'days_ahead_warning': warning_days
+                }
+                
+                alerts = st.session_state.insights_generator.generate_inventory_alerts(
+                    st.session_state.forecast_results,
+                    st.session_state.datasets,
+                    alert_config
+                )
+                
+                if alerts['success']:
+                    st.session_state.inventory_alerts = alerts
+                    display_inventory_alerts(alerts, enable_critical, enable_stockout, enable_overstock)
+                else:
+                    st.error(f"❌ Alert generation failed: {alerts['error']}")
+                    
+            except Exception as e:
+                st.error(f"❌ Error generating alerts: {str(e)}")
+    
+    # Display cached alerts
+    if 'inventory_alerts' in st.session_state:
+        alerts = st.session_state.inventory_alerts
+        display_inventory_alerts(
+            alerts,
+            st.session_state.get('enable_critical', True),
+            st.session_state.get('enable_stockout', True),
+            st.session_state.get('enable_overstock', True)
+        )
+
+def display_inventory_alerts(alerts, show_critical=True, show_stockout=True, show_overstock=True):
+    st.success("✅ Inventory alerts generated!")
+    
+    # Summary metrics
+    st.subheader("📊 Alert Summary")
+    
+    summary = alerts['summary']
+    
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        st.metric("Critical Alerts", summary['total_critical_alerts'], 
+                 delta="High Priority" if summary['total_critical_alerts'] > 0 else None,
+                 delta_color="inverse")
+    
+    with col2:
+        st.metric("Stockout Warnings", summary['total_stockout_alerts'])
+    
+    with col3:
+        st.metric("Overstock Warnings", summary['total_overstock_alerts'])
+    
+    with col4:
+        st.metric("Total Alerts", 
+                 summary['total_critical_alerts'] + summary['total_stockout_alerts'] + summary['total_overstock_alerts'])
+    
+    # Display thresholds
+    st.markdown("---")
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.metric("Baseline Average", f"{summary['baseline_average']:,.0f}")
+    with col2:
+        st.metric("Stockout Threshold", f"{summary['stockout_threshold']:,.0f}")
+    with col3:
+        st.metric("Overstock Threshold", f"{summary['overstock_threshold']:,.0f}")
+    
+    # Critical alerts
+    if show_critical and alerts['critical_alerts']:
+        st.subheader("🚨 Critical Stockout Alerts")
+        
+        critical_df = pd.DataFrame(alerts['critical_alerts'])
+        critical_df = critical_df.sort_values('days_until')
+        
+        for _, alert in critical_df.iterrows():
+            st.error(f"**CRITICAL:** {alert['message']}")
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.write(f"📅 Date: {alert['date']}")
+            with col2:
+                st.write(f"⏱️ Days Until: {alert['days_until']}")
+            with col3:
+                st.write(f"🤖 Model: {alert['model']}")
+    
+    # Stockout alerts
+    if show_stockout and alerts['stockout_alerts']:
+        st.subheader("⚠️ Stockout Warnings")
+        
+        stockout_df = pd.DataFrame(alerts['stockout_alerts'])
+        
+        # Create timeline visualization
+        fig = go.Figure()
+        
+        fig.add_trace(go.Scatter(
+            x=stockout_df['date'],
+            y=stockout_df['predicted_level'],
+            mode='markers',
+            name='Predicted Stockouts',
+            marker=dict(size=10, color='orange'),
+            text=stockout_df['message'],
+            hoverinfo='text'
+        ))
+        
+        fig.add_hline(y=summary['stockout_threshold'], line_dash="dash", 
+                     line_color="red", annotation_text="Stockout Threshold")
+        
+        fig.update_layout(
+            title="Predicted Stockout Timeline",
+            xaxis_title="Date",
+            yaxis_title="Predicted Inventory Level",
+            height=400
+        )
+        
+        st.plotly_chart(fig, use_container_width=True)
+        
+        # Alert table
+        st.dataframe(
+            stockout_df[['date', 'predicted_level', 'threshold', 'days_until', 'model']],
+            use_container_width=True
+        )
+    
+    # Overstock alerts
+    if show_overstock and alerts['overstock_alerts']:
+        st.subheader("📦 Overstock Warnings")
+        
+        overstock_df = pd.DataFrame(alerts['overstock_alerts'])
+        
+        # Create timeline visualization
+        fig = go.Figure()
+        
+        fig.add_trace(go.Scatter(
+            x=overstock_df['date'],
+            y=overstock_df['predicted_level'],
+            mode='markers',
+            name='Predicted Overstocks',
+            marker=dict(size=10, color='blue'),
+            text=overstock_df['message'],
+            hoverinfo='text'
+        ))
+        
+        fig.add_hline(y=summary['overstock_threshold'], line_dash="dash", 
+                     line_color="purple", annotation_text="Overstock Threshold")
+        
+        fig.update_layout(
+            title="Predicted Overstock Timeline",
+            xaxis_title="Date",
+            yaxis_title="Predicted Inventory Level",
+            height=400
+        )
+        
+        st.plotly_chart(fig, use_container_width=True)
+        
+        # Alert table
+        st.dataframe(
+            overstock_df[['date', 'predicted_level', 'threshold', 'days_until', 'model']],
+            use_container_width=True
+        )
+    
+    # Recommendations
+    if alerts['recommendations']:
+        st.subheader("💡 Recommended Actions")
+        
+        for i, recommendation in enumerate(alerts['recommendations'], 1):
+            if 'URGENT' in recommendation:
+                st.error(f"{i}. {recommendation}")
+            elif 'Multiple' in recommendation:
+                st.warning(f"{i}. {recommendation}")
+            else:
+                st.info(f"{i}. {recommendation}")
 
 def export_reports_page():
     st.header("📄 Export Reports & Data")

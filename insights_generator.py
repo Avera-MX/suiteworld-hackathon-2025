@@ -537,3 +537,190 @@ class InsightsGenerator:
             return 'Low turnover - inventory may be excessive'
         else:
             return 'Very low turnover - significant inventory accumulation'
+    
+    def generate_inventory_alerts(self, forecast_results: Optional[Dict[str, Any]], 
+                                  datasets: Dict[str, pd.DataFrame],
+                                  config: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """
+        Generate automated alerts for predicted stockouts and overstock situations
+        
+        Args:
+            forecast_results: Forecast predictions from models
+            datasets: Historical datasets for baseline calculation
+            config: Alert configuration with thresholds
+        
+        Returns:
+            Dictionary containing alerts and recommendations
+        """
+        try:
+            # Default configuration
+            default_config = {
+                'stockout_threshold_ratio': 0.15,  # Alert when inventory < 15% of avg
+                'overstock_threshold_ratio': 2.5,   # Alert when inventory > 250% of avg
+                'critical_stockout_ratio': 0.05,    # Critical when < 5% of avg
+                'days_ahead_warning': 14,           # Warning window in days
+                'alert_frequency': 'daily'          # Alert frequency
+            }
+            
+            if config:
+                default_config.update(config)
+            
+            config = default_config
+            
+            alerts = {
+                'success': True,
+                'stockout_alerts': [],
+                'overstock_alerts': [],
+                'critical_alerts': [],
+                'summary': {},
+                'recommendations': []
+            }
+            
+            if not forecast_results or 'forecasts' not in forecast_results:
+                return {'success': False, 'error': 'No forecast data available'}
+            
+            # Calculate baseline inventory statistics
+            baseline_stats = self._calculate_baseline_inventory(datasets)
+            
+            if not baseline_stats:
+                return {'success': False, 'error': 'Cannot calculate baseline inventory'}
+            
+            avg_inventory = baseline_stats['average']
+            min_safe_level = avg_inventory * config['stockout_threshold_ratio']
+            critical_level = avg_inventory * config['critical_stockout_ratio']
+            max_safe_level = avg_inventory * config['overstock_threshold_ratio']
+            
+            # Analyze forecasts for each model
+            for model_name, forecast_data in forecast_results['forecasts'].items():
+                if not forecast_data or 'forecast' not in forecast_data:
+                    continue
+                
+                forecast_df = forecast_data['forecast']
+                
+                # Check for stockout predictions
+                stockout_dates = forecast_df[forecast_df['yhat'] < min_safe_level]
+                critical_stockout_dates = forecast_df[forecast_df['yhat'] < critical_level]
+                
+                # Check for overstock predictions
+                overstock_dates = forecast_df[forecast_df['yhat'] > max_safe_level]
+                
+                # Generate stockout alerts
+                for _, row in stockout_dates.iterrows():
+                    days_until = (row['ds'] - pd.Timestamp.now()).days
+                    
+                    if days_until <= config['days_ahead_warning'] and days_until >= 0:
+                        severity = 'critical' if row['yhat'] < critical_level else 'warning'
+                        
+                        alert = {
+                            'date': row['ds'].strftime('%Y-%m-%d'),
+                            'predicted_level': round(row['yhat'], 0),
+                            'threshold': round(min_safe_level, 0),
+                            'severity': severity,
+                            'days_until': days_until,
+                            'model': model_name,
+                            'message': f"Predicted stockout on {row['ds'].strftime('%Y-%m-%d')} "
+                                     f"(Level: {row['yhat']:.0f}, Threshold: {min_safe_level:.0f})"
+                        }
+                        
+                        if severity == 'critical':
+                            alerts['critical_alerts'].append(alert)
+                        else:
+                            alerts['stockout_alerts'].append(alert)
+                
+                # Generate overstock alerts
+                for _, row in overstock_dates.iterrows():
+                    days_until = (row['ds'] - pd.Timestamp.now()).days
+                    
+                    if days_until <= config['days_ahead_warning'] and days_until >= 0:
+                        alert = {
+                            'date': row['ds'].strftime('%Y-%m-%d'),
+                            'predicted_level': round(row['yhat'], 0),
+                            'threshold': round(max_safe_level, 0),
+                            'severity': 'warning',
+                            'days_until': days_until,
+                            'model': model_name,
+                            'message': f"Predicted overstock on {row['ds'].strftime('%Y-%m-%d')} "
+                                     f"(Level: {row['yhat']:.0f}, Threshold: {max_safe_level:.0f})"
+                        }
+                        
+                        alerts['overstock_alerts'].append(alert)
+            
+            # Generate summary
+            alerts['summary'] = {
+                'total_stockout_alerts': len(alerts['stockout_alerts']),
+                'total_critical_alerts': len(alerts['critical_alerts']),
+                'total_overstock_alerts': len(alerts['overstock_alerts']),
+                'baseline_average': round(avg_inventory, 0),
+                'stockout_threshold': round(min_safe_level, 0),
+                'overstock_threshold': round(max_safe_level, 0),
+                'warning_window_days': config['days_ahead_warning']
+            }
+            
+            # Generate recommendations based on alerts
+            alerts['recommendations'] = self._generate_alert_recommendations(alerts)
+            
+            return alerts
+            
+        except Exception as e:
+            return {'success': False, 'error': f"Alert generation error: {str(e)}"}
+    
+    def _calculate_baseline_inventory(self, datasets: Dict[str, pd.DataFrame]) -> Optional[Dict[str, float]]:
+        """
+        Calculate baseline inventory statistics
+        """
+        inventory_levels = []
+        
+        for dataset_name in ['tune_inventory', 'train_inventory']:
+            if dataset_name in datasets and datasets[dataset_name] is not None:
+                df = datasets[dataset_name]
+                if 'Inventory_Level' in df.columns:
+                    inventory_levels.extend(df['Inventory_Level'].dropna().tolist())
+        
+        if not inventory_levels:
+            return None
+        
+        return {
+            'average': np.mean(inventory_levels),
+            'median': np.median(inventory_levels),
+            'std': np.std(inventory_levels),
+            'min': np.min(inventory_levels),
+            'max': np.max(inventory_levels)
+        }
+    
+    def _generate_alert_recommendations(self, alerts: Dict[str, Any]) -> List[str]:
+        """
+        Generate actionable recommendations based on alerts
+        """
+        recommendations = []
+        
+        if alerts['summary']['total_critical_alerts'] > 0:
+            recommendations.append(
+                f"URGENT: {alerts['summary']['total_critical_alerts']} critical stockout(s) predicted. "
+                "Expedite procurement and coordinate with donors immediately."
+            )
+        
+        if alerts['summary']['total_stockout_alerts'] > 3:
+            recommendations.append(
+                "Multiple stockout alerts detected. Consider increasing safety stock levels "
+                "and reviewing demand forecasting parameters."
+            )
+        
+        if alerts['summary']['total_overstock_alerts'] > 3:
+            recommendations.append(
+                "Multiple overstock alerts detected. Review inventory policies and consider "
+                "coordinating distribution campaigns to reduce excess inventory."
+            )
+        
+        if len(alerts['stockout_alerts']) > 0 and len(alerts['overstock_alerts']) > 0:
+            recommendations.append(
+                "Both stockout and overstock situations predicted. Improve inventory planning "
+                "and consider implementing more dynamic reorder policies."
+            )
+        
+        if not recommendations:
+            recommendations.append(
+                "Inventory levels appear stable within acceptable thresholds. "
+                "Continue monitoring forecast accuracy and update models as needed."
+            )
+        
+        return recommendations

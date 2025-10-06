@@ -371,3 +371,274 @@ class ForecastingEngine:
             
         except Exception as e:
             return {'trend_detected': False, 'error': str(e)}
+    
+    def generate_ensemble_forecast(self, forecasts: Dict[str, Any], method: str = 'weighted') -> Dict[str, Any]:
+        """
+        Generate ensemble forecast combining multiple models
+        
+        Args:
+            forecasts: Dictionary of model forecasts
+            method: 'weighted', 'average', or 'best'
+        
+        Returns:
+            Ensemble forecast result
+        """
+        try:
+            # Filter successful forecasts
+            successful_forecasts = {k: v for k, v in forecasts.items() 
+                                   if v.get('success', False) and 'forecast' in v}
+            
+            if len(successful_forecasts) < 2:
+                return {'success': False, 'error': 'Need at least 2 models for ensemble'}
+            
+            # Extract forecast dataframes
+            forecast_dfs = []
+            model_names = []
+            weights = []
+            
+            for model_name, result in successful_forecasts.items():
+                forecast_dfs.append(result['forecast'])
+                model_names.append(model_name)
+                
+                # Calculate weight based on performance metrics
+                metrics = result.get('metrics', {})
+                mape = metrics.get('mape', None)
+                
+                # Handle missing or invalid MAPE values
+                if mape is None or mape <= 0 or np.isnan(mape) or np.isinf(mape):
+                    # Default weight if metrics are unavailable
+                    weight = 1.0
+                else:
+                    # Lower MAPE = higher weight (inverse relationship)
+                    # Use exponential decay for weighting
+                    weight = np.exp(-mape / 10)
+                
+                weights.append(weight)
+            
+            # Normalize weights
+            weights = np.array(weights)
+            weights_sum = weights.sum()
+            
+            # Ensure we don't divide by zero
+            if weights_sum > 0:
+                weights = weights / weights_sum
+            else:
+                # Equal weights if all are zero
+                weights = np.ones(len(weights)) / len(weights)
+            
+            # Create ensemble forecast
+            if method == 'weighted':
+                ensemble_forecast = self._weighted_ensemble(forecast_dfs, weights)
+            elif method == 'average':
+                ensemble_forecast = self._average_ensemble(forecast_dfs)
+            elif method == 'best':
+                # Select best performing model
+                best_idx = np.argmax(weights)
+                ensemble_forecast = forecast_dfs[best_idx].copy()
+            else:
+                ensemble_forecast = self._weighted_ensemble(forecast_dfs, weights)
+            
+            # Calculate ensemble metrics
+            ensemble_metrics = self._calculate_ensemble_metrics(successful_forecasts, weights)
+            
+            return {
+                'success': True,
+                'forecast': ensemble_forecast,
+                'method': method,
+                'model_weights': {model_names[i]: weights[i] for i in range(len(model_names))},
+                'metrics': ensemble_metrics,
+                'component_models': model_names
+            }
+            
+        except Exception as e:
+            return {'success': False, 'error': f"Ensemble forecast error: {str(e)}"}
+    
+    def _weighted_ensemble(self, forecast_dfs: List[pd.DataFrame], weights: np.ndarray) -> pd.DataFrame:
+        """
+        Create weighted ensemble forecast
+        """
+        # Merge all forecasts on date
+        ensemble_df = forecast_dfs[0][['ds']].copy()
+        
+        # Calculate weighted predictions
+        ensemble_df['yhat'] = 0
+        ensemble_df['yhat_lower'] = 0
+        ensemble_df['yhat_upper'] = 0
+        
+        for i, forecast_df in enumerate(forecast_dfs):
+            merged = ensemble_df.merge(forecast_df[['ds', 'yhat', 'yhat_lower', 'yhat_upper']], 
+                                      on='ds', how='left', suffixes=('', f'_{i}'))
+            
+            ensemble_df['yhat'] += merged['yhat'].fillna(0) * weights[i]
+            ensemble_df['yhat_lower'] += merged['yhat_lower'].fillna(0) * weights[i]
+            ensemble_df['yhat_upper'] += merged['yhat_upper'].fillna(0) * weights[i]
+        
+        return ensemble_df
+    
+    def _average_ensemble(self, forecast_dfs: List[pd.DataFrame]) -> pd.DataFrame:
+        """
+        Create simple average ensemble forecast
+        """
+        n_models = len(forecast_dfs)
+        weights = np.ones(n_models) / n_models
+        return self._weighted_ensemble(forecast_dfs, weights)
+    
+    def _calculate_ensemble_metrics(self, forecasts: Dict[str, Any], weights: np.ndarray) -> Dict[str, float]:
+        """
+        Calculate ensemble performance metrics
+        """
+        # Weight individual model metrics
+        weighted_rmse = 0
+        weighted_mae = 0
+        weighted_mape = 0
+        
+        for i, (model_name, result) in enumerate(forecasts.items()):
+            metrics = result.get('metrics', {})
+            weighted_rmse += metrics.get('rmse', 0) * weights[i]
+            weighted_mae += metrics.get('mae', 0) * weights[i]
+            weighted_mape += metrics.get('mape', 0) * weights[i]
+        
+        return {
+            'rmse': weighted_rmse,
+            'mae': weighted_mae,
+            'mape': weighted_mape,
+            'ensemble_method': 'weighted_average'
+        }
+    
+    def analyze_whatif_scenario(self, base_forecast: pd.DataFrame, scenario_params: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Analyze what-if scenarios by adjusting inventory parameters
+        
+        Args:
+            base_forecast: Base forecast dataframe
+            scenario_params: Dictionary with scenario parameters
+                - reorder_point: Reorder point level
+                - safety_stock: Safety stock level
+                - lead_time_days: Lead time in days
+                - order_quantity: Order quantity
+                - initial_inventory: Starting inventory level
+        
+        Returns:
+            Scenario analysis results with projected inventory levels
+        """
+        try:
+            # Extract parameters
+            reorder_point = scenario_params.get('reorder_point', 0)
+            safety_stock = scenario_params.get('safety_stock', 0)
+            lead_time_days = scenario_params.get('lead_time_days', 7)
+            order_quantity = scenario_params.get('order_quantity', 10000)
+            initial_inventory = scenario_params.get('initial_inventory')
+            
+            # If no initial inventory provided, use first forecast value
+            if initial_inventory is None:
+                initial_inventory = base_forecast['yhat'].iloc[0]
+            
+            # Simulate inventory levels with the given parameters
+            simulated_inventory = []
+            current_inventory = initial_inventory
+            pending_orders = []  # Track pending orders with (arrival_date, quantity)
+            
+            for idx, row in base_forecast.iterrows():
+                date = row['ds']
+                forecast_demand = abs(row['yhat'])  # Use absolute value as demand
+                
+                # Process pending orders
+                arrived_orders = [order for order in pending_orders if order[0] <= date]
+                for order in arrived_orders:
+                    current_inventory += order[1]
+                    pending_orders.remove(order)
+                
+                # Check if reorder point is reached
+                if current_inventory <= reorder_point and len(pending_orders) == 0:
+                    # Place order
+                    arrival_date = date + pd.Timedelta(days=lead_time_days)
+                    pending_orders.append((arrival_date, order_quantity))
+                
+                # Simulate demand (use a portion of forecast as daily demand)
+                daily_demand = forecast_demand * 0.01  # Assume 1% of forecast level as daily demand
+                current_inventory = max(0, current_inventory - daily_demand)
+                
+                # Ensure safety stock is maintained
+                if current_inventory < safety_stock and len(pending_orders) == 0:
+                    # Emergency order
+                    arrival_date = date + pd.Timedelta(days=lead_time_days)
+                    pending_orders.append((arrival_date, order_quantity))
+                
+                simulated_inventory.append({
+                    'ds': date,
+                    'inventory_level': current_inventory,
+                    'forecast_demand': forecast_demand,
+                    'pending_orders': len(pending_orders),
+                    'stockout': 1 if current_inventory < safety_stock else 0
+                })
+            
+            # Create result dataframe
+            result_df = pd.DataFrame(simulated_inventory)
+            
+            # Calculate scenario metrics
+            stockout_days = result_df['stockout'].sum()
+            avg_inventory = result_df['inventory_level'].mean()
+            min_inventory = result_df['inventory_level'].min()
+            max_inventory = result_df['inventory_level'].max()
+            total_orders = len([order for _, orders in result_df.groupby('ds')['pending_orders'].sum().items() if orders > 0])
+            
+            return {
+                'success': True,
+                'scenario_data': result_df,
+                'metrics': {
+                    'stockout_days': int(stockout_days),
+                    'avg_inventory': avg_inventory,
+                    'min_inventory': min_inventory,
+                    'max_inventory': max_inventory,
+                    'total_orders_placed': total_orders,
+                    'service_level': ((len(result_df) - stockout_days) / len(result_df)) * 100
+                },
+                'parameters': scenario_params
+            }
+            
+        except Exception as e:
+            return {'success': False, 'error': f"Scenario analysis error: {str(e)}"}
+    
+    def compare_scenarios(self, base_forecast: pd.DataFrame, scenarios: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        Compare multiple what-if scenarios
+        
+        Args:
+            base_forecast: Base forecast dataframe
+            scenarios: List of scenario parameter dictionaries
+        
+        Returns:
+            Comparison results with metrics for each scenario
+        """
+        try:
+            results = []
+            
+            for i, scenario_params in enumerate(scenarios):
+                scenario_name = scenario_params.get('name', f'Scenario {i+1}')
+                scenario_result = self.analyze_whatif_scenario(base_forecast, scenario_params)
+                
+                if scenario_result['success']:
+                    results.append({
+                        'name': scenario_name,
+                        'result': scenario_result
+                    })
+            
+            if not results:
+                return {'success': False, 'error': 'No successful scenario analyses'}
+            
+            # Create comparison summary
+            comparison_summary = []
+            for scenario in results:
+                comparison_summary.append({
+                    'scenario': scenario['name'],
+                    **scenario['result']['metrics']
+                })
+            
+            return {
+                'success': True,
+                'scenarios': results,
+                'comparison_summary': pd.DataFrame(comparison_summary)
+            }
+            
+        except Exception as e:
+            return {'success': False, 'error': f"Scenario comparison error: {str(e)}"}
