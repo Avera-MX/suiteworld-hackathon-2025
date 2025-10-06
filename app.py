@@ -43,7 +43,7 @@ def main():
         "Select Page",
         ["Data Upload & Validation", "Statistical Analysis", "ML Forecasting", 
          "What-If Scenarios", "Anomaly Detection", "Model Performance", "Business Insights", 
-         "Automated Alerts", "Export Reports"]
+         "Partner Analytics", "Automated Alerts", "Export Reports"]
     )
     
     if page == "Data Upload & Validation":
@@ -60,6 +60,8 @@ def main():
         model_performance_page()
     elif page == "Business Insights":
         business_insights_page()
+    elif page == "Partner Analytics":
+        partner_analytics_page()
     elif page == "Automated Alerts":
         automated_alerts_page()
     elif page == "Export Reports":
@@ -353,11 +355,33 @@ def ml_forecasting_page():
     # Forecasting configuration
     st.subheader("Forecasting Configuration")
     
+    # Calculate optimal forecast period based on available data
+    forecast_periods = 90  # default
+    if 'train_inventory' in datasets and 'tune_inventory' in datasets:
+        try:
+            train_data = datasets['train_inventory'].copy()
+            train_data['Date'] = pd.to_datetime(train_data['Date'])
+            
+            # Calculate historical data span
+            data_span_days = (train_data['Date'].max() - train_data['Date'].min()).days
+            
+            # Set forecast period as 25% of historical data span
+            # with reasonable min/max bounds (30-365 days)
+            calculated_periods = int(data_span_days * 0.25)
+            forecast_periods = max(30, min(365, calculated_periods))
+            
+            st.info(f"📊 **Auto-calculated Forecast Window:** {forecast_periods} days (based on {data_span_days} days of historical data)")
+        except Exception as e:
+            st.warning(f"⚠️ Using default forecast period of 90 days. Error calculating from data: {str(e)}")
+    
     col1, col2, col3 = st.columns(3)
     
     with col1:
         forecast_method = st.selectbox("Forecasting Method", ["Prophet", "SARIMA", "XGBoost", "Both", "All"])
-        forecast_periods = st.slider("Forecast Periods (days)", 30, 365, 90)
+        # Allow manual override if needed
+        manual_override = st.checkbox("Manual Override", value=False)
+        if manual_override:
+            forecast_periods = st.slider("Forecast Periods (days)", 30, 365, forecast_periods)
     
     with col2:
         confidence_level = st.slider("Confidence Level", 0.8, 0.99, 0.95, 0.01)
@@ -1179,6 +1203,280 @@ def display_business_insights(insights):
                         st.metric("Avg Value", f"${metrics.get('avg_value', 0):.2f}")
                     with col3:
                         st.metric("Growth Rate", f"{metrics.get('growth_rate', 0):.1f}%")
+
+def partner_analytics_page():
+    st.header("🤝 Partner Analytics Dashboard")
+    
+    if 'datasets' not in st.session_state:
+        st.warning("⚠️ Please upload and process data first!")
+        return
+    
+    datasets = st.session_state.datasets
+    
+    # Check if outflows data is available
+    if 'tune_outflows' not in datasets:
+        st.error("❌ Partner analytics requires outflows data. Please upload tuning outflows data.")
+        return
+    
+    outflows_df = datasets['tune_outflows'].copy()
+    
+    # Validate required columns
+    required_columns = ['Partner', 'Date', 'Quantity']
+    missing_columns = [col for col in required_columns if col not in outflows_df.columns]
+    
+    if missing_columns:
+        st.error(f"❌ Outflows data is missing required columns: {', '.join(missing_columns)}")
+        st.info("Partner analytics requires at minimum: Partner, Date, and Quantity columns.")
+        return
+    
+    # Convert date column with error handling
+    try:
+        outflows_df['Date'] = pd.to_datetime(outflows_df['Date'])
+    except Exception as e:
+        st.error(f"❌ Error parsing Date column: {str(e)}")
+        st.info("Please ensure the Date column contains valid date values.")
+        return
+    
+    # Validate numeric columns
+    try:
+        outflows_df['Quantity'] = pd.to_numeric(outflows_df['Quantity'], errors='coerce')
+        if outflows_df['Quantity'].isna().all():
+            st.error("❌ Quantity column does not contain valid numeric values.")
+            return
+        
+        # Remove negative and NaN quantities
+        initial_count = len(outflows_df)
+        outflows_df = outflows_df[outflows_df['Quantity'] > 0].dropna(subset=['Quantity'])
+        
+        if len(outflows_df) == 0:
+            st.error("❌ No valid positive quantity values found in the data.")
+            return
+        
+        if len(outflows_df) < initial_count * 0.5:
+            st.warning(f"⚠️ {initial_count - len(outflows_df)} rows with invalid/negative quantities were removed.")
+            
+    except Exception as e:
+        st.error(f"❌ Error processing Quantity column: {str(e)}")
+        return
+    
+    # Validate optional numeric columns
+    if 'Total_GIK' in outflows_df.columns:
+        try:
+            outflows_df['Total_GIK'] = pd.to_numeric(outflows_df['Total_GIK'], errors='coerce')
+        except:
+            st.warning("⚠️ Total_GIK column could not be processed as numeric. It will be excluded from analysis.")
+            outflows_df = outflows_df.drop(columns=['Total_GIK'])
+    
+    if 'Total_EI' in outflows_df.columns:
+        try:
+            outflows_df['Total_EI'] = pd.to_numeric(outflows_df['Total_EI'], errors='coerce')
+        except:
+            st.warning("⚠️ Total_EI column could not be processed as numeric. It will be excluded from analysis.")
+            outflows_df = outflows_df.drop(columns=['Total_EI'])
+    
+    # Overview metrics
+    st.subheader("📊 Partner Overview")
+    
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        total_partners = outflows_df['Partner'].nunique()
+        st.metric("Total Partners", total_partners)
+    
+    with col2:
+        total_shipments = len(outflows_df)
+        st.metric("Total Shipments", f"{total_shipments:,}")
+    
+    with col3:
+        total_quantity = outflows_df['Quantity'].sum()
+        st.metric("Total Quantity Shipped", f"{total_quantity:,.0f}")
+    
+    with col4:
+        avg_shipment_size = outflows_df['Quantity'].mean()
+        st.metric("Avg Shipment Size", f"{avg_shipment_size:,.0f}")
+    
+    st.divider()
+    
+    # Top partners analysis
+    st.subheader("🏆 Top Partners by Volume")
+    
+    partner_volumes = outflows_df.groupby('Partner')['Quantity'].agg(['sum', 'count', 'mean']).reset_index()
+    partner_volumes.columns = ['Partner', 'Total_Quantity', 'Shipment_Count', 'Avg_Shipment']
+    partner_volumes = partner_volumes.sort_values('Total_Quantity', ascending=False)
+    
+    # Show top 10 partners
+    top_n = st.slider("Number of top partners to display", 5, 20, 10)
+    top_partners = partner_volumes.head(top_n)
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        fig = px.bar(top_partners, x='Partner', y='Total_Quantity',
+                    title=f'Top {top_n} Partners by Total Quantity',
+                    labels={'Total_Quantity': 'Total Quantity Shipped'},
+                    color='Total_Quantity',
+                    color_continuous_scale='Blues')
+        fig.update_xaxis(tickangle=-45)
+        st.plotly_chart(fig, use_container_width=True)
+    
+    with col2:
+        fig = px.bar(top_partners, x='Partner', y='Shipment_Count',
+                    title=f'Top {top_n} Partners by Shipment Count',
+                    labels={'Shipment_Count': 'Number of Shipments'},
+                    color='Shipment_Count',
+                    color_continuous_scale='Greens')
+        fig.update_xaxis(tickangle=-45)
+        st.plotly_chart(fig, use_container_width=True)
+    
+    # Partner share pie chart
+    st.markdown("#### Market Share Distribution")
+    fig = px.pie(top_partners, values='Total_Quantity', names='Partner',
+                title=f'Top {top_n} Partners Volume Share')
+    st.plotly_chart(fig, use_container_width=True)
+    
+    st.divider()
+    
+    # Temporal patterns
+    st.subheader("📈 Shipment Trends Over Time")
+    
+    # Select partner for detailed analysis
+    selected_partner = st.selectbox("Select partner for detailed analysis", 
+                                    ['All Partners'] + sorted(outflows_df['Partner'].unique().tolist()))
+    
+    if selected_partner == 'All Partners':
+        filtered_df = outflows_df.copy()
+        title_suffix = "All Partners"
+    else:
+        filtered_df = outflows_df[outflows_df['Partner'] == selected_partner].copy()
+        title_suffix = selected_partner
+    
+    if len(filtered_df) == 0:
+        st.warning(f"⚠️ No data available for {title_suffix}")
+    else:
+        # Daily shipment trends
+        daily_shipments = filtered_df.groupby('Date')['Quantity'].sum().reset_index()
+        
+        if len(daily_shipments) > 0:
+            fig = go.Figure()
+            fig.add_trace(go.Scatter(
+                x=daily_shipments['Date'],
+                y=daily_shipments['Quantity'],
+                mode='lines+markers',
+                name='Daily Shipments',
+                line=dict(color='blue', width=2)
+            ))
+            
+            fig.update_layout(
+                title=f'Daily Shipment Volume - {title_suffix}',
+                xaxis_title='Date',
+                yaxis_title='Quantity Shipped',
+                height=400
+            )
+            
+            st.plotly_chart(fig, use_container_width=True)
+        
+        # Monthly aggregation
+        filtered_df['Month'] = filtered_df['Date'].dt.to_period('M').astype(str)
+        monthly_shipments = filtered_df.groupby('Month')['Quantity'].sum().reset_index()
+        
+        if len(monthly_shipments) > 0:
+            fig = px.bar(monthly_shipments, x='Month', y='Quantity',
+                        title=f'Monthly Shipment Volume - {title_suffix}',
+                        labels={'Quantity': 'Total Quantity'},
+                        color='Quantity',
+                        color_continuous_scale='Viridis')
+            
+            st.plotly_chart(fig, use_container_width=True)
+    
+    st.divider()
+    
+    # Partner comparison
+    st.subheader("⚖️ Partner Comparison")
+    
+    # Select multiple partners for comparison
+    compare_partners = st.multiselect(
+        "Select partners to compare (max 5)",
+        sorted(outflows_df['Partner'].unique().tolist()),
+        default=top_partners['Partner'].head(3).tolist()[:5]
+    )
+    
+    if compare_partners:
+        comparison_df = outflows_df[outflows_df['Partner'].isin(compare_partners)].copy()
+        
+        if len(comparison_df) == 0:
+            st.warning("⚠️ No data available for selected partners.")
+        else:
+            comparison_df['Month'] = comparison_df['Date'].dt.to_period('M').astype(str)
+            
+            monthly_comparison = comparison_df.groupby(['Month', 'Partner'])['Quantity'].sum().reset_index()
+            
+            if len(monthly_comparison) > 0:
+                fig = px.line(monthly_comparison, x='Month', y='Quantity', color='Partner',
+                             title='Partner Shipment Trends Comparison',
+                             labels={'Quantity': 'Monthly Quantity'},
+                             markers=True)
+                
+                st.plotly_chart(fig, use_container_width=True)
+        
+            # Partner performance metrics
+            st.markdown("#### Partner Performance Metrics")
+            
+            partner_metrics = []
+            for partner in compare_partners:
+                partner_data = outflows_df[outflows_df['Partner'] == partner]
+                
+                if len(partner_data) > 0:
+                    metrics = {
+                        'Partner': partner,
+                        'Total Shipments': len(partner_data),
+                        'Total Quantity': partner_data['Quantity'].sum(),
+                        'Avg Shipment Size': partner_data['Quantity'].mean()
+                    }
+                    
+                    # Add optional columns if they exist
+                    if 'Total_GIK' in outflows_df.columns and 'Total_GIK' in partner_data.columns:
+                        try:
+                            gik_sum = pd.to_numeric(partner_data['Total_GIK'], errors='coerce').sum()
+                            if not pd.isna(gik_sum):
+                                metrics['Total GIK Value'] = gik_sum
+                        except:
+                            pass
+                    
+                    if 'Total_EI' in outflows_df.columns and 'Total_EI' in partner_data.columns:
+                        try:
+                            ei_sum = pd.to_numeric(partner_data['Total_EI'], errors='coerce').sum()
+                            if not pd.isna(ei_sum):
+                                metrics['Total EI Value'] = ei_sum
+                        except:
+                            pass
+                    
+                    partner_metrics.append(metrics)
+            
+            if len(partner_metrics) > 0:
+                metrics_df = pd.DataFrame(partner_metrics)
+                
+                # Build format dict dynamically based on available columns
+                format_dict = {
+                    'Total Quantity': '{:,.0f}',
+                    'Avg Shipment Size': '{:,.0f}'
+                }
+                if 'Total GIK Value' in metrics_df.columns:
+                    format_dict['Total GIK Value'] = '${:,.2f}'
+                if 'Total EI Value' in metrics_df.columns:
+                    format_dict['Total EI Value'] = '${:,.2f}'
+                
+                st.dataframe(metrics_df.style.format(format_dict), use_container_width=True)
+            else:
+                st.info("No metrics available for selected partners.")
+    
+    st.divider()
+    
+    # Detailed partner table
+    st.subheader("📋 All Partners Summary")
+    st.dataframe(partner_volumes.style.format({
+        'Total_Quantity': '{:,.0f}',
+        'Avg_Shipment': '{:,.0f}'
+    }), use_container_width=True)
 
 def automated_alerts_page():
     st.header("🚨 Automated Inventory Alerts")
