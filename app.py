@@ -344,14 +344,106 @@ def ml_forecasting_page():
     
     datasets = st.session_state.datasets
     
+    # Extract unique warehouses and categories from the data
+    warehouses = set()
+    categories = set()
+    
+    for dataset_name in ['train_inflows', 'tune_inflows', 'train_outflows', 'tune_outflows']:
+        if dataset_name in datasets:
+            df = datasets[dataset_name]
+            if 'Warehouse' in df.columns:
+                warehouses.update(df['Warehouse'].dropna().unique())
+            if 'Category' in df.columns:
+                categories.update(df['Category'].dropna().unique())
+    
+    # Filter controls
+    if warehouses or categories:
+        st.subheader("🔍 Filter by Dimension")
+        
+        col1, col2, col3 = st.columns([2, 2, 1])
+        
+        with col1:
+            if warehouses:
+                warehouse_options = ['All Warehouses'] + sorted(list(warehouses))
+                selected_warehouses = st.multiselect(
+                    "Select Warehouses",
+                    options=warehouse_options,
+                    default=['All Warehouses'],
+                    help="Forecast for specific warehouses"
+                )
+            else:
+                selected_warehouses = ['All Warehouses']
+        
+        with col2:
+            if categories:
+                category_options = ['All Categories'] + sorted(list(categories))
+                selected_categories = st.multiselect(
+                    "Select Categories",
+                    options=category_options,
+                    default=['All Categories'],
+                    help="Forecast for specific product categories"
+                )
+            else:
+                selected_categories = ['All Categories']
+        
+        with col3:
+            st.markdown("#### Active Filters")
+            filter_warehouse = 'All Warehouses' not in selected_warehouses and selected_warehouses
+            filter_category = 'All Categories' not in selected_categories and selected_categories
+            
+            if filter_warehouse:
+                st.metric("Warehouses", len(selected_warehouses))
+            if filter_category:
+                st.metric("Categories", len(selected_categories))
+            if not filter_warehouse and not filter_category:
+                st.info("No filters active")
+        
+        st.divider()
+        
+        # Store filter state for later use
+        st.session_state.ml_forecast_filters = {
+            'active': filter_warehouse or filter_category,
+            'warehouses': selected_warehouses if filter_warehouse else ['All Warehouses'],
+            'categories': selected_categories if filter_category else ['All Categories']
+        }
+    else:
+        # No filters available
+        st.session_state.ml_forecast_filters = {
+            'active': False,
+            'warehouses': ['All Warehouses'],
+            'categories': ['All Categories']
+        }
+    
+    # Create working copy of datasets with filters applied if needed
+    working_datasets = datasets.copy()
+    if st.session_state.ml_forecast_filters['active']:
+        filter_warehouse = st.session_state.ml_forecast_filters['warehouses'] != ['All Warehouses']
+        filter_category = st.session_state.ml_forecast_filters['categories'] != ['All Categories']
+        
+        for dataset_name in ['train_inflows', 'tune_inflows', 'train_outflows', 'tune_outflows']:
+            if dataset_name in working_datasets:
+                df = working_datasets[dataset_name].copy()
+                
+                # Apply warehouse filter
+                if filter_warehouse and 'Warehouse' in df.columns:
+                    df = df[df['Warehouse'].isin(st.session_state.ml_forecast_filters['warehouses'])]
+                
+                # Apply category filter
+                if filter_category and 'Category' in df.columns:
+                    df = df[df['Category'].isin(st.session_state.ml_forecast_filters['categories'])]
+                
+                working_datasets[dataset_name] = df
+        
+        st.info(f"📊 Forecasting for {len(st.session_state.ml_forecast_filters['warehouses']) if filter_warehouse else 'all'} warehouse(s) and {len(st.session_state.ml_forecast_filters['categories']) if filter_category else 'all'} category(ies)")
+    
     # Model recommendation
     st.subheader("📋 Automated Model Selection")
     if st.button("🔍 Get Model Recommendation"):
         with st.spinner("Analyzing data characteristics..."):
             try:
-                if 'train_inventory' in datasets and 'tune_inventory' in datasets:
-                    train_data = datasets['train_inventory'].copy()
-                    tune_data = datasets['tune_inventory'].copy()
+                if 'train_inventory' in working_datasets and 'tune_inventory' in working_datasets:
+                    train_data = working_datasets['train_inventory'].copy()
+                    tune_data = working_datasets['tune_inventory'].copy()
                     
                     train_ts = st.session_state.forecasting_engine._prepare_time_series(train_data)
                     tune_ts = st.session_state.forecasting_engine._prepare_time_series(tune_data)
@@ -401,9 +493,9 @@ def ml_forecasting_page():
     
     # Calculate optimal forecast period based on available data
     forecast_periods = 90  # default
-    if 'train_inventory' in datasets and 'tune_inventory' in datasets:
+    if 'train_inventory' in working_datasets and 'tune_inventory' in working_datasets:
         try:
-            train_data = datasets['train_inventory'].copy()
+            train_data = working_datasets['train_inventory'].copy()
             train_data['Date'] = pd.to_datetime(train_data['Date'])
             
             # Calculate historical data span
@@ -439,15 +531,15 @@ def ml_forecasting_page():
         with st.spinner("Training models and generating forecasts..."):
             try:
                 # Prepare data for forecasting
-                if 'train_inventory' in datasets and 'tune_inventory' in datasets:
-                    train_data = datasets['train_inventory'].copy()
-                    tune_data = datasets['tune_inventory'].copy()
+                if 'train_inventory' in working_datasets and 'tune_inventory' in working_datasets:
+                    train_data = working_datasets['train_inventory'].copy()
+                    tune_data = working_datasets['tune_inventory'].copy()
                     
                     # Include warehouse and category features if available
-                    train_warehouse_features = datasets.get('train_warehouse_features')
-                    tune_warehouse_features = datasets.get('tune_warehouse_features')
-                    train_category_features = datasets.get('train_category_features')
-                    tune_category_features = datasets.get('tune_category_features')
+                    train_warehouse_features = working_datasets.get('train_warehouse_features')
+                    tune_warehouse_features = working_datasets.get('tune_warehouse_features')
+                    train_category_features = working_datasets.get('train_category_features')
+                    tune_category_features = working_datasets.get('tune_category_features')
                     
                     # Configure forecasting engine
                     forecast_config = {
@@ -469,6 +561,14 @@ def ml_forecasting_page():
                     )
                     
                     if results['success']:
+                        # Store filters with forecast results
+                        if warehouses or categories:
+                            filter_warehouse = 'All Warehouses' not in selected_warehouses and selected_warehouses
+                            filter_category = 'All Categories' not in selected_categories and selected_categories
+                            results['filters'] = {
+                                'warehouses': selected_warehouses if filter_warehouse else ['All Warehouses'],
+                                'categories': selected_categories if filter_category else ['All Categories']
+                            }
                         st.session_state.forecast_results = results
                         display_forecast_results(results)
                     else:
@@ -479,6 +579,24 @@ def ml_forecasting_page():
 
 def display_forecast_results(results):
     st.success("✅ Forecasts generated successfully!")
+    
+    # Display active filters if present
+    if 'filters' in results:
+        filters = results['filters']
+        warehouses = filters.get('warehouses', ['All Warehouses'])
+        categories = filters.get('categories', ['All Categories'])
+        
+        if warehouses != ['All Warehouses'] or categories != ['All Categories']:
+            with st.expander("🔍 Active Filters & Forecast Scope", expanded=True):
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.markdown("**📦 Warehouses:**")
+                    for wh in warehouses:
+                        st.markdown(f"• {wh}")
+                with col2:
+                    st.markdown("**🏷️ Categories:**")
+                    for cat in categories:
+                        st.markdown(f"• {cat}")
     
     # Display forecast plots
     for method, result in results['forecasts'].items():
