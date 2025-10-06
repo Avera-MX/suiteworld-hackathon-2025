@@ -4,7 +4,7 @@
 
 This is an AI-powered inventory forecasting platform built for the 2025 SuiteWorld Hackathon 4Good Challenge. The application analyzes inventory data, inflows, and outflows to generate predictive forecasts, detect anomalies, and provide actionable business insights for inventory optimization. It supports multiple machine learning models including Prophet, SARIMA, and ensemble methods to forecast inventory levels while handling temporal gaps and scale shifts in data.
 
-The platform features a Streamlit-based web interface for data upload, validation, statistical analysis, forecasting, scenario modeling, anomaly detection, and automated reporting.
+The platform features a Streamlit-based web interface for data upload, validation, statistical analysis, forecasting with warehouse and category dimensions, test data evaluation, actual vs predicted comparison, scenario modeling, anomaly detection, and automated reporting.
 
 ## User Preferences
 
@@ -18,7 +18,8 @@ Preferred communication style: Simple, everyday language.
 - **Interactive visualizations** using Plotly for time series charts, distributions, and forecasting results
 - **Session state management** to persist data and models across page navigation
 - **Real-time data validation** and error handling with user-friendly feedback
-- **File upload interface** supporting CSV and Excel formats for training and tuning datasets
+- **File upload interface** supporting CSV and Excel formats for training, tuning, and test datasets
+- **Actual vs Predicted comparison** with test data evaluation, performance metrics (MAE, RMSE, MAPE), time series visualization, error analysis, and downloadable results
 
 **Design Pattern**: Component-based architecture where each major functionality (data upload, forecasting, insights, etc.) is implemented as a separate page function, promoting modularity and maintainability.
 
@@ -28,13 +29,20 @@ Preferred communication style: Simple, everyday language.
 1. **Data Processing Layer** (`DataHandler`, `DataProcessor`, `DataLoader`)
    - **Schema validation** with predefined rules for inventory, inflows, and outflows datasets
    - **Data cleaning pipeline** handling missing values, duplicates, date parsing, and outlier removal
-   - **Dual-period support** for training and tuning datasets to handle temporal gaps
+   - **Multi-period support** for training, tuning, and test datasets to handle temporal gaps
+   - **Feature extraction** for warehouse and category dimensions:
+     - **Warehouse features**: Daily aggregates (Total_Warehouse_Inflows, Total_Warehouse_Outflows, Active_Warehouses, Warehouse_Count)
+     - **Category features**: Daily aggregates (Total_Category_Inflows, Total_Category_Outflows, Active_Categories, Category_Diversity)
    - Uses pandas for data manipulation with openpyxl for Excel support
 
 2. **Forecasting Engine** (`ForecastingEngine`, `ForecastingModel`)
    - **Multi-model approach**: Prophet (time series with seasonality), SARIMA (statistical forecasting), ARIMA, XGBoost, and Linear/Random Forest models
    - **Adaptive training** with automatic model selection and retraining capabilities
-   - **Handles temporal gaps and scale shifts** between training and tuning periods
+   - **Handles temporal gaps and scale shifts** between training (2017-2018) and tuning (2023) periods
+   - **Warehouse and category features as regressors**: 
+     - Prophet models use warehouse and category features as external regressors with historical value preservation
+     - XGBoost models automatically incorporate these features through the dataframe
+   - **Test period forecasting**: Combines training+tuning data to anchor forecasts from the latest historical point (2023) for accurate test period predictions
    - **Time series preparation** with outlier handling and preprocessing using StandardScaler/MinMaxScaler
    - **Performance metrics** including MAE, MSE, MAPE for model evaluation
    - **Confidence intervals** for forecast uncertainty quantification
