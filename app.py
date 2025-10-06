@@ -1048,7 +1048,7 @@ def display_anomaly_results(results):
                                title="Extreme GIK Values Over Time",
                                labels={'value': 'Total GIK'},
                                hover_data=['dataset', 'detection_methods'])
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, use_container_width=True, key="gik_outliers_chart")
                 
                 # Show detailed table
                 with st.expander("View Outlier Details"):
@@ -1065,7 +1065,7 @@ def display_anomaly_results(results):
                                title="Extreme Inventory Levels Over Time",
                                labels={'value': 'Inventory Level'},
                                hover_data=['dataset', 'detection_methods'])
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, use_container_width=True, key="inventory_outliers_chart")
                 
                 with st.expander("View Outlier Details"):
                     display_df = outliers_df[['Date', 'value', 'dataset', 'detection_methods']].copy()
@@ -1081,7 +1081,7 @@ def display_anomaly_results(results):
                                title="Extreme Quantity Values Over Time",
                                labels={'value': 'Quantity'},
                                hover_data=['dataset', 'detection_methods'])
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, use_container_width=True, key="quantity_outliers_chart")
                 
                 with st.expander("View Outlier Details"):
                     display_df = outliers_df[['Date', 'value', 'dataset', 'detection_methods']].copy()
