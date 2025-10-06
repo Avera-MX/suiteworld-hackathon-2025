@@ -18,6 +18,12 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error
 from typing import Dict, Any, Optional, List
 import logging
 
+try:
+    import xgboost as xgb
+    XGBOOST_AVAILABLE = True
+except ImportError:
+    XGBOOST_AVAILABLE = False
+
 class ForecastingEngine:
     def __init__(self):
         self.models = {}
@@ -51,22 +57,34 @@ class ForecastingEngine:
             # Generate forecasts based on selected method
             method = config.get('method', 'Prophet')
             
-            if method in ['Prophet', 'Both'] and PROPHET_AVAILABLE:
+            if method in ['Prophet', 'Both', 'All'] and PROPHET_AVAILABLE:
                 prophet_result = self._generate_prophet_forecast(
                     train_ts, tune_ts, config
                 )
                 if prophet_result['success']:
                     results['forecasts']['Prophet'] = prophet_result
             
-            if method in ['SARIMA', 'Both']:
+            if method in ['SARIMA', 'Both', 'All']:
                 sarima_result = self._generate_sarima_forecast(
                     train_ts, tune_ts, config
                 )
                 if sarima_result['success']:
                     results['forecasts']['SARIMA'] = sarima_result
             
+            if method in ['XGBoost', 'All'] and XGBOOST_AVAILABLE:
+                xgboost_result = self._generate_xgboost_forecast(
+                    train_ts, tune_ts, config
+                )
+                if xgboost_result['success']:
+                    results['forecasts']['XGBoost'] = xgboost_result
+            
             # Add stability report
             results['stability_report'] = self._generate_stability_report(
+                train_ts, tune_ts, results['forecasts']
+            )
+            
+            # Add confidence scoring for each forecast
+            results['confidence_scores'] = self._calculate_confidence_scores(
                 train_ts, tune_ts, results['forecasts']
             )
             
@@ -254,6 +272,161 @@ class ForecastingEngine:
         
         return sarima_order, seasonal_order
     
+    def _generate_xgboost_forecast(self, train_ts: pd.DataFrame, tune_ts: pd.DataFrame, 
+                                   config: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Generate XGBoost forecast using engineered features
+        """
+        if not XGBOOST_AVAILABLE:
+            return {'success': False, 'error': 'XGBoost not available'}
+        
+        try:
+            # Create features for training
+            train_features = self._create_time_series_features(train_ts)
+            
+            if train_features is None or len(train_features) < 10:
+                return {'success': False, 'error': 'Insufficient data for XGBoost training'}
+            
+            # Prepare training data
+            feature_cols = [col for col in train_features.columns if col not in ['ds', 'y']]
+            X_train = train_features[feature_cols].values
+            y_train = train_features['y'].values
+            
+            # Train XGBoost model
+            params = {
+                'objective': 'reg:squarederror',
+                'max_depth': 6,
+                'learning_rate': 0.1,
+                'n_estimators': 100,
+                'subsample': 0.8,
+                'colsample_bytree': 0.8,
+                'random_state': 42
+            }
+            
+            model = xgb.XGBRegressor(**params)
+            model.fit(X_train, y_train, verbose=False)
+            
+            # Generate future dates
+            periods = config.get('periods', 90)
+            last_date = train_ts['ds'].max()
+            future_dates = pd.date_range(start=last_date + timedelta(days=1), periods=periods)
+            
+            # Create future dataframe with features
+            future_df = pd.DataFrame({'ds': future_dates})
+            
+            # Maintain history for rolling features - use last 30 days from training
+            history_window = train_ts['y'].tail(30).tolist()
+            
+            predictions = []
+            prediction_std = train_features['y'].std()
+            
+            for i, date in enumerate(future_dates):
+                # Create features for future date
+                features = {
+                    'year': date.year,
+                    'month': date.month,
+                    'day': date.day,
+                    'dayofweek': date.dayofweek,
+                    'dayofyear': date.dayofyear,
+                    'quarter': date.quarter,
+                    'weekofyear': date.isocalendar()[1]
+                }
+                
+                # Add lag features using recent predictions and history
+                if i > 0:
+                    features['lag_1'] = predictions[-1]
+                    if i >= 7:
+                        features['lag_7'] = predictions[i-7]
+                    else:
+                        idx_from_history = len(history_window) - (7 - i)
+                        features['lag_7'] = history_window[idx_from_history] if idx_from_history >= 0 else history_window[0]
+                else:
+                    features['lag_1'] = history_window[-1] if len(history_window) > 0 else 0
+                    features['lag_7'] = history_window[-7] if len(history_window) >= 7 else history_window[0]
+                
+                # Calculate rolling statistics using history + predictions
+                all_values = history_window + predictions
+                recent_7 = all_values[-7:] if len(all_values) >= 7 else all_values
+                
+                features['rolling_mean_7'] = np.mean(recent_7) if len(recent_7) > 0 else 0
+                features['rolling_std_7'] = np.std(recent_7) if len(recent_7) > 1 else 0
+                
+                # Create feature vector in same order as training
+                X_future = np.array([[features.get(col, 0) for col in feature_cols]])
+                
+                # Predict
+                pred = model.predict(X_future)[0]
+                predictions.append(pred)
+            
+            # Create forecast dataframe
+            forecast_df = pd.DataFrame({
+                'ds': future_dates,
+                'yhat': predictions,
+                'yhat_lower': np.array(predictions) - 1.96 * prediction_std,
+                'yhat_upper': np.array(predictions) + 1.96 * prediction_std
+            })
+            
+            # Calculate metrics on tune data if available
+            metrics = self._calculate_metrics(tune_ts, forecast_df, model_name='XGBoost')
+            
+            # Inverse transform if scaling was applied
+            if 'inventory' in self.scalers:
+                forecast_df[['yhat', 'yhat_lower', 'yhat_upper']] = self.scalers['inventory'].inverse_transform(
+                    forecast_df[['yhat', 'yhat_lower', 'yhat_upper']]
+                )
+                train_ts['y'] = self.scalers['inventory'].inverse_transform(train_ts[['y']])
+            
+            # Store feature importance
+            feature_importance = {
+                feature: float(importance) 
+                for feature, importance in zip(feature_cols, model.feature_importances_)
+            }
+            
+            return {
+                'success': True,
+                'model': model,
+                'forecast': forecast_df,
+                'historical': train_ts,
+                'metrics': metrics,
+                'feature_importance': feature_importance
+            }
+            
+        except Exception as e:
+            return {'success': False, 'error': f"XGBoost forecast error: {str(e)}"}
+    
+    def _create_time_series_features(self, ts_df: pd.DataFrame) -> Optional[pd.DataFrame]:
+        """
+        Create features from time series data for XGBoost
+        """
+        try:
+            df = ts_df.copy()
+            
+            # Date features
+            df['year'] = df['ds'].dt.year
+            df['month'] = df['ds'].dt.month
+            df['day'] = df['ds'].dt.day
+            df['dayofweek'] = df['ds'].dt.dayofweek
+            df['dayofyear'] = df['ds'].dt.dayofyear
+            df['quarter'] = df['ds'].dt.quarter
+            df['weekofyear'] = df['ds'].dt.isocalendar().week
+            
+            # Lag features
+            df['lag_1'] = df['y'].shift(1)
+            df['lag_7'] = df['y'].shift(7)
+            
+            # Rolling statistics
+            df['rolling_mean_7'] = df['y'].rolling(window=7, min_periods=1).mean()
+            df['rolling_std_7'] = df['y'].rolling(window=7, min_periods=1).std()
+            
+            # Drop rows with NaN values from lag features
+            df = df.dropna()
+            
+            return df
+            
+        except Exception as e:
+            print(f"Error creating features: {str(e)}")
+            return None
+    
     def _calculate_metrics(self, actual_ts: pd.DataFrame, forecast_df: pd.DataFrame, 
                           model_name: str) -> Dict[str, float]:
         """
@@ -338,6 +511,206 @@ class ForecastingEngine:
             
         except Exception as e:
             return {'error': f"Stability report generation failed: {str(e)}"}
+    
+    def _calculate_confidence_scores(self, train_ts: pd.DataFrame, tune_ts: pd.DataFrame,
+                                     forecasts: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Calculate real-time confidence scores for forecast predictions
+        """
+        try:
+            confidence_data = {}
+            
+            for method, result in forecasts.items():
+                if not result.get('success', False):
+                    continue
+                    
+                forecast_df = result.get('forecast')
+                if forecast_df is None or len(forecast_df) == 0:
+                    continue
+                
+                # Calculate confidence based on multiple factors
+                scores = []
+                
+                for idx, row in forecast_df.iterrows():
+                    # Factor 1: Prediction interval width (narrower = higher confidence)
+                    if 'yhat_lower' in forecast_df and 'yhat_upper' in forecast_df:
+                        interval_width = row['yhat_upper'] - row['yhat_lower']
+                        pred_value = row['yhat']
+                        if pred_value != 0:
+                            relative_width = interval_width / abs(pred_value)
+                            interval_score = max(0, 1 - (relative_width / 2))
+                        else:
+                            interval_score = 0.5
+                    else:
+                        interval_score = 0.5
+                    
+                    # Factor 2: Distance from training data (closer = higher confidence)
+                    days_ahead = idx + 1
+                    distance_score = max(0, 1 - (days_ahead / 180))
+                    
+                    # Factor 3: Historical model performance
+                    if 'metrics' in result:
+                        mae = result['metrics'].get('mae', 0)
+                        train_mean = train_ts['y'].mean()
+                        if train_mean > 0:
+                            error_ratio = mae / train_mean
+                            performance_score = max(0, 1 - error_ratio)
+                        else:
+                            performance_score = 0.5
+                    else:
+                        performance_score = 0.5
+                    
+                    # Factor 4: Data stability (how stable was training data)
+                    train_cv = train_ts['y'].std() / train_ts['y'].mean() if train_ts['y'].mean() > 0 else 1
+                    stability_score = max(0, 1 - min(train_cv, 1))
+                    
+                    # Weighted combination
+                    confidence = (
+                        0.3 * interval_score +
+                        0.25 * distance_score +
+                        0.25 * performance_score +
+                        0.2 * stability_score
+                    )
+                    
+                    # Convert to percentage and category
+                    confidence_pct = confidence * 100
+                    
+                    if confidence_pct >= 80:
+                        category = "High"
+                    elif confidence_pct >= 60:
+                        category = "Medium"
+                    else:
+                        category = "Low"
+                    
+                    scores.append({
+                        'date': row['ds'],
+                        'confidence': confidence_pct,
+                        'category': category,
+                        'factors': {
+                            'interval': interval_score * 100,
+                            'distance': distance_score * 100,
+                            'performance': performance_score * 100,
+                            'stability': stability_score * 100
+                        }
+                    })
+                
+                confidence_data[method] = {
+                    'scores': scores,
+                    'average_confidence': np.mean([s['confidence'] for s in scores]),
+                    'high_confidence_days': len([s for s in scores if s['category'] == 'High']),
+                    'medium_confidence_days': len([s for s in scores if s['category'] == 'Medium']),
+                    'low_confidence_days': len([s for s in scores if s['category'] == 'Low'])
+                }
+            
+            return confidence_data
+            
+        except Exception as e:
+            print(f"Error calculating confidence scores: {str(e)}")
+            return {}
+    
+    def recommend_best_model(self, train_ts: pd.DataFrame, tune_ts: pd.DataFrame) -> Dict[str, Any]:
+        """
+        Automatically recommend best forecasting model based on data characteristics
+        """
+        try:
+            recommendations = {
+                'recommended_model': None,
+                'reasons': [],
+                'data_characteristics': {},
+                'all_scores': {}
+            }
+            
+            # Analyze data characteristics
+            data_size = len(train_ts)
+            data_range_days = (train_ts['ds'].max() - train_ts['ds'].min()).days
+            
+            # Calculate variability
+            cv = train_ts['y'].std() / train_ts['y'].mean() if train_ts['y'].mean() > 0 else 0
+            
+            # Calculate trend strength
+            from scipy import stats
+            time_idx = np.arange(len(train_ts))
+            slope, intercept, r_value, p_value, std_err = stats.linregress(time_idx, train_ts['y'].values)
+            trend_strength = abs(r_value)
+            
+            # Store characteristics
+            recommendations['data_characteristics'] = {
+                'data_points': data_size,
+                'time_span_days': data_range_days,
+                'variability_cv': cv,
+                'trend_strength': trend_strength
+            }
+            
+            # Score each model based on data characteristics
+            scores = {}
+            
+            # Prophet scoring
+            prophet_score = 0
+            prophet_reasons = []
+            if PROPHET_AVAILABLE:
+                if data_size >= 100:
+                    prophet_score += 30
+                    prophet_reasons.append("Sufficient data for Prophet's Bayesian approach")
+                if trend_strength > 0.5:
+                    prophet_score += 25
+                    prophet_reasons.append("Strong trend detected, Prophet excels at trend modeling")
+                if data_range_days > 365:
+                    prophet_score += 20
+                    prophet_reasons.append("Long time series benefits from Prophet's seasonality detection")
+                if cv < 0.5:
+                    prophet_score += 15
+                    prophet_reasons.append("Moderate variability suits Prophet's robust fitting")
+                prophet_score += 10
+                scores['Prophet'] = {'score': prophet_score, 'reasons': prophet_reasons}
+            
+            # SARIMA scoring
+            sarima_score = 0
+            sarima_reasons = []
+            if data_size >= 50 and data_size <= 500:
+                sarima_score += 30
+                sarima_reasons.append("Data size optimal for SARIMA")
+            if 0.3 < cv < 0.7:
+                sarima_score += 25
+                sarima_reasons.append("Variability level suitable for SARIMA")
+            if data_range_days >= 180:
+                sarima_score += 20
+                sarima_reasons.append("Sufficient history for seasonal pattern detection")
+            sarima_score += 5
+            scores['SARIMA'] = {'score': sarima_score, 'reasons': sarima_reasons}
+            
+            # XGBoost scoring
+            xgboost_score = 0
+            xgboost_reasons = []
+            if XGBOOST_AVAILABLE:
+                if data_size >= 50:
+                    xgboost_score += 30
+                    xgboost_reasons.append("Adequate data for gradient boosting")
+                if cv > 0.5:
+                    xgboost_score += 25
+                    xgboost_reasons.append("High variability benefits from XGBoost's non-linear modeling")
+                if trend_strength < 0.3:
+                    xgboost_score += 20
+                    xgboost_reasons.append("Complex patterns suit XGBoost's flexibility")
+                xgboost_score += 5
+                scores['XGBoost'] = {'score': xgboost_score, 'reasons': xgboost_reasons}
+            
+            recommendations['all_scores'] = scores
+            
+            # Select best model
+            if scores:
+                best_model = max(scores.items(), key=lambda x: x[1]['score'])
+                recommendations['recommended_model'] = best_model[0]
+                recommendations['reasons'] = best_model[1]['reasons']
+                recommendations['confidence'] = min(100, best_model[1]['score'])
+            
+            return recommendations
+            
+        except Exception as e:
+            return {
+                'error': f"Model recommendation failed: {str(e)}",
+                'recommended_model': 'Prophet',
+                'reasons': ['Default recommendation due to error']
+            }
     
     def detect_trend_changes(self, ts_df: pd.DataFrame) -> Dict[str, Any]:
         """

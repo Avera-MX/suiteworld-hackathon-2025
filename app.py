@@ -298,13 +298,65 @@ def ml_forecasting_page():
     
     datasets = st.session_state.datasets
     
+    # Model recommendation
+    st.subheader("📋 Automated Model Selection")
+    if st.button("🔍 Get Model Recommendation"):
+        with st.spinner("Analyzing data characteristics..."):
+            try:
+                if 'train_inventory' in datasets and 'tune_inventory' in datasets:
+                    train_data = datasets['train_inventory'].copy()
+                    tune_data = datasets['tune_inventory'].copy()
+                    
+                    train_ts = st.session_state.forecasting_engine._prepare_time_series(train_data)
+                    tune_ts = st.session_state.forecasting_engine._prepare_time_series(tune_data)
+                    
+                    if train_ts is not None:
+                        recommendation = st.session_state.forecasting_engine.recommend_best_model(train_ts, tune_ts)
+                        
+                        if 'error' not in recommendation:
+                            st.success(f"✅ Recommended Model: **{recommendation['recommended_model']}** (Confidence: {recommendation['confidence']:.0f}%)")
+                            
+                            col1, col2 = st.columns(2)
+                            
+                            with col1:
+                                st.markdown("**Reasons:**")
+                                for reason in recommendation['reasons']:
+                                    st.write(f"• {reason}")
+                            
+                            with col2:
+                                st.markdown("**Data Characteristics:**")
+                                chars = recommendation['data_characteristics']
+                                st.write(f"• Data points: {chars['data_points']}")
+                                st.write(f"• Time span: {chars['time_span_days']} days")
+                                st.write(f"• Variability: {chars['variability_cv']:.2f}")
+                                st.write(f"• Trend strength: {chars['trend_strength']:.2f}")
+                            
+                            # Show all model scores
+                            if recommendation['all_scores']:
+                                scores_df = pd.DataFrame([
+                                    {'Model': model, 'Score': data['score']}
+                                    for model, data in recommendation['all_scores'].items()
+                                ]).sort_values('Score', ascending=False)
+                                
+                                fig = px.bar(scores_df, x='Model', y='Score', 
+                                           title='Model Suitability Scores',
+                                           color='Score',
+                                           color_continuous_scale='Viridis')
+                                st.plotly_chart(fig, use_container_width=True)
+                        else:
+                            st.warning(f"⚠️ {recommendation['error']}")
+            except Exception as e:
+                st.error(f"❌ Error getting recommendation: {str(e)}")
+    
+    st.divider()
+    
     # Forecasting configuration
     st.subheader("Forecasting Configuration")
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        forecast_method = st.selectbox("Forecasting Method", ["Prophet", "SARIMA", "Both"])
+        forecast_method = st.selectbox("Forecasting Method", ["Prophet", "SARIMA", "XGBoost", "Both", "All"])
         forecast_periods = st.slider("Forecast Periods (days)", 30, 365, 90)
     
     with col2:
@@ -417,6 +469,84 @@ def display_forecast_results(results):
                     st.metric("MAE", f"{result['metrics'].get('mae', 0):.2f}")
                 with col3:
                     st.metric("MAPE", f"{result['metrics'].get('mape', 0):.2f}%")
+            
+            # Display feature importance for XGBoost
+            if method == 'XGBoost' and 'feature_importance' in result:
+                st.markdown("#### 🔍 Feature Importance")
+                
+                importance_df = pd.DataFrame([
+                    {'Feature': k, 'Importance': v} 
+                    for k, v in result['feature_importance'].items()
+                ]).sort_values('Importance', ascending=False)
+                
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    fig = px.bar(importance_df, x='Importance', y='Feature', 
+                                orientation='h',
+                                title='Feature Importance for Prediction')
+                    st.plotly_chart(fig, use_container_width=True)
+                
+                with col2:
+                    st.dataframe(importance_df, use_container_width=True)
+    
+    # Display confidence scores
+    if 'confidence_scores' in results:
+        st.divider()
+        st.subheader("📊 Forecast Confidence Scoring")
+        st.write("Real-time reliability assessment for each prediction point")
+        
+        for method, conf_data in results['confidence_scores'].items():
+            if conf_data and 'scores' in conf_data:
+                st.markdown(f"#### {method} Confidence")
+                
+                col1, col2, col3, col4 = st.columns(4)
+                
+                with col1:
+                    st.metric("Average Confidence", f"{conf_data['average_confidence']:.1f}%")
+                with col2:
+                    st.metric("High Confidence Days", conf_data['high_confidence_days'])
+                with col3:
+                    st.metric("Medium Confidence Days", conf_data['medium_confidence_days'])
+                with col4:
+                    st.metric("Low Confidence Days", conf_data['low_confidence_days'])
+                
+                # Create confidence timeline
+                scores_df = pd.DataFrame(conf_data['scores'])
+                
+                fig = go.Figure()
+                
+                # Add confidence line
+                fig.add_trace(go.Scatter(
+                    x=scores_df['date'],
+                    y=scores_df['confidence'],
+                    mode='lines+markers',
+                    name='Confidence Score',
+                    line=dict(color='green'),
+                    marker=dict(
+                        size=6,
+                        color=scores_df['confidence'],
+                        colorscale='RdYlGn',
+                        showscale=True,
+                        colorbar=dict(title="Confidence %")
+                    )
+                ))
+                
+                # Add threshold lines
+                fig.add_hline(y=80, line_dash="dash", line_color="green", 
+                             annotation_text="High Confidence")
+                fig.add_hline(y=60, line_dash="dash", line_color="orange", 
+                             annotation_text="Medium Confidence")
+                
+                fig.update_layout(
+                    title=f"{method} Prediction Confidence Over Time",
+                    xaxis_title="Date",
+                    yaxis_title="Confidence (%)",
+                    yaxis_range=[0, 100],
+                    height=350
+                )
+                
+                st.plotly_chart(fig, use_container_width=True)
     
     # Ensemble forecasting section
     if 'forecast_results' in st.session_state and len(results.get('forecasts', {})) >= 2:
