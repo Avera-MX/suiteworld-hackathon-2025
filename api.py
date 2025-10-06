@@ -1,10 +1,13 @@
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Body
 from fastapi.responses import JSONResponse
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Any
+from pydantic import BaseModel, Field
 import pandas as pd
 import json
 import os
 from datetime import datetime
+from forecasting_engine import ForecastingEngine
+from data_handler import DataHandler
 
 app = FastAPI(
     title="Inventory Forecasting API",
@@ -13,6 +16,44 @@ app = FastAPI(
 )
 
 DATA_DIR = "api_data"
+
+# Initialize forecasting engine
+forecasting_engine = ForecastingEngine()
+data_handler = DataHandler()
+
+class ForecastRequest(BaseModel):
+    """Request model for forecast generation"""
+    model: str = Field(
+        default="prophet",
+        description="Forecasting model to use: prophet, sarima, xgboost, linear, random_forest"
+    )
+    periods: int = Field(
+        default=90,
+        ge=1,
+        le=730,
+        description="Number of days to forecast (1-730)"
+    )
+    use_tuning_data: bool = Field(
+        default=True,
+        description="Whether to include tuning data in forecast"
+    )
+    confidence_level: float = Field(
+        default=0.95,
+        ge=0.5,
+        le=0.99,
+        description="Confidence level for prediction intervals (0.5-0.99)"
+    )
+
+class ForecastResponse(BaseModel):
+    """Response model for forecast results"""
+    success: bool
+    model: str
+    periods: int
+    forecast_start_date: Optional[str] = None
+    forecast_end_date: Optional[str] = None
+    metrics: Optional[Dict[str, float]] = None
+    forecast_data: Optional[List[Dict[str, Any]]] = None
+    error: Optional[str] = None
 
 def load_dataset(dataset_type: str, period: str) -> Optional[pd.DataFrame]:
     """
@@ -51,6 +92,7 @@ async def root():
             "inflows": "/inflows/{period}",
             "outflows": "/outflows/{period}",
             "summary": "/summary",
+            "forecast": "POST /forecast",
             "health": "/health"
         }
     }
@@ -62,6 +104,140 @@ async def health_check():
         "status": "healthy",
         "timestamp": datetime.now().isoformat()
     }
+
+@app.post("/forecast", response_model=ForecastResponse)
+async def generate_forecast(request: ForecastRequest = Body(...)):
+    """
+    Generate inventory forecast based on parameters
+    
+    Args:
+        request: Forecast request parameters including model, periods, and options
+    
+    Returns:
+        Forecast results with predictions and metrics
+    """
+    try:
+        # Load training data
+        train_inventory = load_dataset('inventory', 'train')
+        train_inflows = load_dataset('inflows', 'train')
+        train_outflows = load_dataset('outflows', 'train')
+        
+        if train_inventory is None or train_inflows is None:
+            raise HTTPException(
+                status_code=404, 
+                detail="Training data not found. Please upload training data first."
+            )
+        
+        # Load tuning data if requested
+        tune_inventory = None
+        tune_inflows = None
+        tune_outflows = None
+        
+        if request.use_tuning_data:
+            tune_inventory = load_dataset('inventory', 'tune')
+            tune_inflows = load_dataset('inflows', 'tune')
+            tune_outflows = load_dataset('outflows', 'tune')
+        
+        # Prepare data using DataHandler
+        result = data_handler.process_datasets(
+            train_inventory, train_inflows, train_outflows,
+            tune_inventory, tune_inflows, tune_outflows
+        )
+        
+        if not result['success']:
+            return ForecastResponse(
+                success=False,
+                model=request.model,
+                periods=request.periods,
+                error=f"Data processing failed: {result['error']}"
+            )
+        
+        datasets = result['datasets']
+        
+        # Prepare forecasting configuration
+        forecast_config = {
+            'periods': request.periods,
+            'confidence_level': request.confidence_level,
+            'selected_model': request.model
+        }
+        
+        # Determine which data to use
+        if request.use_tuning_data and tune_inventory is not None:
+            train_data = datasets['train_inventory']
+            tune_data = datasets['tune_inventory']
+        else:
+            train_data = datasets['train_inventory']
+            tune_data = datasets['train_inventory']
+        
+        # Generate forecasts
+        forecast_result = forecasting_engine.generate_forecasts(
+            train_data, tune_data, forecast_config
+        )
+        
+        if not forecast_result['success']:
+            return ForecastResponse(
+                success=False,
+                model=request.model,
+                periods=request.periods,
+                error=f"Forecast generation failed: {forecast_result.get('error', 'Unknown error')}"
+            )
+        
+        # Extract forecast data for the requested model
+        model_forecast = forecast_result['forecasts'].get(request.model)
+        
+        if model_forecast is None:
+            return ForecastResponse(
+                success=False,
+                model=request.model,
+                periods=request.periods,
+                error=f"Model '{request.model}' not available or failed"
+            )
+        
+        # Prepare forecast data
+        forecast_df = model_forecast['forecast']
+        
+        # Convert to list of dictionaries
+        if 'ds' in forecast_df.columns:
+            forecast_df['Date'] = pd.to_datetime(forecast_df['ds']).dt.strftime('%Y-%m-%d')
+        elif 'Date' in forecast_df.columns:
+            forecast_df['Date'] = pd.to_datetime(forecast_df['Date']).dt.strftime('%Y-%m-%d')
+        
+        # Prepare output columns
+        output_columns = ['Date', 'yhat']
+        if 'yhat_lower' in forecast_df.columns:
+            output_columns.append('yhat_lower')
+        if 'yhat_upper' in forecast_df.columns:
+            output_columns.append('yhat_upper')
+        
+        available_columns = [col for col in output_columns if col in forecast_df.columns]
+        forecast_data = forecast_df[available_columns].to_dict(orient='records')
+        
+        # Get date range
+        forecast_start = forecast_df['Date'].min()
+        forecast_end = forecast_df['Date'].max()
+        
+        # Get metrics
+        metrics = model_forecast.get('metrics', {})
+        
+        return ForecastResponse(
+            success=True,
+            model=request.model,
+            periods=request.periods,
+            forecast_start_date=forecast_start,
+            forecast_end_date=forecast_end,
+            metrics=metrics,
+            forecast_data=forecast_data
+        )
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        return ForecastResponse(
+            success=False,
+            model=request.model,
+            periods=request.periods,
+            error=f"Unexpected error: {str(e)}"
+        )
 
 @app.get("/datasets")
 async def list_datasets():
