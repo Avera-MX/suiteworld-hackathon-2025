@@ -1029,10 +1029,50 @@ def display_anomaly_results(results):
         if outlier_summary.get('gik_outliers') is not None and len(outlier_summary['gik_outliers']) > 0:
             st.subheader("GIK Value Outliers")
             outliers_df = pd.DataFrame(outlier_summary['gik_outliers'])
-            if not outliers_df.empty:
-                fig = px.scatter(outliers_df, x='Date', y='Total_GIK', 
-                               title="Extreme GIK Values Over Time")
+            if not outliers_df.empty and 'value' in outliers_df.columns:
+                fig = px.scatter(outliers_df, x='Date', y='value', 
+                               title="Extreme GIK Values Over Time",
+                               labels={'value': 'Total GIK'},
+                               hover_data=['dataset', 'detection_methods'])
                 st.plotly_chart(fig, use_container_width=True)
+                
+                # Show detailed table
+                with st.expander("View Outlier Details"):
+                    display_df = outliers_df[['Date', 'value', 'dataset', 'detection_methods']].copy()
+                    display_df.columns = ['Date', 'GIK Value', 'Dataset', 'Detection Methods']
+                    st.dataframe(display_df, use_container_width=True)
+        
+        # Display inventory outliers
+        if outlier_summary.get('inventory_outliers') is not None and len(outlier_summary['inventory_outliers']) > 0:
+            st.subheader("Inventory Level Outliers")
+            outliers_df = pd.DataFrame(outlier_summary['inventory_outliers'])
+            if not outliers_df.empty and 'value' in outliers_df.columns:
+                fig = px.scatter(outliers_df, x='Date', y='value', 
+                               title="Extreme Inventory Levels Over Time",
+                               labels={'value': 'Inventory Level'},
+                               hover_data=['dataset', 'detection_methods'])
+                st.plotly_chart(fig, use_container_width=True)
+                
+                with st.expander("View Outlier Details"):
+                    display_df = outliers_df[['Date', 'value', 'dataset', 'detection_methods']].copy()
+                    display_df.columns = ['Date', 'Inventory Level', 'Dataset', 'Detection Methods']
+                    st.dataframe(display_df, use_container_width=True)
+        
+        # Display quantity outliers
+        if outlier_summary.get('quantity_outliers') is not None and len(outlier_summary['quantity_outliers']) > 0:
+            st.subheader("Quantity Outliers")
+            outliers_df = pd.DataFrame(outlier_summary['quantity_outliers'])
+            if not outliers_df.empty and 'value' in outliers_df.columns:
+                fig = px.scatter(outliers_df, x='Date', y='value', 
+                               title="Extreme Quantity Values Over Time",
+                               labels={'value': 'Quantity'},
+                               hover_data=['dataset', 'detection_methods'])
+                st.plotly_chart(fig, use_container_width=True)
+                
+                with st.expander("View Outlier Details"):
+                    display_df = outliers_df[['Date', 'value', 'dataset', 'detection_methods']].copy()
+                    display_df.columns = ['Date', 'Quantity', 'Dataset', 'Detection Methods']
+                    st.dataframe(display_df, use_container_width=True)
     
     # Data drift analysis
     if 'drift_analysis' in results:
