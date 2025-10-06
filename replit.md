@@ -23,9 +23,11 @@ Preferred communication style: Simple, everyday language.
   - `GET /inventory/{period}` - Retrieve inventory data with pagination and date filtering
   - `GET /inflows/{period}` - Retrieve inflows data with filters (warehouse, category, date range)
   - `GET /outflows/{period}` - Retrieve outflows data with filters (warehouse, category, partner, date range)
+  - `POST /forecast` - Generate inventory forecasts with configurable parameters (model, periods, confidence level)
 - **Query parameters** support: limit, offset, warehouse, category, partner, date_from, date_to
 - **JSON response format** with metadata (total_records, returned_records, filters applied)
 - **Data persistence** via JSON files in api_data/ directory shared with Streamlit
+- **Forecast generation**: Exposes Prophet model forecasting with 1-730 day horizons and configurable confidence intervals
 
 ### Frontend Architecture
 **Technology**: Streamlit web framework
