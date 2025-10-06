@@ -12,6 +12,21 @@ Preferred communication style: Simple, everyday language.
 
 ## System Architecture
 
+### API Layer
+**Technology**: FastAPI REST API
+- **Runs on port 8000** alongside the Streamlit interface (port 5000)
+- **RESTful endpoints** for programmatic access to all datasets:
+  - `GET /` - API information and endpoint listing
+  - `GET /health` - Health check endpoint
+  - `GET /datasets` - List all available datasets with metadata
+  - `GET /summary` - Aggregate statistics across all periods
+  - `GET /inventory/{period}` - Retrieve inventory data with pagination and date filtering
+  - `GET /inflows/{period}` - Retrieve inflows data with filters (warehouse, category, date range)
+  - `GET /outflows/{period}` - Retrieve outflows data with filters (warehouse, category, partner, date range)
+- **Query parameters** support: limit, offset, warehouse, category, partner, date_from, date_to
+- **JSON response format** with metadata (total_records, returned_records, filters applied)
+- **Data persistence** via JSON files in api_data/ directory shared with Streamlit
+
 ### Frontend Architecture
 **Technology**: Streamlit web framework
 - **Multi-page application structure** with navigation sidebar for different functional areas
@@ -77,17 +92,20 @@ Preferred communication style: Simple, everyday language.
 - Flexible configuration via dictionary-based parameters
 
 ### Data Storage Solutions
-**Current Implementation**: In-memory storage using pandas DataFrames
-- Data persists in Streamlit session state during user sessions
-- No permanent database storage in current architecture
-- Files are uploaded and processed on-demand
+**Current Implementation**: Hybrid approach with session state and JSON persistence
+- **Session state**: Data persists in Streamlit during user sessions for UI operations
+- **JSON persistence**: Datasets automatically saved to `api_data/` directory for API access
+- **Format**: Each dataset stored as {period}_{type}.json (e.g., train_inventory.json)
+- **Automatic sync**: Data saved whenever uploaded or loaded through Streamlit interface
 
 **Data Flow**:
-1. User uploads CSV/Excel files
+1. User uploads CSV/Excel files or loads sample data
 2. Data validated against predefined schemas
 3. Cleaned and stored in session state
-4. Accessed by forecasting, analysis, and insights modules
-5. Results exported as downloadable files
+4. **Automatically persisted to JSON files** for API consumption
+5. Accessed by forecasting, analysis, and insights modules
+6. Available via REST API for external integrations
+7. Results exported as downloadable files
 
 **Future Consideration**: Architecture supports adding database persistence (e.g., PostgreSQL with Drizzle ORM) for multi-user scenarios and historical analysis.
 
