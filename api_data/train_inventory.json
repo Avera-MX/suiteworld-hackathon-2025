@@ -1,0 +1,8766 @@
+[
+  {
+    "Date": "2017-01-01",
+    "Inventory_Level": 29154
+  },
+  {
+    "Date": "2017-02-01",
+    "Inventory_Level": 55036
+  },
+  {
+    "Date": "2017-03-01",
+    "Inventory_Level": 83609
+  },
+  {
+    "Date": "2017-04-01",
+    "Inventory_Level": 105607
+  },
+  {
+    "Date": "2017-05-01",
+    "Inventory_Level": 143171
+  },
+  {
+    "Date": "2017-06-01",
+    "Inventory_Level": 177813
+  },
+  {
+    "Date": "2017-07-01",
+    "Inventory_Level": 222539
+  },
+  {
+    "Date": "2017-08-01",
+    "Inventory_Level": 248947
+  },
+  {
+    "Date": "2017-09-01",
+    "Inventory_Level": 269949
+  },
+  {
+    "Date": "2017-10-01",
+    "Inventory_Level": 282083
+  },
+  {
+    "Date": "2017-11-01",
+    "Inventory_Level": 319671
+  },
+  {
+    "Date": "2017-12-01",
+    "Inventory_Level": 331018
+  },
+  {
+    "Date": "2017-01-13",
+    "Inventory_Level": 360849
+  },
+  {
+    "Date": "2017-01-14",
+    "Inventory_Level": 390936
+  },
+  {
+    "Date": "2017-01-15",
+    "Inventory_Level": 407388
+  },
+  {
+    "Date": "2017-01-16",
+    "Inventory_Level": 428970
+  },
+  {
+    "Date": "2017-01-17",
+    "Inventory_Level": 445613
+  },
+  {
+    "Date": "2017-01-18",
+    "Inventory_Level": 473254
+  },
+  {
+    "Date": "2017-01-19",
+    "Inventory_Level": 491814
+  },
+  {
+    "Date": "2017-01-20",
+    "Inventory_Level": 495709
+  },
+  {
+    "Date": "2017-01-21",
+    "Inventory_Level": 513254
+  },
+  {
+    "Date": "2017-01-22",
+    "Inventory_Level": 535665
+  },
+  {
+    "Date": "2017-01-23",
+    "Inventory_Level": 538949
+  },
+  {
+    "Date": "2017-01-24",
+    "Inventory_Level": 562751
+  },
+  {
+    "Date": "2017-01-25",
+    "Inventory_Level": 575776
+  },
+  {
+    "Date": "2017-01-26",
+    "Inventory_Level": 562245
+  },
+  {
+    "Date": "2017-01-27",
+    "Inventory_Level": 551207
+  },
+  {
+    "Date": "2017-01-28",
+    "Inventory_Level": 542921
+  },
+  {
+    "Date": "2017-01-29",
+    "Inventory_Level": 585139
+  },
+  {
+    "Date": "2017-01-30",
+    "Inventory_Level": 581735
+  },
+  {
+    "Date": "2017-01-31",
+    "Inventory_Level": 555732
+  },
+  {
+    "Date": "2017-01-02",
+    "Inventory_Level": 558393
+  },
+  {
+    "Date": "2017-02-02",
+    "Inventory_Level": 558334
+  },
+  {
+    "Date": "2017-03-02",
+    "Inventory_Level": 541720
+  },
+  {
+    "Date": "2017-04-02",
+    "Inventory_Level": 540056
+  },
+  {
+    "Date": "2017-05-02",
+    "Inventory_Level": 542846
+  },
+  {
+    "Date": "2017-06-02",
+    "Inventory_Level": 528302
+  },
+  {
+    "Date": "2017-07-02",
+    "Inventory_Level": 513581
+  },
+  {
+    "Date": "2017-08-02",
+    "Inventory_Level": 503420
+  },
+  {
+    "Date": "2017-09-02",
+    "Inventory_Level": 507818
+  },
+  {
+    "Date": "2017-10-02",
+    "Inventory_Level": 512310
+  },
+  {
+    "Date": "2017-11-02",
+    "Inventory_Level": 507455
+  },
+  {
+    "Date": "2017-12-02",
+    "Inventory_Level": 522765
+  },
+  {
+    "Date": "2017-02-13",
+    "Inventory_Level": 530392
+  },
+  {
+    "Date": "2017-02-14",
+    "Inventory_Level": 518840
+  },
+  {
+    "Date": "2017-02-15",
+    "Inventory_Level": 528547
+  },
+  {
+    "Date": "2017-02-16",
+    "Inventory_Level": 538961
+  },
+  {
+    "Date": "2017-02-17",
+    "Inventory_Level": 540280
+  },
+  {
+    "Date": "2017-02-18",
+    "Inventory_Level": 540629
+  },
+  {
+    "Date": "2017-02-19",
+    "Inventory_Level": 534900
+  },
+  {
+    "Date": "2017-02-20",
+    "Inventory_Level": 529953
+  },
+  {
+    "Date": "2017-02-21",
+    "Inventory_Level": 533428
+  },
+  {
+    "Date": "2017-02-22",
+    "Inventory_Level": 536950
+  },
+  {
+    "Date": "2017-02-23",
+    "Inventory_Level": 530356
+  },
+  {
+    "Date": "2017-02-24",
+    "Inventory_Level": 513893
+  },
+  {
+    "Date": "2017-02-25",
+    "Inventory_Level": 520196
+  },
+  {
+    "Date": "2017-02-26",
+    "Inventory_Level": 504771
+  },
+  {
+    "Date": "2017-02-27",
+    "Inventory_Level": 497596
+  },
+  {
+    "Date": "2017-02-28",
+    "Inventory_Level": 485695
+  },
+  {
+    "Date": "2017-01-03",
+    "Inventory_Level": 508314
+  },
+  {
+    "Date": "2017-02-03",
+    "Inventory_Level": 496698
+  },
+  {
+    "Date": "2017-03-03",
+    "Inventory_Level": 477665
+  },
+  {
+    "Date": "2017-04-03",
+    "Inventory_Level": 470575
+  },
+  {
+    "Date": "2017-05-03",
+    "Inventory_Level": 448024
+  },
+  {
+    "Date": "2017-06-03",
+    "Inventory_Level": 439287
+  },
+  {
+    "Date": "2017-07-03",
+    "Inventory_Level": 439696
+  },
+  {
+    "Date": "2017-08-03",
+    "Inventory_Level": 428199
+  },
+  {
+    "Date": "2017-09-03",
+    "Inventory_Level": 401245
+  },
+  {
+    "Date": "2017-10-03",
+    "Inventory_Level": 420456
+  },
+  {
+    "Date": "2017-11-03",
+    "Inventory_Level": 429469
+  },
+  {
+    "Date": "2017-12-03",
+    "Inventory_Level": 408481
+  },
+  {
+    "Date": "2017-03-13",
+    "Inventory_Level": 407898
+  },
+  {
+    "Date": "2017-03-14",
+    "Inventory_Level": 377477
+  },
+  {
+    "Date": "2017-03-15",
+    "Inventory_Level": 359097
+  },
+  {
+    "Date": "2017-03-16",
+    "Inventory_Level": 361289
+  },
+  {
+    "Date": "2017-03-17",
+    "Inventory_Level": 364939
+  },
+  {
+    "Date": "2017-03-18",
+    "Inventory_Level": 358519
+  },
+  {
+    "Date": "2017-03-19",
+    "Inventory_Level": 373117
+  },
+  {
+    "Date": "2017-03-20",
+    "Inventory_Level": 389076
+  },
+  {
+    "Date": "2017-03-21",
+    "Inventory_Level": 397627
+  },
+  {
+    "Date": "2017-03-22",
+    "Inventory_Level": 392778
+  },
+  {
+    "Date": "2017-03-23",
+    "Inventory_Level": 402562
+  },
+  {
+    "Date": "2017-03-24",
+    "Inventory_Level": 419657
+  },
+  {
+    "Date": "2017-03-25",
+    "Inventory_Level": 402259
+  },
+  {
+    "Date": "2017-03-26",
+    "Inventory_Level": 425523
+  },
+  {
+    "Date": "2017-03-27",
+    "Inventory_Level": 431043
+  },
+  {
+    "Date": "2017-03-28",
+    "Inventory_Level": 460833
+  },
+  {
+    "Date": "2017-03-29",
+    "Inventory_Level": 471132
+  },
+  {
+    "Date": "2017-03-30",
+    "Inventory_Level": 465613
+  },
+  {
+    "Date": "2017-03-31",
+    "Inventory_Level": 478554
+  },
+  {
+    "Date": "2017-01-04",
+    "Inventory_Level": 472776
+  },
+  {
+    "Date": "2017-02-04",
+    "Inventory_Level": 473502
+  },
+  {
+    "Date": "2017-03-04",
+    "Inventory_Level": 456604
+  },
+  {
+    "Date": "2017-04-04",
+    "Inventory_Level": 447563
+  },
+  {
+    "Date": "2017-05-04",
+    "Inventory_Level": 451934
+  },
+  {
+    "Date": "2017-06-04",
+    "Inventory_Level": 451939
+  },
+  {
+    "Date": "2017-07-04",
+    "Inventory_Level": 441801
+  },
+  {
+    "Date": "2017-08-04",
+    "Inventory_Level": 421392
+  },
+  {
+    "Date": "2017-09-04",
+    "Inventory_Level": 417689
+  },
+  {
+    "Date": "2017-10-04",
+    "Inventory_Level": 405810
+  },
+  {
+    "Date": "2017-11-04",
+    "Inventory_Level": 410369
+  },
+  {
+    "Date": "2017-12-04",
+    "Inventory_Level": 406484
+  },
+  {
+    "Date": "2017-04-13",
+    "Inventory_Level": 408839
+  },
+  {
+    "Date": "2017-04-14",
+    "Inventory_Level": 423160
+  },
+  {
+    "Date": "2017-04-15",
+    "Inventory_Level": 428273
+  },
+  {
+    "Date": "2017-04-16",
+    "Inventory_Level": 436395
+  },
+  {
+    "Date": "2017-04-17",
+    "Inventory_Level": 453879
+  },
+  {
+    "Date": "2017-04-18",
+    "Inventory_Level": 475528
+  },
+  {
+    "Date": "2017-04-19",
+    "Inventory_Level": 476609
+  },
+  {
+    "Date": "2017-04-20",
+    "Inventory_Level": 472338
+  },
+  {
+    "Date": "2017-04-21",
+    "Inventory_Level": 499755
+  },
+  {
+    "Date": "2017-04-22",
+    "Inventory_Level": 488521
+  },
+  {
+    "Date": "2017-04-23",
+    "Inventory_Level": 480852
+  },
+  {
+    "Date": "2017-04-24",
+    "Inventory_Level": 488320
+  },
+  {
+    "Date": "2017-04-25",
+    "Inventory_Level": 499102
+  },
+  {
+    "Date": "2017-04-26",
+    "Inventory_Level": 500687
+  },
+  {
+    "Date": "2017-04-27",
+    "Inventory_Level": 499655
+  },
+  {
+    "Date": "2017-04-28",
+    "Inventory_Level": 492391
+  },
+  {
+    "Date": "2017-04-29",
+    "Inventory_Level": 473648
+  },
+  {
+    "Date": "2017-04-30",
+    "Inventory_Level": 471731
+  },
+  {
+    "Date": "2017-01-05",
+    "Inventory_Level": 449647
+  },
+  {
+    "Date": "2017-02-05",
+    "Inventory_Level": 452797
+  },
+  {
+    "Date": "2017-03-05",
+    "Inventory_Level": 464681
+  },
+  {
+    "Date": "2017-04-05",
+    "Inventory_Level": 466461
+  },
+  {
+    "Date": "2017-05-05",
+    "Inventory_Level": 440255
+  },
+  {
+    "Date": "2017-06-05",
+    "Inventory_Level": 467296
+  },
+  {
+    "Date": "2017-07-05",
+    "Inventory_Level": 454788
+  },
+  {
+    "Date": "2017-08-05",
+    "Inventory_Level": 459422
+  },
+  {
+    "Date": "2017-09-05",
+    "Inventory_Level": 468944
+  },
+  {
+    "Date": "2017-10-05",
+    "Inventory_Level": 443231
+  },
+  {
+    "Date": "2017-11-05",
+    "Inventory_Level": 437797
+  },
+  {
+    "Date": "2017-12-05",
+    "Inventory_Level": 430902
+  },
+  {
+    "Date": "2017-05-13",
+    "Inventory_Level": 405484
+  },
+  {
+    "Date": "2017-05-14",
+    "Inventory_Level": 383561
+  },
+  {
+    "Date": "2017-05-15",
+    "Inventory_Level": 378296
+  },
+  {
+    "Date": "2017-05-16",
+    "Inventory_Level": 377563
+  },
+  {
+    "Date": "2017-05-17",
+    "Inventory_Level": 389053
+  },
+  {
+    "Date": "2017-05-18",
+    "Inventory_Level": 394249
+  },
+  {
+    "Date": "2017-05-19",
+    "Inventory_Level": 387257
+  },
+  {
+    "Date": "2017-05-20",
+    "Inventory_Level": 377634
+  },
+  {
+    "Date": "2017-05-21",
+    "Inventory_Level": 372009
+  },
+  {
+    "Date": "2017-05-22",
+    "Inventory_Level": 365280
+  },
+  {
+    "Date": "2017-05-23",
+    "Inventory_Level": 371074
+  },
+  {
+    "Date": "2017-05-24",
+    "Inventory_Level": 377732
+  },
+  {
+    "Date": "2017-05-25",
+    "Inventory_Level": 379754
+  },
+  {
+    "Date": "2017-05-26",
+    "Inventory_Level": 370875
+  },
+  {
+    "Date": "2017-05-27",
+    "Inventory_Level": 394186
+  },
+  {
+    "Date": "2017-05-28",
+    "Inventory_Level": 404413
+  },
+  {
+    "Date": "2017-05-29",
+    "Inventory_Level": 389073
+  },
+  {
+    "Date": "2017-05-30",
+    "Inventory_Level": 397229
+  },
+  {
+    "Date": "2017-05-31",
+    "Inventory_Level": 399189
+  },
+  {
+    "Date": "2017-01-06",
+    "Inventory_Level": 392844
+  },
+  {
+    "Date": "2017-02-06",
+    "Inventory_Level": 394970
+  },
+  {
+    "Date": "2017-03-06",
+    "Inventory_Level": 400304
+  },
+  {
+    "Date": "2017-04-06",
+    "Inventory_Level": 410826
+  },
+  {
+    "Date": "2017-05-06",
+    "Inventory_Level": 413039
+  },
+  {
+    "Date": "2017-06-06",
+    "Inventory_Level": 403562
+  },
+  {
+    "Date": "2017-07-06",
+    "Inventory_Level": 399191
+  },
+  {
+    "Date": "2017-08-06",
+    "Inventory_Level": 408434
+  },
+  {
+    "Date": "2017-09-06",
+    "Inventory_Level": 433184
+  },
+  {
+    "Date": "2017-10-06",
+    "Inventory_Level": 428679
+  },
+  {
+    "Date": "2017-11-06",
+    "Inventory_Level": 423409
+  },
+  {
+    "Date": "2017-12-06",
+    "Inventory_Level": 413183
+  },
+  {
+    "Date": "2017-06-13",
+    "Inventory_Level": 405831
+  },
+  {
+    "Date": "2017-06-14",
+    "Inventory_Level": 392640
+  },
+  {
+    "Date": "2017-06-15",
+    "Inventory_Level": 407799
+  },
+  {
+    "Date": "2017-06-16",
+    "Inventory_Level": 400429
+  },
+  {
+    "Date": "2017-06-17",
+    "Inventory_Level": 401628
+  },
+  {
+    "Date": "2017-06-18",
+    "Inventory_Level": 418564
+  },
+  {
+    "Date": "2017-06-19",
+    "Inventory_Level": 423683
+  },
+  {
+    "Date": "2017-06-20",
+    "Inventory_Level": 412524
+  },
+  {
+    "Date": "2017-06-21",
+    "Inventory_Level": 405480
+  },
+  {
+    "Date": "2017-06-22",
+    "Inventory_Level": 394772
+  },
+  {
+    "Date": "2017-06-23",
+    "Inventory_Level": 365590
+  },
+  {
+    "Date": "2017-06-24",
+    "Inventory_Level": 377558
+  },
+  {
+    "Date": "2017-06-25",
+    "Inventory_Level": 372545
+  },
+  {
+    "Date": "2017-06-26",
+    "Inventory_Level": 363321
+  },
+  {
+    "Date": "2017-06-27",
+    "Inventory_Level": 345618
+  },
+  {
+    "Date": "2017-06-28",
+    "Inventory_Level": 335659
+  },
+  {
+    "Date": "2017-06-29",
+    "Inventory_Level": 329628
+  },
+  {
+    "Date": "2017-06-30",
+    "Inventory_Level": 332858
+  },
+  {
+    "Date": "2017-01-07",
+    "Inventory_Level": 321666
+  },
+  {
+    "Date": "2017-02-07",
+    "Inventory_Level": 319054
+  },
+  {
+    "Date": "2017-03-07",
+    "Inventory_Level": 315802
+  },
+  {
+    "Date": "2017-04-07",
+    "Inventory_Level": 310003
+  },
+  {
+    "Date": "2017-05-07",
+    "Inventory_Level": 329696
+  },
+  {
+    "Date": "2017-06-07",
+    "Inventory_Level": 335369
+  },
+  {
+    "Date": "2017-07-07",
+    "Inventory_Level": 339878
+  },
+  {
+    "Date": "2017-08-07",
+    "Inventory_Level": 339683
+  },
+  {
+    "Date": "2017-09-07",
+    "Inventory_Level": 356825
+  },
+  {
+    "Date": "2017-10-07",
+    "Inventory_Level": 370966
+  },
+  {
+    "Date": "2017-11-07",
+    "Inventory_Level": 352183
+  },
+  {
+    "Date": "2017-12-07",
+    "Inventory_Level": 356301
+  },
+  {
+    "Date": "2017-07-13",
+    "Inventory_Level": 355626
+  },
+  {
+    "Date": "2017-07-14",
+    "Inventory_Level": 351367
+  },
+  {
+    "Date": "2017-07-15",
+    "Inventory_Level": 352693
+  },
+  {
+    "Date": "2017-07-16",
+    "Inventory_Level": 346354
+  },
+  {
+    "Date": "2017-07-17",
+    "Inventory_Level": 351904
+  },
+  {
+    "Date": "2017-07-18",
+    "Inventory_Level": 355523
+  },
+  {
+    "Date": "2017-07-19",
+    "Inventory_Level": 336706
+  },
+  {
+    "Date": "2017-07-20",
+    "Inventory_Level": 318853
+  },
+  {
+    "Date": "2017-07-21",
+    "Inventory_Level": 318538
+  },
+  {
+    "Date": "2017-07-22",
+    "Inventory_Level": 312995
+  },
+  {
+    "Date": "2017-07-23",
+    "Inventory_Level": 333576
+  },
+  {
+    "Date": "2017-07-24",
+    "Inventory_Level": 329898
+  },
+  {
+    "Date": "2017-07-25",
+    "Inventory_Level": 314526
+  },
+  {
+    "Date": "2017-07-26",
+    "Inventory_Level": 324945
+  },
+  {
+    "Date": "2017-07-27",
+    "Inventory_Level": 335887
+  },
+  {
+    "Date": "2017-07-28",
+    "Inventory_Level": 344283
+  },
+  {
+    "Date": "2017-07-29",
+    "Inventory_Level": 337247
+  },
+  {
+    "Date": "2017-07-30",
+    "Inventory_Level": 331093
+  },
+  {
+    "Date": "2017-07-31",
+    "Inventory_Level": 339971
+  },
+  {
+    "Date": "2017-01-08",
+    "Inventory_Level": 357810
+  },
+  {
+    "Date": "2017-02-08",
+    "Inventory_Level": 358119
+  },
+  {
+    "Date": "2017-03-08",
+    "Inventory_Level": 357044
+  },
+  {
+    "Date": "2017-04-08",
+    "Inventory_Level": 376045
+  },
+  {
+    "Date": "2017-05-08",
+    "Inventory_Level": 375879
+  },
+  {
+    "Date": "2017-06-08",
+    "Inventory_Level": 402966
+  },
+  {
+    "Date": "2017-07-08",
+    "Inventory_Level": 418121
+  },
+  {
+    "Date": "2017-08-08",
+    "Inventory_Level": 424365
+  },
+  {
+    "Date": "2017-09-08",
+    "Inventory_Level": 436015
+  },
+  {
+    "Date": "2017-10-08",
+    "Inventory_Level": 438287
+  },
+  {
+    "Date": "2017-11-08",
+    "Inventory_Level": 439412
+  },
+  {
+    "Date": "2017-12-08",
+    "Inventory_Level": 442898
+  },
+  {
+    "Date": "2017-08-13",
+    "Inventory_Level": 459862
+  },
+  {
+    "Date": "2017-08-14",
+    "Inventory_Level": 460124
+  },
+  {
+    "Date": "2017-08-15",
+    "Inventory_Level": 449075
+  },
+  {
+    "Date": "2017-08-16",
+    "Inventory_Level": 446308
+  },
+  {
+    "Date": "2017-08-17",
+    "Inventory_Level": 426523
+  },
+  {
+    "Date": "2017-08-18",
+    "Inventory_Level": 442947
+  },
+  {
+    "Date": "2017-08-19",
+    "Inventory_Level": 432148
+  },
+  {
+    "Date": "2017-08-20",
+    "Inventory_Level": 434099
+  },
+  {
+    "Date": "2017-08-21",
+    "Inventory_Level": 445596
+  },
+  {
+    "Date": "2017-08-22",
+    "Inventory_Level": 446964
+  },
+  {
+    "Date": "2017-08-23",
+    "Inventory_Level": 443040
+  },
+  {
+    "Date": "2017-08-24",
+    "Inventory_Level": 443420
+  },
+  {
+    "Date": "2017-08-25",
+    "Inventory_Level": 456252
+  },
+  {
+    "Date": "2017-08-26",
+    "Inventory_Level": 448526
+  },
+  {
+    "Date": "2017-08-27",
+    "Inventory_Level": 460693
+  },
+  {
+    "Date": "2017-08-28",
+    "Inventory_Level": 468003
+  },
+  {
+    "Date": "2017-08-29",
+    "Inventory_Level": 474095
+  },
+  {
+    "Date": "2017-08-30",
+    "Inventory_Level": 464045
+  },
+  {
+    "Date": "2017-08-31",
+    "Inventory_Level": 465900
+  },
+  {
+    "Date": "2017-01-09",
+    "Inventory_Level": 460396
+  },
+  {
+    "Date": "2017-02-09",
+    "Inventory_Level": 469187
+  },
+  {
+    "Date": "2017-03-09",
+    "Inventory_Level": 462176
+  },
+  {
+    "Date": "2017-04-09",
+    "Inventory_Level": 469661
+  },
+  {
+    "Date": "2017-05-09",
+    "Inventory_Level": 468699
+  },
+  {
+    "Date": "2017-06-09",
+    "Inventory_Level": 475388
+  },
+  {
+    "Date": "2017-07-09",
+    "Inventory_Level": 464108
+  },
+  {
+    "Date": "2017-08-09",
+    "Inventory_Level": 474168
+  },
+  {
+    "Date": "2017-09-09",
+    "Inventory_Level": 482481
+  },
+  {
+    "Date": "2017-10-09",
+    "Inventory_Level": 498543
+  },
+  {
+    "Date": "2017-11-09",
+    "Inventory_Level": 506421
+  },
+  {
+    "Date": "2017-12-09",
+    "Inventory_Level": 509476
+  },
+  {
+    "Date": "2017-09-13",
+    "Inventory_Level": 489419
+  },
+  {
+    "Date": "2017-09-14",
+    "Inventory_Level": 481982
+  },
+  {
+    "Date": "2017-09-15",
+    "Inventory_Level": 464632
+  },
+  {
+    "Date": "2017-09-16",
+    "Inventory_Level": 465497
+  },
+  {
+    "Date": "2017-09-17",
+    "Inventory_Level": 468007
+  },
+  {
+    "Date": "2017-09-18",
+    "Inventory_Level": 470637
+  },
+  {
+    "Date": "2017-09-19",
+    "Inventory_Level": 468092
+  },
+  {
+    "Date": "2017-09-20",
+    "Inventory_Level": 442338
+  },
+  {
+    "Date": "2017-09-21",
+    "Inventory_Level": 430342
+  },
+  {
+    "Date": "2017-09-22",
+    "Inventory_Level": 409848
+  },
+  {
+    "Date": "2017-09-23",
+    "Inventory_Level": 398082
+  },
+  {
+    "Date": "2017-09-24",
+    "Inventory_Level": 385572
+  },
+  {
+    "Date": "2017-09-25",
+    "Inventory_Level": 382128
+  },
+  {
+    "Date": "2017-09-26",
+    "Inventory_Level": 407288
+  },
+  {
+    "Date": "2017-09-27",
+    "Inventory_Level": 417909
+  },
+  {
+    "Date": "2017-09-28",
+    "Inventory_Level": 411730
+  },
+  {
+    "Date": "2017-09-29",
+    "Inventory_Level": 415536
+  },
+  {
+    "Date": "2017-09-30",
+    "Inventory_Level": 391002
+  },
+  {
+    "Date": "2017-01-10",
+    "Inventory_Level": 401509
+  },
+  {
+    "Date": "2017-02-10",
+    "Inventory_Level": 392596
+  },
+  {
+    "Date": "2017-03-10",
+    "Inventory_Level": 377118
+  },
+  {
+    "Date": "2017-04-10",
+    "Inventory_Level": 380605
+  },
+  {
+    "Date": "2017-05-10",
+    "Inventory_Level": 369078
+  },
+  {
+    "Date": "2017-06-10",
+    "Inventory_Level": 364514
+  },
+  {
+    "Date": "2017-07-10",
+    "Inventory_Level": 351837
+  },
+  {
+    "Date": "2017-08-10",
+    "Inventory_Level": 362923
+  },
+  {
+    "Date": "2017-09-10",
+    "Inventory_Level": 370462
+  },
+  {
+    "Date": "2017-10-10",
+    "Inventory_Level": 370788
+  },
+  {
+    "Date": "2017-11-10",
+    "Inventory_Level": 371004
+  },
+  {
+    "Date": "2017-12-10",
+    "Inventory_Level": 387621
+  },
+  {
+    "Date": "2017-10-13",
+    "Inventory_Level": 386396
+  },
+  {
+    "Date": "2017-10-14",
+    "Inventory_Level": 401070
+  },
+  {
+    "Date": "2017-10-15",
+    "Inventory_Level": 385612
+  },
+  {
+    "Date": "2017-10-16",
+    "Inventory_Level": 372004
+  },
+  {
+    "Date": "2017-10-17",
+    "Inventory_Level": 389611
+  },
+  {
+    "Date": "2017-10-18",
+    "Inventory_Level": 385629
+  },
+  {
+    "Date": "2017-10-19",
+    "Inventory_Level": 386883
+  },
+  {
+    "Date": "2017-10-20",
+    "Inventory_Level": 391706
+  },
+  {
+    "Date": "2017-10-21",
+    "Inventory_Level": 383789
+  },
+  {
+    "Date": "2017-10-22",
+    "Inventory_Level": 380977
+  },
+  {
+    "Date": "2017-10-23",
+    "Inventory_Level": 394367
+  },
+  {
+    "Date": "2017-10-24",
+    "Inventory_Level": 402660
+  },
+  {
+    "Date": "2017-10-25",
+    "Inventory_Level": 393498
+  },
+  {
+    "Date": "2017-10-26",
+    "Inventory_Level": 395004
+  },
+  {
+    "Date": "2017-10-27",
+    "Inventory_Level": 397991
+  },
+  {
+    "Date": "2017-10-28",
+    "Inventory_Level": 400737
+  },
+  {
+    "Date": "2017-10-29",
+    "Inventory_Level": 403510
+  },
+  {
+    "Date": "2017-10-30",
+    "Inventory_Level": 407486
+  },
+  {
+    "Date": "2017-10-31",
+    "Inventory_Level": 410342
+  },
+  {
+    "Date": "2017-01-11",
+    "Inventory_Level": 400655
+  },
+  {
+    "Date": "2017-02-11",
+    "Inventory_Level": 401385
+  },
+  {
+    "Date": "2017-03-11",
+    "Inventory_Level": 392970
+  },
+  {
+    "Date": "2017-04-11",
+    "Inventory_Level": 399343
+  },
+  {
+    "Date": "2017-05-11",
+    "Inventory_Level": 403592
+  },
+  {
+    "Date": "2017-06-11",
+    "Inventory_Level": 363681
+  },
+  {
+    "Date": "2017-07-11",
+    "Inventory_Level": 351336
+  },
+  {
+    "Date": "2017-08-11",
+    "Inventory_Level": 359582
+  },
+  {
+    "Date": "2017-09-11",
+    "Inventory_Level": 363260
+  },
+  {
+    "Date": "2017-10-11",
+    "Inventory_Level": 369759
+  },
+  {
+    "Date": "2017-11-11",
+    "Inventory_Level": 391484
+  },
+  {
+    "Date": "2017-12-11",
+    "Inventory_Level": 409060
+  },
+  {
+    "Date": "2017-11-13",
+    "Inventory_Level": 399353
+  },
+  {
+    "Date": "2017-11-14",
+    "Inventory_Level": 395064
+  },
+  {
+    "Date": "2017-11-15",
+    "Inventory_Level": 404937
+  },
+  {
+    "Date": "2017-11-16",
+    "Inventory_Level": 409256
+  },
+  {
+    "Date": "2017-11-17",
+    "Inventory_Level": 405133
+  },
+  {
+    "Date": "2017-11-18",
+    "Inventory_Level": 398123
+  },
+  {
+    "Date": "2017-11-19",
+    "Inventory_Level": 398676
+  },
+  {
+    "Date": "2017-11-20",
+    "Inventory_Level": 386101
+  },
+  {
+    "Date": "2017-11-21",
+    "Inventory_Level": 391870
+  },
+  {
+    "Date": "2017-11-22",
+    "Inventory_Level": 370778
+  },
+  {
+    "Date": "2017-11-23",
+    "Inventory_Level": 367836
+  },
+  {
+    "Date": "2017-11-24",
+    "Inventory_Level": 366655
+  },
+  {
+    "Date": "2017-11-25",
+    "Inventory_Level": 370654
+  },
+  {
+    "Date": "2017-11-26",
+    "Inventory_Level": 391571
+  },
+  {
+    "Date": "2017-11-27",
+    "Inventory_Level": 400188
+  },
+  {
+    "Date": "2017-11-28",
+    "Inventory_Level": 432613
+  },
+  {
+    "Date": "2017-11-29",
+    "Inventory_Level": 446812
+  },
+  {
+    "Date": "2017-11-30",
+    "Inventory_Level": 474427
+  },
+  {
+    "Date": "2017-01-12",
+    "Inventory_Level": 480405
+  },
+  {
+    "Date": "2017-02-12",
+    "Inventory_Level": 479516
+  },
+  {
+    "Date": "2017-03-12",
+    "Inventory_Level": 497038
+  },
+  {
+    "Date": "2017-04-12",
+    "Inventory_Level": 481771
+  },
+  {
+    "Date": "2017-05-12",
+    "Inventory_Level": 475985
+  },
+  {
+    "Date": "2017-06-12",
+    "Inventory_Level": 465901
+  },
+  {
+    "Date": "2017-07-12",
+    "Inventory_Level": 460385
+  },
+  {
+    "Date": "2017-08-12",
+    "Inventory_Level": 442711
+  },
+  {
+    "Date": "2017-09-12",
+    "Inventory_Level": 445022
+  },
+  {
+    "Date": "2017-10-12",
+    "Inventory_Level": 469637
+  },
+  {
+    "Date": "2017-11-12",
+    "Inventory_Level": 444337
+  },
+  {
+    "Date": "2017-12-12",
+    "Inventory_Level": 468821
+  },
+  {
+    "Date": "2017-12-13",
+    "Inventory_Level": 460749
+  },
+  {
+    "Date": "2017-12-14",
+    "Inventory_Level": 480301
+  },
+  {
+    "Date": "2017-12-15",
+    "Inventory_Level": 471533
+  },
+  {
+    "Date": "2017-12-16",
+    "Inventory_Level": 485343
+  },
+  {
+    "Date": "2017-12-17",
+    "Inventory_Level": 499485
+  },
+  {
+    "Date": "2017-12-18",
+    "Inventory_Level": 510048
+  },
+  {
+    "Date": "2017-12-19",
+    "Inventory_Level": 531323
+  },
+  {
+    "Date": "2017-12-20",
+    "Inventory_Level": 527692
+  },
+  {
+    "Date": "2017-12-21",
+    "Inventory_Level": 547760
+  },
+  {
+    "Date": "2017-12-22",
+    "Inventory_Level": 546946
+  },
+  {
+    "Date": "2017-12-23",
+    "Inventory_Level": 553577
+  },
+  {
+    "Date": "2017-12-24",
+    "Inventory_Level": 535228
+  },
+  {
+    "Date": "2017-12-25",
+    "Inventory_Level": 543780
+  },
+  {
+    "Date": "2017-12-26",
+    "Inventory_Level": 542757
+  },
+  {
+    "Date": "2017-12-27",
+    "Inventory_Level": 542183
+  },
+  {
+    "Date": "2017-12-28",
+    "Inventory_Level": 533055
+  },
+  {
+    "Date": "2017-12-29",
+    "Inventory_Level": 517288
+  },
+  {
+    "Date": "2017-12-30",
+    "Inventory_Level": 520111
+  },
+  {
+    "Date": "2017-12-31",
+    "Inventory_Level": 519567
+  },
+  {
+    "Date": "2018-01-01",
+    "Inventory_Level": 538219
+  },
+  {
+    "Date": "2018-02-01",
+    "Inventory_Level": 532782
+  },
+  {
+    "Date": "2018-03-01",
+    "Inventory_Level": 539753
+  },
+  {
+    "Date": "2018-04-01",
+    "Inventory_Level": 546283
+  },
+  {
+    "Date": "2018-05-01",
+    "Inventory_Level": 532611
+  },
+  {
+    "Date": "2018-06-01",
+    "Inventory_Level": 557517
+  },
+  {
+    "Date": "2018-07-01",
+    "Inventory_Level": 573111
+  },
+  {
+    "Date": "2018-08-01",
+    "Inventory_Level": 602069
+  },
+  {
+    "Date": "2018-09-01",
+    "Inventory_Level": 605556
+  },
+  {
+    "Date": "2018-10-01",
+    "Inventory_Level": 603948
+  },
+  {
+    "Date": "2018-11-01",
+    "Inventory_Level": 603650
+  },
+  {
+    "Date": "2018-12-01",
+    "Inventory_Level": 601088
+  },
+  {
+    "Date": "2018-01-13",
+    "Inventory_Level": 616770
+  },
+  {
+    "Date": "2018-01-14",
+    "Inventory_Level": 620921
+  },
+  {
+    "Date": "2018-01-15",
+    "Inventory_Level": 593580
+  },
+  {
+    "Date": "2018-01-16",
+    "Inventory_Level": 567585
+  },
+  {
+    "Date": "2018-01-17",
+    "Inventory_Level": 579961
+  },
+  {
+    "Date": "2018-01-18",
+    "Inventory_Level": 570773
+  },
+  {
+    "Date": "2018-01-19",
+    "Inventory_Level": 605086
+  },
+  {
+    "Date": "2018-01-20",
+    "Inventory_Level": 621181
+  },
+  {
+    "Date": "2018-01-21",
+    "Inventory_Level": 639592
+  },
+  {
+    "Date": "2018-01-22",
+    "Inventory_Level": 647718
+  },
+  {
+    "Date": "2018-01-23",
+    "Inventory_Level": 667112
+  },
+  {
+    "Date": "2018-01-24",
+    "Inventory_Level": 669039
+  },
+  {
+    "Date": "2018-01-25",
+    "Inventory_Level": 673138
+  },
+  {
+    "Date": "2018-01-26",
+    "Inventory_Level": 657054
+  },
+  {
+    "Date": "2018-01-27",
+    "Inventory_Level": 667043
+  },
+  {
+    "Date": "2018-01-28",
+    "Inventory_Level": 687887
+  },
+  {
+    "Date": "2018-01-29",
+    "Inventory_Level": 681856
+  },
+  {
+    "Date": "2018-01-30",
+    "Inventory_Level": 698663
+  },
+  {
+    "Date": "2018-01-31",
+    "Inventory_Level": 696123
+  },
+  {
+    "Date": "2018-01-02",
+    "Inventory_Level": 673403
+  },
+  {
+    "Date": "2018-02-02",
+    "Inventory_Level": 690692
+  },
+  {
+    "Date": "2018-03-02",
+    "Inventory_Level": 670189
+  },
+  {
+    "Date": "2018-04-02",
+    "Inventory_Level": 640532
+  },
+  {
+    "Date": "2018-05-02",
+    "Inventory_Level": 616308
+  },
+  {
+    "Date": "2018-06-02",
+    "Inventory_Level": 635712
+  },
+  {
+    "Date": "2018-07-02",
+    "Inventory_Level": 625483
+  },
+  {
+    "Date": "2018-08-02",
+    "Inventory_Level": 627303
+  },
+  {
+    "Date": "2018-09-02",
+    "Inventory_Level": 612212
+  },
+  {
+    "Date": "2018-10-02",
+    "Inventory_Level": 596301
+  },
+  {
+    "Date": "2018-11-02",
+    "Inventory_Level": 584815
+  },
+  {
+    "Date": "2018-12-02",
+    "Inventory_Level": 582013
+  },
+  {
+    "Date": "2018-02-13",
+    "Inventory_Level": 582231
+  },
+  {
+    "Date": "2018-02-14",
+    "Inventory_Level": 578944
+  },
+  {
+    "Date": "2018-02-15",
+    "Inventory_Level": 578473
+  },
+  {
+    "Date": "2018-02-16",
+    "Inventory_Level": 590243
+  },
+  {
+    "Date": "2018-02-17",
+    "Inventory_Level": 600438
+  },
+  {
+    "Date": "2018-02-18",
+    "Inventory_Level": 605590
+  },
+  {
+    "Date": "2018-02-19",
+    "Inventory_Level": 581242
+  },
+  {
+    "Date": "2018-02-20",
+    "Inventory_Level": 578329
+  },
+  {
+    "Date": "2018-02-21",
+    "Inventory_Level": 572153
+  },
+  {
+    "Date": "2018-02-22",
+    "Inventory_Level": 570819
+  },
+  {
+    "Date": "2018-02-23",
+    "Inventory_Level": 584748
+  },
+  {
+    "Date": "2018-02-24",
+    "Inventory_Level": 580540
+  },
+  {
+    "Date": "2018-02-25",
+    "Inventory_Level": 563824
+  },
+  {
+    "Date": "2018-02-26",
+    "Inventory_Level": 567370
+  },
+  {
+    "Date": "2018-02-27",
+    "Inventory_Level": 572729
+  },
+  {
+    "Date": "2018-02-28",
+    "Inventory_Level": 552886
+  },
+  {
+    "Date": "2018-01-03",
+    "Inventory_Level": 545915
+  },
+  {
+    "Date": "2018-02-03",
+    "Inventory_Level": 529293
+  },
+  {
+    "Date": "2018-03-03",
+    "Inventory_Level": 524326
+  },
+  {
+    "Date": "2018-04-03",
+    "Inventory_Level": 548399
+  },
+  {
+    "Date": "2018-05-03",
+    "Inventory_Level": 561868
+  },
+  {
+    "Date": "2018-06-03",
+    "Inventory_Level": 568640
+  },
+  {
+    "Date": "2018-07-03",
+    "Inventory_Level": 543710
+  },
+  {
+    "Date": "2018-08-03",
+    "Inventory_Level": 539829
+  },
+  {
+    "Date": "2018-09-03",
+    "Inventory_Level": 527202
+  },
+  {
+    "Date": "2018-10-03",
+    "Inventory_Level": 552181
+  },
+  {
+    "Date": "2018-11-03",
+    "Inventory_Level": 551971
+  },
+  {
+    "Date": "2018-12-03",
+    "Inventory_Level": 529272
+  },
+  {
+    "Date": "2018-03-13",
+    "Inventory_Level": 529845
+  },
+  {
+    "Date": "2018-03-14",
+    "Inventory_Level": 538510
+  },
+  {
+    "Date": "2018-03-15",
+    "Inventory_Level": 550121
+  },
+  {
+    "Date": "2018-03-16",
+    "Inventory_Level": 529019
+  },
+  {
+    "Date": "2018-03-17",
+    "Inventory_Level": 531910
+  },
+  {
+    "Date": "2018-03-18",
+    "Inventory_Level": 528976
+  },
+  {
+    "Date": "2018-03-19",
+    "Inventory_Level": 508527
+  },
+  {
+    "Date": "2018-03-20",
+    "Inventory_Level": 482056
+  },
+  {
+    "Date": "2018-03-21",
+    "Inventory_Level": 483373
+  },
+  {
+    "Date": "2018-03-22",
+    "Inventory_Level": 473584
+  },
+  {
+    "Date": "2018-03-23",
+    "Inventory_Level": 472363
+  },
+  {
+    "Date": "2018-03-24",
+    "Inventory_Level": 480943
+  },
+  {
+    "Date": "2018-03-25",
+    "Inventory_Level": 492457
+  },
+  {
+    "Date": "2018-03-26",
+    "Inventory_Level": 502330
+  },
+  {
+    "Date": "2018-03-27",
+    "Inventory_Level": 497867
+  },
+  {
+    "Date": "2018-03-28",
+    "Inventory_Level": 509492
+  },
+  {
+    "Date": "2018-03-29",
+    "Inventory_Level": 489710
+  },
+  {
+    "Date": "2018-03-30",
+    "Inventory_Level": 506271
+  },
+  {
+    "Date": "2018-03-31",
+    "Inventory_Level": 516652
+  },
+  {
+    "Date": "2018-01-04",
+    "Inventory_Level": 488628
+  },
+  {
+    "Date": "2018-02-04",
+    "Inventory_Level": 489480
+  },
+  {
+    "Date": "2018-03-04",
+    "Inventory_Level": 502263
+  },
+  {
+    "Date": "2018-04-04",
+    "Inventory_Level": 504035
+  },
+  {
+    "Date": "2018-05-04",
+    "Inventory_Level": 502187
+  },
+  {
+    "Date": "2018-06-04",
+    "Inventory_Level": 515257
+  },
+  {
+    "Date": "2018-07-04",
+    "Inventory_Level": 527712
+  },
+  {
+    "Date": "2018-08-04",
+    "Inventory_Level": 526984
+  },
+  {
+    "Date": "2018-09-04",
+    "Inventory_Level": 519694
+  },
+  {
+    "Date": "2018-10-04",
+    "Inventory_Level": 535604
+  },
+  {
+    "Date": "2018-11-04",
+    "Inventory_Level": 532251
+  },
+  {
+    "Date": "2018-12-04",
+    "Inventory_Level": 531790
+  },
+  {
+    "Date": "2018-04-13",
+    "Inventory_Level": 545509
+  },
+  {
+    "Date": "2018-04-14",
+    "Inventory_Level": 542899
+  },
+  {
+    "Date": "2018-04-15",
+    "Inventory_Level": 539839
+  },
+  {
+    "Date": "2018-04-16",
+    "Inventory_Level": 552078
+  },
+  {
+    "Date": "2018-04-17",
+    "Inventory_Level": 554919
+  },
+  {
+    "Date": "2018-04-18",
+    "Inventory_Level": 564510
+  },
+  {
+    "Date": "2018-04-19",
+    "Inventory_Level": 564019
+  },
+  {
+    "Date": "2018-04-20",
+    "Inventory_Level": 574981
+  },
+  {
+    "Date": "2018-04-21",
+    "Inventory_Level": 563561
+  },
+  {
+    "Date": "2018-04-22",
+    "Inventory_Level": 577921
+  },
+  {
+    "Date": "2018-04-23",
+    "Inventory_Level": 570928
+  },
+  {
+    "Date": "2018-04-24",
+    "Inventory_Level": 602707
+  },
+  {
+    "Date": "2018-04-25",
+    "Inventory_Level": 607548
+  },
+  {
+    "Date": "2018-04-26",
+    "Inventory_Level": 620309
+  },
+  {
+    "Date": "2018-04-27",
+    "Inventory_Level": 622325
+  },
+  {
+    "Date": "2018-04-28",
+    "Inventory_Level": 643253
+  },
+  {
+    "Date": "2018-04-29",
+    "Inventory_Level": 640335
+  },
+  {
+    "Date": "2018-04-30",
+    "Inventory_Level": 652722
+  },
+  {
+    "Date": "2018-01-05",
+    "Inventory_Level": 638651
+  },
+  {
+    "Date": "2018-02-05",
+    "Inventory_Level": 619451
+  },
+  {
+    "Date": "2018-03-05",
+    "Inventory_Level": 602230
+  },
+  {
+    "Date": "2018-04-05",
+    "Inventory_Level": 586690
+  },
+  {
+    "Date": "2018-05-05",
+    "Inventory_Level": 594601
+  },
+  {
+    "Date": "2018-06-05",
+    "Inventory_Level": 590646
+  },
+  {
+    "Date": "2018-07-05",
+    "Inventory_Level": 576023
+  },
+  {
+    "Date": "2018-08-05",
+    "Inventory_Level": 572064
+  },
+  {
+    "Date": "2018-09-05",
+    "Inventory_Level": 592280
+  },
+  {
+    "Date": "2018-10-05",
+    "Inventory_Level": 583499
+  },
+  {
+    "Date": "2018-11-05",
+    "Inventory_Level": 591947
+  },
+  {
+    "Date": "2018-12-05",
+    "Inventory_Level": 575131
+  },
+  {
+    "Date": "2018-05-13",
+    "Inventory_Level": 549635
+  },
+  {
+    "Date": "2018-05-14",
+    "Inventory_Level": 515196
+  },
+  {
+    "Date": "2018-05-15",
+    "Inventory_Level": 514501
+  },
+  {
+    "Date": "2018-05-16",
+    "Inventory_Level": 524143
+  },
+  {
+    "Date": "2018-05-17",
+    "Inventory_Level": 525516
+  },
+  {
+    "Date": "2018-05-18",
+    "Inventory_Level": 519133
+  },
+  {
+    "Date": "2018-05-19",
+    "Inventory_Level": 499440
+  },
+  {
+    "Date": "2018-05-20",
+    "Inventory_Level": 502472
+  },
+  {
+    "Date": "2018-05-21",
+    "Inventory_Level": 510924
+  },
+  {
+    "Date": "2018-05-22",
+    "Inventory_Level": 514259
+  },
+  {
+    "Date": "2018-05-23",
+    "Inventory_Level": 520131
+  },
+  {
+    "Date": "2018-05-24",
+    "Inventory_Level": 528631
+  },
+  {
+    "Date": "2018-05-25",
+    "Inventory_Level": 524335
+  },
+  {
+    "Date": "2018-05-26",
+    "Inventory_Level": 523978
+  },
+  {
+    "Date": "2018-05-27",
+    "Inventory_Level": 529797
+  },
+  {
+    "Date": "2018-05-28",
+    "Inventory_Level": 512621
+  },
+  {
+    "Date": "2018-05-29",
+    "Inventory_Level": 526797
+  },
+  {
+    "Date": "2018-05-30",
+    "Inventory_Level": 534059
+  },
+  {
+    "Date": "2018-05-31",
+    "Inventory_Level": 549018
+  },
+  {
+    "Date": "2018-01-06",
+    "Inventory_Level": 530729
+  },
+  {
+    "Date": "2018-02-06",
+    "Inventory_Level": 519584
+  },
+  {
+    "Date": "2018-03-06",
+    "Inventory_Level": 504310
+  },
+  {
+    "Date": "2018-04-06",
+    "Inventory_Level": 506771
+  },
+  {
+    "Date": "2018-05-06",
+    "Inventory_Level": 509383
+  },
+  {
+    "Date": "2018-06-06",
+    "Inventory_Level": 519527
+  },
+  {
+    "Date": "2018-07-06",
+    "Inventory_Level": 514271
+  },
+  {
+    "Date": "2018-08-06",
+    "Inventory_Level": 520917
+  },
+  {
+    "Date": "2018-09-06",
+    "Inventory_Level": 508266
+  },
+  {
+    "Date": "2018-10-06",
+    "Inventory_Level": 495333
+  },
+  {
+    "Date": "2018-11-06",
+    "Inventory_Level": 501137
+  },
+  {
+    "Date": "2018-12-06",
+    "Inventory_Level": 508981
+  },
+  {
+    "Date": "2018-06-13",
+    "Inventory_Level": 505093
+  },
+  {
+    "Date": "2018-06-14",
+    "Inventory_Level": 509617
+  },
+  {
+    "Date": "2018-06-15",
+    "Inventory_Level": 514937
+  },
+  {
+    "Date": "2018-06-16",
+    "Inventory_Level": 487325
+  },
+  {
+    "Date": "2018-06-17",
+    "Inventory_Level": 494972
+  },
+  {
+    "Date": "2018-06-18",
+    "Inventory_Level": 491482
+  },
+  {
+    "Date": "2018-06-19",
+    "Inventory_Level": 476603
+  },
+  {
+    "Date": "2018-06-20",
+    "Inventory_Level": 480832
+  },
+  {
+    "Date": "2018-06-21",
+    "Inventory_Level": 466623
+  },
+  {
+    "Date": "2018-06-22",
+    "Inventory_Level": 462821
+  },
+  {
+    "Date": "2018-06-23",
+    "Inventory_Level": 422190
+  },
+  {
+    "Date": "2018-06-24",
+    "Inventory_Level": 410175
+  },
+  {
+    "Date": "2018-06-25",
+    "Inventory_Level": 404905
+  },
+  {
+    "Date": "2018-06-26",
+    "Inventory_Level": 413754
+  },
+  {
+    "Date": "2018-06-27",
+    "Inventory_Level": 417044
+  },
+  {
+    "Date": "2018-06-28",
+    "Inventory_Level": 403339
+  },
+  {
+    "Date": "2018-06-29",
+    "Inventory_Level": 402369
+  },
+  {
+    "Date": "2018-06-30",
+    "Inventory_Level": 412324
+  },
+  {
+    "Date": "2018-01-07",
+    "Inventory_Level": 412890
+  },
+  {
+    "Date": "2018-02-07",
+    "Inventory_Level": 409153
+  },
+  {
+    "Date": "2018-03-07",
+    "Inventory_Level": 434499
+  },
+  {
+    "Date": "2018-04-07",
+    "Inventory_Level": 439307
+  },
+  {
+    "Date": "2018-05-07",
+    "Inventory_Level": 454290
+  },
+  {
+    "Date": "2018-06-07",
+    "Inventory_Level": 473355
+  },
+  {
+    "Date": "2018-07-07",
+    "Inventory_Level": 444473
+  },
+  {
+    "Date": "2018-08-07",
+    "Inventory_Level": 446248
+  },
+  {
+    "Date": "2018-09-07",
+    "Inventory_Level": 459179
+  },
+  {
+    "Date": "2018-10-07",
+    "Inventory_Level": 462722
+  },
+  {
+    "Date": "2018-11-07",
+    "Inventory_Level": 465916
+  },
+  {
+    "Date": "2018-12-07",
+    "Inventory_Level": 479803
+  },
+  {
+    "Date": "2018-07-13",
+    "Inventory_Level": 478840
+  },
+  {
+    "Date": "2018-07-14",
+    "Inventory_Level": 471497
+  },
+  {
+    "Date": "2018-07-15",
+    "Inventory_Level": 491673
+  },
+  {
+    "Date": "2018-07-16",
+    "Inventory_Level": 495211
+  },
+  {
+    "Date": "2018-07-17",
+    "Inventory_Level": 473542
+  },
+  {
+    "Date": "2018-07-18",
+    "Inventory_Level": 478965
+  },
+  {
+    "Date": "2018-07-19",
+    "Inventory_Level": 481699
+  },
+  {
+    "Date": "2018-07-20",
+    "Inventory_Level": 493583
+  },
+  {
+    "Date": "2018-07-21",
+    "Inventory_Level": 508705
+  },
+  {
+    "Date": "2018-07-22",
+    "Inventory_Level": 510238
+  },
+  {
+    "Date": "2018-07-23",
+    "Inventory_Level": 506098
+  },
+  {
+    "Date": "2018-07-24",
+    "Inventory_Level": 516661
+  },
+  {
+    "Date": "2018-07-25",
+    "Inventory_Level": 503147
+  },
+  {
+    "Date": "2018-07-26",
+    "Inventory_Level": 504012
+  },
+  {
+    "Date": "2018-07-27",
+    "Inventory_Level": 502758
+  },
+  {
+    "Date": "2018-07-28",
+    "Inventory_Level": 521055
+  },
+  {
+    "Date": "2018-07-29",
+    "Inventory_Level": 507996
+  },
+  {
+    "Date": "2018-07-30",
+    "Inventory_Level": 512898
+  },
+  {
+    "Date": "2018-07-31",
+    "Inventory_Level": 504922
+  },
+  {
+    "Date": "2018-01-08",
+    "Inventory_Level": 501938
+  },
+  {
+    "Date": "2018-02-08",
+    "Inventory_Level": 496305
+  },
+  {
+    "Date": "2018-03-08",
+    "Inventory_Level": 482212
+  },
+  {
+    "Date": "2018-04-08",
+    "Inventory_Level": 483445
+  },
+  {
+    "Date": "2018-05-08",
+    "Inventory_Level": 481467
+  },
+  {
+    "Date": "2018-06-08",
+    "Inventory_Level": 498484
+  },
+  {
+    "Date": "2018-07-08",
+    "Inventory_Level": 498758
+  },
+  {
+    "Date": "2018-08-08",
+    "Inventory_Level": 493910
+  },
+  {
+    "Date": "2018-09-08",
+    "Inventory_Level": 495590
+  },
+  {
+    "Date": "2018-10-08",
+    "Inventory_Level": 495580
+  },
+  {
+    "Date": "2018-11-08",
+    "Inventory_Level": 523123
+  },
+  {
+    "Date": "2018-12-08",
+    "Inventory_Level": 523945
+  },
+  {
+    "Date": "2018-08-13",
+    "Inventory_Level": 534654
+  },
+  {
+    "Date": "2018-08-14",
+    "Inventory_Level": 529148
+  },
+  {
+    "Date": "2018-08-15",
+    "Inventory_Level": 545574
+  },
+  {
+    "Date": "2018-08-16",
+    "Inventory_Level": 553059
+  },
+  {
+    "Date": "2018-08-17",
+    "Inventory_Level": 561448
+  },
+  {
+    "Date": "2018-08-18",
+    "Inventory_Level": 565886
+  },
+  {
+    "Date": "2018-08-19",
+    "Inventory_Level": 543210
+  },
+  {
+    "Date": "2018-08-20",
+    "Inventory_Level": 524806
+  },
+  {
+    "Date": "2018-08-21",
+    "Inventory_Level": 517351
+  },
+  {
+    "Date": "2018-08-22",
+    "Inventory_Level": 518141
+  },
+  {
+    "Date": "2018-08-23",
+    "Inventory_Level": 550569
+  },
+  {
+    "Date": "2018-08-24",
+    "Inventory_Level": 561474
+  },
+  {
+    "Date": "2018-08-25",
+    "Inventory_Level": 577678
+  },
+  {
+    "Date": "2018-08-26",
+    "Inventory_Level": 562540
+  },
+  {
+    "Date": "2018-08-27",
+    "Inventory_Level": 553946
+  },
+  {
+    "Date": "2018-08-28",
+    "Inventory_Level": 541974
+  },
+  {
+    "Date": "2018-08-29",
+    "Inventory_Level": 550914
+  },
+  {
+    "Date": "2018-08-30",
+    "Inventory_Level": 546358
+  },
+  {
+    "Date": "2018-08-31",
+    "Inventory_Level": 549224
+  },
+  {
+    "Date": "2018-01-09",
+    "Inventory_Level": 553174
+  },
+  {
+    "Date": "2018-02-09",
+    "Inventory_Level": 561079
+  },
+  {
+    "Date": "2018-03-09",
+    "Inventory_Level": 562324
+  },
+  {
+    "Date": "2018-04-09",
+    "Inventory_Level": 534510
+  },
+  {
+    "Date": "2018-05-09",
+    "Inventory_Level": 520242
+  },
+  {
+    "Date": "2018-06-09",
+    "Inventory_Level": 517512
+  },
+  {
+    "Date": "2018-07-09",
+    "Inventory_Level": 488702
+  },
+  {
+    "Date": "2018-08-09",
+    "Inventory_Level": 482086
+  },
+  {
+    "Date": "2018-09-09",
+    "Inventory_Level": 479863
+  },
+  {
+    "Date": "2018-10-09",
+    "Inventory_Level": 490768
+  },
+  {
+    "Date": "2018-11-09",
+    "Inventory_Level": 498040
+  },
+  {
+    "Date": "2018-12-09",
+    "Inventory_Level": 511733
+  },
+  {
+    "Date": "2018-09-13",
+    "Inventory_Level": 504907
+  },
+  {
+    "Date": "2018-09-14",
+    "Inventory_Level": 504521
+  },
+  {
+    "Date": "2018-09-15",
+    "Inventory_Level": 516885
+  },
+  {
+    "Date": "2018-09-16",
+    "Inventory_Level": 516546
+  },
+  {
+    "Date": "2018-09-17",
+    "Inventory_Level": 529794
+  },
+  {
+    "Date": "2018-09-18",
+    "Inventory_Level": 527492
+  },
+  {
+    "Date": "2018-09-19",
+    "Inventory_Level": 534015
+  },
+  {
+    "Date": "2018-09-20",
+    "Inventory_Level": 519668
+  },
+  {
+    "Date": "2018-09-21",
+    "Inventory_Level": 522517
+  },
+  {
+    "Date": "2018-09-22",
+    "Inventory_Level": 522246
+  },
+  {
+    "Date": "2018-09-23",
+    "Inventory_Level": 521420
+  },
+  {
+    "Date": "2018-09-24",
+    "Inventory_Level": 516678
+  },
+  {
+    "Date": "2018-09-25",
+    "Inventory_Level": 507522
+  },
+  {
+    "Date": "2018-09-26",
+    "Inventory_Level": 527782
+  },
+  {
+    "Date": "2018-09-27",
+    "Inventory_Level": 524806
+  },
+  {
+    "Date": "2018-09-28",
+    "Inventory_Level": 549219
+  },
+  {
+    "Date": "2018-09-29",
+    "Inventory_Level": 548519
+  },
+  {
+    "Date": "2018-09-30",
+    "Inventory_Level": 533254
+  },
+  {
+    "Date": "2018-01-10",
+    "Inventory_Level": 539525
+  },
+  {
+    "Date": "2018-02-10",
+    "Inventory_Level": 552997
+  },
+  {
+    "Date": "2018-03-10",
+    "Inventory_Level": 545683
+  },
+  {
+    "Date": "2018-04-10",
+    "Inventory_Level": 520567
+  },
+  {
+    "Date": "2018-05-10",
+    "Inventory_Level": 531477
+  },
+  {
+    "Date": "2018-06-10",
+    "Inventory_Level": 513571
+  },
+  {
+    "Date": "2018-07-10",
+    "Inventory_Level": 514089
+  },
+  {
+    "Date": "2018-08-10",
+    "Inventory_Level": 522485
+  },
+  {
+    "Date": "2018-09-10",
+    "Inventory_Level": 529280
+  },
+  {
+    "Date": "2018-10-10",
+    "Inventory_Level": 525566
+  },
+  {
+    "Date": "2018-11-10",
+    "Inventory_Level": 522787
+  },
+  {
+    "Date": "2018-12-10",
+    "Inventory_Level": 512067
+  },
+  {
+    "Date": "2018-10-13",
+    "Inventory_Level": 502616
+  },
+  {
+    "Date": "2018-10-14",
+    "Inventory_Level": 507633
+  },
+  {
+    "Date": "2018-10-15",
+    "Inventory_Level": 494903
+  },
+  {
+    "Date": "2018-10-16",
+    "Inventory_Level": 478877
+  },
+  {
+    "Date": "2018-10-17",
+    "Inventory_Level": 496241
+  },
+  {
+    "Date": "2018-10-18",
+    "Inventory_Level": 499232
+  },
+  {
+    "Date": "2018-10-19",
+    "Inventory_Level": 475640
+  },
+  {
+    "Date": "2018-10-20",
+    "Inventory_Level": 478492
+  },
+  {
+    "Date": "2018-10-21",
+    "Inventory_Level": 488441
+  },
+  {
+    "Date": "2018-10-22",
+    "Inventory_Level": 496914
+  },
+  {
+    "Date": "2018-10-23",
+    "Inventory_Level": 503446
+  },
+  {
+    "Date": "2018-10-24",
+    "Inventory_Level": 510294
+  },
+  {
+    "Date": "2018-10-25",
+    "Inventory_Level": 509403
+  },
+  {
+    "Date": "2018-10-26",
+    "Inventory_Level": 511036
+  },
+  {
+    "Date": "2018-10-27",
+    "Inventory_Level": 510533
+  },
+  {
+    "Date": "2018-10-28",
+    "Inventory_Level": 532554
+  },
+  {
+    "Date": "2018-10-29",
+    "Inventory_Level": 536336
+  },
+  {
+    "Date": "2018-10-30",
+    "Inventory_Level": 551583
+  },
+  {
+    "Date": "2018-10-31",
+    "Inventory_Level": 561690
+  },
+  {
+    "Date": "2018-01-11",
+    "Inventory_Level": 584189
+  },
+  {
+    "Date": "2018-02-11",
+    "Inventory_Level": 579405
+  },
+  {
+    "Date": "2018-03-11",
+    "Inventory_Level": 569431
+  },
+  {
+    "Date": "2018-04-11",
+    "Inventory_Level": 554569
+  },
+  {
+    "Date": "2018-05-11",
+    "Inventory_Level": 575042
+  },
+  {
+    "Date": "2018-06-11",
+    "Inventory_Level": 562081
+  },
+  {
+    "Date": "2018-07-11",
+    "Inventory_Level": 566707
+  },
+  {
+    "Date": "2018-08-11",
+    "Inventory_Level": 562655
+  },
+  {
+    "Date": "2018-09-11",
+    "Inventory_Level": 562776
+  },
+  {
+    "Date": "2018-10-11",
+    "Inventory_Level": 588020
+  },
+  {
+    "Date": "2018-11-11",
+    "Inventory_Level": 586027
+  },
+  {
+    "Date": "2018-12-11",
+    "Inventory_Level": 595708
+  },
+  {
+    "Date": "2018-11-13",
+    "Inventory_Level": 597935
+  },
+  {
+    "Date": "2018-11-14",
+    "Inventory_Level": 579058
+  },
+  {
+    "Date": "2018-11-15",
+    "Inventory_Level": 595070
+  },
+  {
+    "Date": "2018-11-16",
+    "Inventory_Level": 607531
+  },
+  {
+    "Date": "2018-11-17",
+    "Inventory_Level": 600472
+  },
+  {
+    "Date": "2018-11-18",
+    "Inventory_Level": 593739
+  },
+  {
+    "Date": "2018-11-19",
+    "Inventory_Level": 585256
+  },
+  {
+    "Date": "2018-11-20",
+    "Inventory_Level": 575706
+  },
+  {
+    "Date": "2018-11-21",
+    "Inventory_Level": 576022
+  },
+  {
+    "Date": "2018-11-22",
+    "Inventory_Level": 584892
+  },
+  {
+    "Date": "2018-11-23",
+    "Inventory_Level": 567405
+  },
+  {
+    "Date": "2018-11-24",
+    "Inventory_Level": 565728
+  },
+  {
+    "Date": "2018-11-25",
+    "Inventory_Level": 575594
+  },
+  {
+    "Date": "2018-11-26",
+    "Inventory_Level": 585788
+  },
+  {
+    "Date": "2018-11-27",
+    "Inventory_Level": 573731
+  },
+  {
+    "Date": "2018-11-28",
+    "Inventory_Level": 579495
+  },
+  {
+    "Date": "2018-11-29",
+    "Inventory_Level": 597244
+  },
+  {
+    "Date": "2018-11-30",
+    "Inventory_Level": 601882
+  },
+  {
+    "Date": "2018-01-12",
+    "Inventory_Level": 630755
+  },
+  {
+    "Date": "2018-02-12",
+    "Inventory_Level": 619021
+  },
+  {
+    "Date": "2018-03-12",
+    "Inventory_Level": 623019
+  },
+  {
+    "Date": "2018-04-12",
+    "Inventory_Level": 625468
+  },
+  {
+    "Date": "2018-05-12",
+    "Inventory_Level": 628485
+  },
+  {
+    "Date": "2018-06-12",
+    "Inventory_Level": 640081
+  },
+  {
+    "Date": "2018-07-12",
+    "Inventory_Level": 644402
+  },
+  {
+    "Date": "2018-08-12",
+    "Inventory_Level": 652500
+  },
+  {
+    "Date": "2018-09-12",
+    "Inventory_Level": 689610
+  },
+  {
+    "Date": "2018-10-12",
+    "Inventory_Level": 714998
+  },
+  {
+    "Date": "2018-11-12",
+    "Inventory_Level": 726935
+  },
+  {
+    "Date": "2018-12-12",
+    "Inventory_Level": 738444
+  },
+  {
+    "Date": "2018-12-13",
+    "Inventory_Level": 743052
+  },
+  {
+    "Date": "2018-12-14",
+    "Inventory_Level": 750773
+  },
+  {
+    "Date": "2018-12-15",
+    "Inventory_Level": 774915
+  },
+  {
+    "Date": "2018-12-16",
+    "Inventory_Level": 781781
+  },
+  {
+    "Date": "2018-12-17",
+    "Inventory_Level": 793879
+  },
+  {
+    "Date": "2018-12-18",
+    "Inventory_Level": 796181
+  },
+  {
+    "Date": "2018-12-19",
+    "Inventory_Level": 810340
+  },
+  {
+    "Date": "2018-12-20",
+    "Inventory_Level": 831022
+  },
+  {
+    "Date": "2018-12-21",
+    "Inventory_Level": 832586
+  },
+  {
+    "Date": "2018-12-22",
+    "Inventory_Level": 847823
+  },
+  {
+    "Date": "2018-12-23",
+    "Inventory_Level": 834005
+  },
+  {
+    "Date": "2018-12-24",
+    "Inventory_Level": 826875
+  },
+  {
+    "Date": "2018-12-25",
+    "Inventory_Level": 836205
+  },
+  {
+    "Date": "2018-12-26",
+    "Inventory_Level": 823878
+  },
+  {
+    "Date": "2018-12-27",
+    "Inventory_Level": 831601
+  },
+  {
+    "Date": "2018-12-28",
+    "Inventory_Level": 838379
+  },
+  {
+    "Date": "2018-12-29",
+    "Inventory_Level": 817432
+  },
+  {
+    "Date": "2018-12-30",
+    "Inventory_Level": 806904
+  },
+  {
+    "Date": "2018-12-31",
+    "Inventory_Level": 776298
+  },
+  {
+    "Date": "2019-01-01",
+    "Inventory_Level": 780303
+  },
+  {
+    "Date": "2019-02-01",
+    "Inventory_Level": 786722
+  },
+  {
+    "Date": "2019-03-01",
+    "Inventory_Level": 793735
+  },
+  {
+    "Date": "2019-04-01",
+    "Inventory_Level": 752065
+  },
+  {
+    "Date": "2019-05-01",
+    "Inventory_Level": 776184
+  },
+  {
+    "Date": "2019-06-01",
+    "Inventory_Level": 752946
+  },
+  {
+    "Date": "2019-07-01",
+    "Inventory_Level": 752704
+  },
+  {
+    "Date": "2019-08-01",
+    "Inventory_Level": 732262
+  },
+  {
+    "Date": "2019-09-01",
+    "Inventory_Level": 732635
+  },
+  {
+    "Date": "2019-10-01",
+    "Inventory_Level": 733896
+  },
+  {
+    "Date": "2019-11-01",
+    "Inventory_Level": 723660
+  },
+  {
+    "Date": "2019-12-01",
+    "Inventory_Level": 704215
+  },
+  {
+    "Date": "2019-01-13",
+    "Inventory_Level": 690442
+  },
+  {
+    "Date": "2019-01-14",
+    "Inventory_Level": 681598
+  },
+  {
+    "Date": "2019-01-15",
+    "Inventory_Level": 697852
+  },
+  {
+    "Date": "2019-01-16",
+    "Inventory_Level": 739167
+  },
+  {
+    "Date": "2019-01-17",
+    "Inventory_Level": 735497
+  },
+  {
+    "Date": "2019-01-18",
+    "Inventory_Level": 745742
+  },
+  {
+    "Date": "2019-01-19",
+    "Inventory_Level": 726918
+  },
+  {
+    "Date": "2019-01-20",
+    "Inventory_Level": 718398
+  },
+  {
+    "Date": "2019-01-21",
+    "Inventory_Level": 693622
+  },
+  {
+    "Date": "2019-01-22",
+    "Inventory_Level": 688921
+  },
+  {
+    "Date": "2019-01-23",
+    "Inventory_Level": 680815
+  },
+  {
+    "Date": "2019-01-24",
+    "Inventory_Level": 684502
+  },
+  {
+    "Date": "2019-01-25",
+    "Inventory_Level": 654288
+  },
+  {
+    "Date": "2019-01-26",
+    "Inventory_Level": 670469
+  },
+  {
+    "Date": "2019-01-27",
+    "Inventory_Level": 680585
+  },
+  {
+    "Date": "2019-01-28",
+    "Inventory_Level": 684113
+  },
+  {
+    "Date": "2019-01-29",
+    "Inventory_Level": 675719
+  },
+  {
+    "Date": "2019-01-30",
+    "Inventory_Level": 670720
+  },
+  {
+    "Date": "2019-01-31",
+    "Inventory_Level": 689434
+  },
+  {
+    "Date": "2019-01-02",
+    "Inventory_Level": 701758
+  },
+  {
+    "Date": "2019-02-02",
+    "Inventory_Level": 716410
+  },
+  {
+    "Date": "2019-03-02",
+    "Inventory_Level": 694236
+  },
+  {
+    "Date": "2019-04-02",
+    "Inventory_Level": 687928
+  },
+  {
+    "Date": "2019-05-02",
+    "Inventory_Level": 692614
+  },
+  {
+    "Date": "2019-06-02",
+    "Inventory_Level": 702834
+  },
+  {
+    "Date": "2019-07-02",
+    "Inventory_Level": 675277
+  },
+  {
+    "Date": "2019-08-02",
+    "Inventory_Level": 669889
+  },
+  {
+    "Date": "2019-09-02",
+    "Inventory_Level": 683193
+  },
+  {
+    "Date": "2019-10-02",
+    "Inventory_Level": 682005
+  },
+  {
+    "Date": "2019-11-02",
+    "Inventory_Level": 664477
+  },
+  {
+    "Date": "2019-12-02",
+    "Inventory_Level": 661034
+  },
+  {
+    "Date": "2019-02-13",
+    "Inventory_Level": 639629
+  },
+  {
+    "Date": "2019-02-14",
+    "Inventory_Level": 625546
+  },
+  {
+    "Date": "2019-02-15",
+    "Inventory_Level": 627602
+  },
+  {
+    "Date": "2019-02-16",
+    "Inventory_Level": 605449
+  },
+  {
+    "Date": "2019-02-17",
+    "Inventory_Level": 579167
+  },
+  {
+    "Date": "2019-02-18",
+    "Inventory_Level": 563579
+  },
+  {
+    "Date": "2019-02-19",
+    "Inventory_Level": 551599
+  },
+  {
+    "Date": "2019-02-20",
+    "Inventory_Level": 587048
+  },
+  {
+    "Date": "2019-02-21",
+    "Inventory_Level": 579908
+  },
+  {
+    "Date": "2019-02-22",
+    "Inventory_Level": 591332
+  },
+  {
+    "Date": "2019-02-23",
+    "Inventory_Level": 599828
+  },
+  {
+    "Date": "2019-02-24",
+    "Inventory_Level": 590230
+  },
+  {
+    "Date": "2019-02-25",
+    "Inventory_Level": 572985
+  },
+  {
+    "Date": "2019-02-26",
+    "Inventory_Level": 560838
+  },
+  {
+    "Date": "2019-02-27",
+    "Inventory_Level": 548556
+  },
+  {
+    "Date": "2019-02-28",
+    "Inventory_Level": 552302
+  },
+  {
+    "Date": "2019-01-03",
+    "Inventory_Level": 542571
+  },
+  {
+    "Date": "2019-02-03",
+    "Inventory_Level": 537905
+  },
+  {
+    "Date": "2019-03-03",
+    "Inventory_Level": 540250
+  },
+  {
+    "Date": "2019-04-03",
+    "Inventory_Level": 531934
+  },
+  {
+    "Date": "2019-05-03",
+    "Inventory_Level": 545450
+  },
+  {
+    "Date": "2019-06-03",
+    "Inventory_Level": 556496
+  },
+  {
+    "Date": "2019-07-03",
+    "Inventory_Level": 548773
+  },
+  {
+    "Date": "2019-08-03",
+    "Inventory_Level": 551852
+  },
+  {
+    "Date": "2019-09-03",
+    "Inventory_Level": 554386
+  },
+  {
+    "Date": "2019-10-03",
+    "Inventory_Level": 555318
+  },
+  {
+    "Date": "2019-11-03",
+    "Inventory_Level": 549428
+  },
+  {
+    "Date": "2019-12-03",
+    "Inventory_Level": 550633
+  },
+  {
+    "Date": "2019-03-13",
+    "Inventory_Level": 543928
+  },
+  {
+    "Date": "2019-03-14",
+    "Inventory_Level": 534866
+  },
+  {
+    "Date": "2019-03-15",
+    "Inventory_Level": 562576
+  },
+  {
+    "Date": "2019-03-16",
+    "Inventory_Level": 582298
+  },
+  {
+    "Date": "2019-03-17",
+    "Inventory_Level": 576049
+  },
+  {
+    "Date": "2019-03-18",
+    "Inventory_Level": 578223
+  },
+  {
+    "Date": "2019-03-19",
+    "Inventory_Level": 580105
+  },
+  {
+    "Date": "2019-03-20",
+    "Inventory_Level": 591020
+  },
+  {
+    "Date": "2019-03-21",
+    "Inventory_Level": 578945
+  },
+  {
+    "Date": "2019-03-22",
+    "Inventory_Level": 570276
+  },
+  {
+    "Date": "2019-03-23",
+    "Inventory_Level": 561713
+  },
+  {
+    "Date": "2019-03-24",
+    "Inventory_Level": 576810
+  },
+  {
+    "Date": "2019-03-25",
+    "Inventory_Level": 585404
+  },
+  {
+    "Date": "2019-03-26",
+    "Inventory_Level": 600797
+  },
+  {
+    "Date": "2019-03-27",
+    "Inventory_Level": 585682
+  },
+  {
+    "Date": "2019-03-28",
+    "Inventory_Level": 587833
+  },
+  {
+    "Date": "2019-03-29",
+    "Inventory_Level": 601889
+  },
+  {
+    "Date": "2019-03-30",
+    "Inventory_Level": 569890
+  },
+  {
+    "Date": "2019-03-31",
+    "Inventory_Level": 564151
+  },
+  {
+    "Date": "2019-01-04",
+    "Inventory_Level": 575026
+  },
+  {
+    "Date": "2019-02-04",
+    "Inventory_Level": 587117
+  },
+  {
+    "Date": "2019-03-04",
+    "Inventory_Level": 583535
+  },
+  {
+    "Date": "2019-04-04",
+    "Inventory_Level": 591492
+  },
+  {
+    "Date": "2019-05-04",
+    "Inventory_Level": 575296
+  },
+  {
+    "Date": "2019-06-04",
+    "Inventory_Level": 571131
+  },
+  {
+    "Date": "2019-07-04",
+    "Inventory_Level": 589360
+  },
+  {
+    "Date": "2019-08-04",
+    "Inventory_Level": 604398
+  },
+  {
+    "Date": "2019-09-04",
+    "Inventory_Level": 609815
+  },
+  {
+    "Date": "2019-10-04",
+    "Inventory_Level": 602150
+  },
+  {
+    "Date": "2019-11-04",
+    "Inventory_Level": 596814
+  },
+  {
+    "Date": "2019-12-04",
+    "Inventory_Level": 572189
+  },
+  {
+    "Date": "2019-04-13",
+    "Inventory_Level": 565355
+  },
+  {
+    "Date": "2019-04-14",
+    "Inventory_Level": 563535
+  },
+  {
+    "Date": "2019-04-15",
+    "Inventory_Level": 571745
+  },
+  {
+    "Date": "2019-04-16",
+    "Inventory_Level": 566152
+  },
+  {
+    "Date": "2019-04-17",
+    "Inventory_Level": 569334
+  },
+  {
+    "Date": "2019-04-18",
+    "Inventory_Level": 572736
+  },
+  {
+    "Date": "2019-04-19",
+    "Inventory_Level": 578358
+  },
+  {
+    "Date": "2019-04-20",
+    "Inventory_Level": 558624
+  },
+  {
+    "Date": "2019-04-21",
+    "Inventory_Level": 574384
+  },
+  {
+    "Date": "2019-04-22",
+    "Inventory_Level": 548374
+  },
+  {
+    "Date": "2019-04-23",
+    "Inventory_Level": 565833
+  },
+  {
+    "Date": "2019-04-24",
+    "Inventory_Level": 583439
+  },
+  {
+    "Date": "2019-04-25",
+    "Inventory_Level": 564809
+  },
+  {
+    "Date": "2019-04-26",
+    "Inventory_Level": 562666
+  },
+  {
+    "Date": "2019-04-27",
+    "Inventory_Level": 568083
+  },
+  {
+    "Date": "2019-04-28",
+    "Inventory_Level": 561443
+  },
+  {
+    "Date": "2019-04-29",
+    "Inventory_Level": 555283
+  },
+  {
+    "Date": "2019-04-30",
+    "Inventory_Level": 553545
+  },
+  {
+    "Date": "2019-01-05",
+    "Inventory_Level": 552068
+  },
+  {
+    "Date": "2019-02-05",
+    "Inventory_Level": 569648
+  },
+  {
+    "Date": "2019-03-05",
+    "Inventory_Level": 595765
+  },
+  {
+    "Date": "2019-04-05",
+    "Inventory_Level": 596693
+  },
+  {
+    "Date": "2019-05-05",
+    "Inventory_Level": 606641
+  },
+  {
+    "Date": "2019-06-05",
+    "Inventory_Level": 607482
+  },
+  {
+    "Date": "2019-07-05",
+    "Inventory_Level": 630159
+  },
+  {
+    "Date": "2019-08-05",
+    "Inventory_Level": 638652
+  },
+  {
+    "Date": "2019-09-05",
+    "Inventory_Level": 670425
+  },
+  {
+    "Date": "2019-10-05",
+    "Inventory_Level": 680746
+  },
+  {
+    "Date": "2019-11-05",
+    "Inventory_Level": 649454
+  },
+  {
+    "Date": "2019-12-05",
+    "Inventory_Level": 646654
+  },
+  {
+    "Date": "2019-05-13",
+    "Inventory_Level": 638312
+  },
+  {
+    "Date": "2019-05-14",
+    "Inventory_Level": 639285
+  },
+  {
+    "Date": "2019-05-15",
+    "Inventory_Level": 628279
+  },
+  {
+    "Date": "2019-05-16",
+    "Inventory_Level": 623743
+  },
+  {
+    "Date": "2019-05-17",
+    "Inventory_Level": 591459
+  },
+  {
+    "Date": "2019-05-18",
+    "Inventory_Level": 609382
+  },
+  {
+    "Date": "2019-05-19",
+    "Inventory_Level": 615268
+  },
+  {
+    "Date": "2019-05-20",
+    "Inventory_Level": 609277
+  },
+  {
+    "Date": "2019-05-21",
+    "Inventory_Level": 615296
+  },
+  {
+    "Date": "2019-05-22",
+    "Inventory_Level": 612435
+  },
+  {
+    "Date": "2019-05-23",
+    "Inventory_Level": 605797
+  },
+  {
+    "Date": "2019-05-24",
+    "Inventory_Level": 582258
+  },
+  {
+    "Date": "2019-05-25",
+    "Inventory_Level": 569005
+  },
+  {
+    "Date": "2019-05-26",
+    "Inventory_Level": 554523
+  },
+  {
+    "Date": "2019-05-27",
+    "Inventory_Level": 541814
+  },
+  {
+    "Date": "2019-05-28",
+    "Inventory_Level": 525039
+  },
+  {
+    "Date": "2019-05-29",
+    "Inventory_Level": 541922
+  },
+  {
+    "Date": "2019-05-30",
+    "Inventory_Level": 560003
+  },
+  {
+    "Date": "2019-05-31",
+    "Inventory_Level": 563741
+  },
+  {
+    "Date": "2019-01-06",
+    "Inventory_Level": 558786
+  },
+  {
+    "Date": "2019-02-06",
+    "Inventory_Level": 568496
+  },
+  {
+    "Date": "2019-03-06",
+    "Inventory_Level": 571217
+  },
+  {
+    "Date": "2019-04-06",
+    "Inventory_Level": 559626
+  },
+  {
+    "Date": "2019-05-06",
+    "Inventory_Level": 568349
+  },
+  {
+    "Date": "2019-06-06",
+    "Inventory_Level": 553817
+  },
+  {
+    "Date": "2019-07-06",
+    "Inventory_Level": 549120
+  },
+  {
+    "Date": "2019-08-06",
+    "Inventory_Level": 554396
+  },
+  {
+    "Date": "2019-09-06",
+    "Inventory_Level": 558256
+  },
+  {
+    "Date": "2019-10-06",
+    "Inventory_Level": 536885
+  },
+  {
+    "Date": "2019-11-06",
+    "Inventory_Level": 508511
+  },
+  {
+    "Date": "2019-12-06",
+    "Inventory_Level": 511053
+  },
+  {
+    "Date": "2019-06-13",
+    "Inventory_Level": 495649
+  },
+  {
+    "Date": "2019-06-14",
+    "Inventory_Level": 469551
+  },
+  {
+    "Date": "2019-06-15",
+    "Inventory_Level": 484098
+  },
+  {
+    "Date": "2019-06-16",
+    "Inventory_Level": 490086
+  },
+  {
+    "Date": "2019-06-17",
+    "Inventory_Level": 512251
+  },
+  {
+    "Date": "2019-06-18",
+    "Inventory_Level": 516959
+  },
+  {
+    "Date": "2019-06-19",
+    "Inventory_Level": 514772
+  },
+  {
+    "Date": "2019-06-20",
+    "Inventory_Level": 517850
+  },
+  {
+    "Date": "2019-06-21",
+    "Inventory_Level": 520233
+  },
+  {
+    "Date": "2019-06-22",
+    "Inventory_Level": 518534
+  },
+  {
+    "Date": "2019-06-23",
+    "Inventory_Level": 520290
+  },
+  {
+    "Date": "2019-06-24",
+    "Inventory_Level": 513814
+  },
+  {
+    "Date": "2019-06-25",
+    "Inventory_Level": 535427
+  },
+  {
+    "Date": "2019-06-26",
+    "Inventory_Level": 526345
+  },
+  {
+    "Date": "2019-06-27",
+    "Inventory_Level": 526165
+  },
+  {
+    "Date": "2019-06-28",
+    "Inventory_Level": 518822
+  },
+  {
+    "Date": "2019-06-29",
+    "Inventory_Level": 535730
+  },
+  {
+    "Date": "2019-06-30",
+    "Inventory_Level": 520302
+  },
+  {
+    "Date": "2019-01-07",
+    "Inventory_Level": 538690
+  },
+  {
+    "Date": "2019-02-07",
+    "Inventory_Level": 526970
+  },
+  {
+    "Date": "2019-03-07",
+    "Inventory_Level": 520154
+  },
+  {
+    "Date": "2019-04-07",
+    "Inventory_Level": 516489
+  },
+  {
+    "Date": "2019-05-07",
+    "Inventory_Level": 510518
+  },
+  {
+    "Date": "2019-06-07",
+    "Inventory_Level": 510394
+  },
+  {
+    "Date": "2019-07-07",
+    "Inventory_Level": 522871
+  },
+  {
+    "Date": "2019-08-07",
+    "Inventory_Level": 528372
+  },
+  {
+    "Date": "2019-09-07",
+    "Inventory_Level": 541436
+  },
+  {
+    "Date": "2019-10-07",
+    "Inventory_Level": 554753
+  },
+  {
+    "Date": "2019-11-07",
+    "Inventory_Level": 552995
+  },
+  {
+    "Date": "2019-12-07",
+    "Inventory_Level": 553166
+  },
+  {
+    "Date": "2019-07-13",
+    "Inventory_Level": 545224
+  },
+  {
+    "Date": "2019-07-14",
+    "Inventory_Level": 530605
+  },
+  {
+    "Date": "2019-07-15",
+    "Inventory_Level": 515558
+  },
+  {
+    "Date": "2019-07-16",
+    "Inventory_Level": 518899
+  },
+  {
+    "Date": "2019-07-17",
+    "Inventory_Level": 532125
+  },
+  {
+    "Date": "2019-07-18",
+    "Inventory_Level": 537073
+  },
+  {
+    "Date": "2019-07-19",
+    "Inventory_Level": 547803
+  },
+  {
+    "Date": "2019-07-20",
+    "Inventory_Level": 549404
+  },
+  {
+    "Date": "2019-07-21",
+    "Inventory_Level": 536112
+  },
+  {
+    "Date": "2019-07-22",
+    "Inventory_Level": 523460
+  },
+  {
+    "Date": "2019-07-23",
+    "Inventory_Level": 526665
+  },
+  {
+    "Date": "2019-07-24",
+    "Inventory_Level": 530354
+  },
+  {
+    "Date": "2019-07-25",
+    "Inventory_Level": 543138
+  },
+  {
+    "Date": "2019-07-26",
+    "Inventory_Level": 563314
+  },
+  {
+    "Date": "2019-07-27",
+    "Inventory_Level": 555998
+  },
+  {
+    "Date": "2019-07-28",
+    "Inventory_Level": 553579
+  },
+  {
+    "Date": "2019-07-29",
+    "Inventory_Level": 555398
+  },
+  {
+    "Date": "2019-07-30",
+    "Inventory_Level": 549087
+  },
+  {
+    "Date": "2019-07-31",
+    "Inventory_Level": 528861
+  },
+  {
+    "Date": "2019-01-08",
+    "Inventory_Level": 533029
+  },
+  {
+    "Date": "2019-02-08",
+    "Inventory_Level": 536621
+  },
+  {
+    "Date": "2019-03-08",
+    "Inventory_Level": 544900
+  },
+  {
+    "Date": "2019-04-08",
+    "Inventory_Level": 546788
+  },
+  {
+    "Date": "2019-05-08",
+    "Inventory_Level": 563811
+  },
+  {
+    "Date": "2019-06-08",
+    "Inventory_Level": 557043
+  },
+  {
+    "Date": "2019-07-08",
+    "Inventory_Level": 540241
+  },
+  {
+    "Date": "2019-08-08",
+    "Inventory_Level": 560729
+  },
+  {
+    "Date": "2019-09-08",
+    "Inventory_Level": 551075
+  },
+  {
+    "Date": "2019-10-08",
+    "Inventory_Level": 548170
+  },
+  {
+    "Date": "2019-11-08",
+    "Inventory_Level": 527116
+  },
+  {
+    "Date": "2019-12-08",
+    "Inventory_Level": 530170
+  },
+  {
+    "Date": "2019-08-13",
+    "Inventory_Level": 523366
+  },
+  {
+    "Date": "2019-08-14",
+    "Inventory_Level": 546794
+  },
+  {
+    "Date": "2019-08-15",
+    "Inventory_Level": 543471
+  },
+  {
+    "Date": "2019-08-16",
+    "Inventory_Level": 557825
+  },
+  {
+    "Date": "2019-08-17",
+    "Inventory_Level": 581955
+  },
+  {
+    "Date": "2019-08-18",
+    "Inventory_Level": 601221
+  },
+  {
+    "Date": "2019-08-19",
+    "Inventory_Level": 582020
+  },
+  {
+    "Date": "2019-08-20",
+    "Inventory_Level": 589746
+  },
+  {
+    "Date": "2019-08-21",
+    "Inventory_Level": 593514
+  },
+  {
+    "Date": "2019-08-22",
+    "Inventory_Level": 571567
+  },
+  {
+    "Date": "2019-08-23",
+    "Inventory_Level": 589533
+  },
+  {
+    "Date": "2019-08-24",
+    "Inventory_Level": 596764
+  },
+  {
+    "Date": "2019-08-25",
+    "Inventory_Level": 608468
+  },
+  {
+    "Date": "2019-08-26",
+    "Inventory_Level": 635758
+  },
+  {
+    "Date": "2019-08-27",
+    "Inventory_Level": 670092
+  },
+  {
+    "Date": "2019-08-28",
+    "Inventory_Level": 667732
+  },
+  {
+    "Date": "2019-08-29",
+    "Inventory_Level": 682790
+  },
+  {
+    "Date": "2019-08-30",
+    "Inventory_Level": 697133
+  },
+  {
+    "Date": "2019-08-31",
+    "Inventory_Level": 718575
+  },
+  {
+    "Date": "2019-01-09",
+    "Inventory_Level": 701047
+  },
+  {
+    "Date": "2019-02-09",
+    "Inventory_Level": 668703
+  },
+  {
+    "Date": "2019-03-09",
+    "Inventory_Level": 654095
+  },
+  {
+    "Date": "2019-04-09",
+    "Inventory_Level": 685540
+  },
+  {
+    "Date": "2019-05-09",
+    "Inventory_Level": 658710
+  },
+  {
+    "Date": "2019-06-09",
+    "Inventory_Level": 641733
+  },
+  {
+    "Date": "2019-07-09",
+    "Inventory_Level": 633069
+  },
+  {
+    "Date": "2019-08-09",
+    "Inventory_Level": 640948
+  },
+  {
+    "Date": "2019-09-09",
+    "Inventory_Level": 649246
+  },
+  {
+    "Date": "2019-10-09",
+    "Inventory_Level": 622160
+  },
+  {
+    "Date": "2019-11-09",
+    "Inventory_Level": 619132
+  },
+  {
+    "Date": "2019-12-09",
+    "Inventory_Level": 596728
+  },
+  {
+    "Date": "2019-09-13",
+    "Inventory_Level": 592887
+  },
+  {
+    "Date": "2019-09-14",
+    "Inventory_Level": 576813
+  },
+  {
+    "Date": "2019-09-15",
+    "Inventory_Level": 578391
+  },
+  {
+    "Date": "2019-09-16",
+    "Inventory_Level": 563890
+  },
+  {
+    "Date": "2019-09-17",
+    "Inventory_Level": 538435
+  },
+  {
+    "Date": "2019-09-18",
+    "Inventory_Level": 542950
+  },
+  {
+    "Date": "2019-09-19",
+    "Inventory_Level": 522471
+  },
+  {
+    "Date": "2019-09-20",
+    "Inventory_Level": 502049
+  },
+  {
+    "Date": "2019-09-21",
+    "Inventory_Level": 488007
+  },
+  {
+    "Date": "2019-09-22",
+    "Inventory_Level": 505102
+  },
+  {
+    "Date": "2019-09-23",
+    "Inventory_Level": 509416
+  },
+  {
+    "Date": "2019-09-24",
+    "Inventory_Level": 513755
+  },
+  {
+    "Date": "2019-09-25",
+    "Inventory_Level": 524868
+  },
+  {
+    "Date": "2019-09-26",
+    "Inventory_Level": 527926
+  },
+  {
+    "Date": "2019-09-27",
+    "Inventory_Level": 502236
+  },
+  {
+    "Date": "2019-09-28",
+    "Inventory_Level": 496707
+  },
+  {
+    "Date": "2019-09-29",
+    "Inventory_Level": 501770
+  },
+  {
+    "Date": "2019-09-30",
+    "Inventory_Level": 504331
+  },
+  {
+    "Date": "2019-01-10",
+    "Inventory_Level": 521218
+  },
+  {
+    "Date": "2019-02-10",
+    "Inventory_Level": 521243
+  },
+  {
+    "Date": "2019-03-10",
+    "Inventory_Level": 529616
+  },
+  {
+    "Date": "2019-04-10",
+    "Inventory_Level": 531170
+  },
+  {
+    "Date": "2019-05-10",
+    "Inventory_Level": 528791
+  },
+  {
+    "Date": "2019-06-10",
+    "Inventory_Level": 525166
+  },
+  {
+    "Date": "2019-07-10",
+    "Inventory_Level": 550580
+  },
+  {
+    "Date": "2019-08-10",
+    "Inventory_Level": 573994
+  },
+  {
+    "Date": "2019-09-10",
+    "Inventory_Level": 576758
+  },
+  {
+    "Date": "2019-10-10",
+    "Inventory_Level": 581573
+  },
+  {
+    "Date": "2019-11-10",
+    "Inventory_Level": 585798
+  },
+  {
+    "Date": "2019-12-10",
+    "Inventory_Level": 589440
+  },
+  {
+    "Date": "2019-10-13",
+    "Inventory_Level": 600793
+  },
+  {
+    "Date": "2019-10-14",
+    "Inventory_Level": 593393
+  },
+  {
+    "Date": "2019-10-15",
+    "Inventory_Level": 605726
+  },
+  {
+    "Date": "2019-10-16",
+    "Inventory_Level": 596973
+  },
+  {
+    "Date": "2019-10-17",
+    "Inventory_Level": 594223
+  },
+  {
+    "Date": "2019-10-18",
+    "Inventory_Level": 578968
+  },
+  {
+    "Date": "2019-10-19",
+    "Inventory_Level": 572263
+  },
+  {
+    "Date": "2019-10-20",
+    "Inventory_Level": 584658
+  },
+  {
+    "Date": "2019-10-21",
+    "Inventory_Level": 548842
+  },
+  {
+    "Date": "2019-10-22",
+    "Inventory_Level": 550664
+  },
+  {
+    "Date": "2019-10-23",
+    "Inventory_Level": 538150
+  },
+  {
+    "Date": "2019-10-24",
+    "Inventory_Level": 534537
+  },
+  {
+    "Date": "2019-10-25",
+    "Inventory_Level": 552669
+  },
+  {
+    "Date": "2019-10-26",
+    "Inventory_Level": 573439
+  },
+  {
+    "Date": "2019-10-27",
+    "Inventory_Level": 575430
+  },
+  {
+    "Date": "2019-10-28",
+    "Inventory_Level": 581785
+  },
+  {
+    "Date": "2019-10-29",
+    "Inventory_Level": 574982
+  },
+  {
+    "Date": "2019-10-30",
+    "Inventory_Level": 585612
+  },
+  {
+    "Date": "2019-10-31",
+    "Inventory_Level": 580070
+  },
+  {
+    "Date": "2019-01-11",
+    "Inventory_Level": 582617
+  },
+  {
+    "Date": "2019-02-11",
+    "Inventory_Level": 563548
+  },
+  {
+    "Date": "2019-03-11",
+    "Inventory_Level": 572841
+  },
+  {
+    "Date": "2019-04-11",
+    "Inventory_Level": 566516
+  },
+  {
+    "Date": "2019-05-11",
+    "Inventory_Level": 546949
+  },
+  {
+    "Date": "2019-06-11",
+    "Inventory_Level": 576995
+  },
+  {
+    "Date": "2019-07-11",
+    "Inventory_Level": 581599
+  },
+  {
+    "Date": "2019-08-11",
+    "Inventory_Level": 576609
+  },
+  {
+    "Date": "2019-09-11",
+    "Inventory_Level": 592289
+  },
+  {
+    "Date": "2019-10-11",
+    "Inventory_Level": 583795
+  },
+  {
+    "Date": "2019-11-11",
+    "Inventory_Level": 576198
+  },
+  {
+    "Date": "2019-12-11",
+    "Inventory_Level": 593281
+  },
+  {
+    "Date": "2019-11-13",
+    "Inventory_Level": 560297
+  },
+  {
+    "Date": "2019-11-14",
+    "Inventory_Level": 571342
+  },
+  {
+    "Date": "2019-11-15",
+    "Inventory_Level": 574085
+  },
+  {
+    "Date": "2019-11-16",
+    "Inventory_Level": 564722
+  },
+  {
+    "Date": "2019-11-17",
+    "Inventory_Level": 588893
+  },
+  {
+    "Date": "2019-11-18",
+    "Inventory_Level": 589547
+  },
+  {
+    "Date": "2019-11-19",
+    "Inventory_Level": 612023
+  },
+  {
+    "Date": "2019-11-20",
+    "Inventory_Level": 609251
+  },
+  {
+    "Date": "2019-11-21",
+    "Inventory_Level": 632635
+  },
+  {
+    "Date": "2019-11-22",
+    "Inventory_Level": 638018
+  },
+  {
+    "Date": "2019-11-23",
+    "Inventory_Level": 645362
+  },
+  {
+    "Date": "2019-11-24",
+    "Inventory_Level": 645025
+  },
+  {
+    "Date": "2019-11-25",
+    "Inventory_Level": 634215
+  },
+  {
+    "Date": "2019-11-26",
+    "Inventory_Level": 612117
+  },
+  {
+    "Date": "2019-11-27",
+    "Inventory_Level": 606342
+  },
+  {
+    "Date": "2019-11-28",
+    "Inventory_Level": 598458
+  },
+  {
+    "Date": "2019-11-29",
+    "Inventory_Level": 616219
+  },
+  {
+    "Date": "2019-11-30",
+    "Inventory_Level": 640019
+  },
+  {
+    "Date": "2019-01-12",
+    "Inventory_Level": 648833
+  },
+  {
+    "Date": "2019-02-12",
+    "Inventory_Level": 671602
+  },
+  {
+    "Date": "2019-03-12",
+    "Inventory_Level": 674589
+  },
+  {
+    "Date": "2019-04-12",
+    "Inventory_Level": 676773
+  },
+  {
+    "Date": "2019-05-12",
+    "Inventory_Level": 675153
+  },
+  {
+    "Date": "2019-06-12",
+    "Inventory_Level": 675510
+  },
+  {
+    "Date": "2019-07-12",
+    "Inventory_Level": 679092
+  },
+  {
+    "Date": "2019-08-12",
+    "Inventory_Level": 652357
+  },
+  {
+    "Date": "2019-09-12",
+    "Inventory_Level": 628510
+  },
+  {
+    "Date": "2019-10-12",
+    "Inventory_Level": 647269
+  },
+  {
+    "Date": "2019-11-12",
+    "Inventory_Level": 639694
+  },
+  {
+    "Date": "2019-12-12",
+    "Inventory_Level": 636625
+  },
+  {
+    "Date": "2019-12-13",
+    "Inventory_Level": 636915
+  },
+  {
+    "Date": "2019-12-14",
+    "Inventory_Level": 622297
+  },
+  {
+    "Date": "2019-12-15",
+    "Inventory_Level": 641109
+  },
+  {
+    "Date": "2019-12-16",
+    "Inventory_Level": 630165
+  },
+  {
+    "Date": "2019-12-17",
+    "Inventory_Level": 642873
+  },
+  {
+    "Date": "2019-12-18",
+    "Inventory_Level": 650269
+  },
+  {
+    "Date": "2019-12-19",
+    "Inventory_Level": 605221
+  },
+  {
+    "Date": "2019-12-20",
+    "Inventory_Level": 627429
+  },
+  {
+    "Date": "2019-12-21",
+    "Inventory_Level": 612861
+  },
+  {
+    "Date": "2019-12-22",
+    "Inventory_Level": 632471
+  },
+  {
+    "Date": "2019-12-23",
+    "Inventory_Level": 644661
+  },
+  {
+    "Date": "2019-12-24",
+    "Inventory_Level": 647427
+  },
+  {
+    "Date": "2019-12-25",
+    "Inventory_Level": 646753
+  },
+  {
+    "Date": "2019-12-26",
+    "Inventory_Level": 652895
+  },
+  {
+    "Date": "2019-12-27",
+    "Inventory_Level": 656695
+  },
+  {
+    "Date": "2019-12-28",
+    "Inventory_Level": 656986
+  },
+  {
+    "Date": "2019-12-29",
+    "Inventory_Level": 667456
+  },
+  {
+    "Date": "2019-12-30",
+    "Inventory_Level": 653075
+  },
+  {
+    "Date": "2019-12-31",
+    "Inventory_Level": 650229
+  },
+  {
+    "Date": "2020-01-01",
+    "Inventory_Level": 646134
+  },
+  {
+    "Date": "2020-02-01",
+    "Inventory_Level": 657187
+  },
+  {
+    "Date": "2020-03-01",
+    "Inventory_Level": 649443
+  },
+  {
+    "Date": "2020-04-01",
+    "Inventory_Level": 642610
+  },
+  {
+    "Date": "2020-05-01",
+    "Inventory_Level": 661152
+  },
+  {
+    "Date": "2020-06-01",
+    "Inventory_Level": 685585
+  },
+  {
+    "Date": "2020-07-01",
+    "Inventory_Level": 672339
+  },
+  {
+    "Date": "2020-08-01",
+    "Inventory_Level": 658836
+  },
+  {
+    "Date": "2020-09-01",
+    "Inventory_Level": 650997
+  },
+  {
+    "Date": "2020-10-01",
+    "Inventory_Level": 640089
+  },
+  {
+    "Date": "2020-11-01",
+    "Inventory_Level": 631473
+  },
+  {
+    "Date": "2020-12-01",
+    "Inventory_Level": 644903
+  },
+  {
+    "Date": "2020-01-13",
+    "Inventory_Level": 664431
+  },
+  {
+    "Date": "2020-01-14",
+    "Inventory_Level": 696472
+  },
+  {
+    "Date": "2020-01-15",
+    "Inventory_Level": 726490
+  },
+  {
+    "Date": "2020-01-16",
+    "Inventory_Level": 741758
+  },
+  {
+    "Date": "2020-01-17",
+    "Inventory_Level": 743504
+  },
+  {
+    "Date": "2020-01-18",
+    "Inventory_Level": 736569
+  },
+  {
+    "Date": "2020-01-19",
+    "Inventory_Level": 781366
+  },
+  {
+    "Date": "2020-01-20",
+    "Inventory_Level": 798904
+  },
+  {
+    "Date": "2020-01-21",
+    "Inventory_Level": 788624
+  },
+  {
+    "Date": "2020-01-22",
+    "Inventory_Level": 789268
+  },
+  {
+    "Date": "2020-01-23",
+    "Inventory_Level": 777851
+  },
+  {
+    "Date": "2020-01-24",
+    "Inventory_Level": 796363
+  },
+  {
+    "Date": "2020-01-25",
+    "Inventory_Level": 791939
+  },
+  {
+    "Date": "2020-01-26",
+    "Inventory_Level": 792260
+  },
+  {
+    "Date": "2020-01-27",
+    "Inventory_Level": 757595
+  },
+  {
+    "Date": "2020-01-28",
+    "Inventory_Level": 750210
+  },
+  {
+    "Date": "2020-01-29",
+    "Inventory_Level": 738200
+  },
+  {
+    "Date": "2020-01-30",
+    "Inventory_Level": 737336
+  },
+  {
+    "Date": "2020-01-31",
+    "Inventory_Level": 759234
+  },
+  {
+    "Date": "2020-01-02",
+    "Inventory_Level": 756370
+  },
+  {
+    "Date": "2020-02-02",
+    "Inventory_Level": 732577
+  },
+  {
+    "Date": "2020-03-02",
+    "Inventory_Level": 735067
+  },
+  {
+    "Date": "2020-04-02",
+    "Inventory_Level": 755131
+  },
+  {
+    "Date": "2020-05-02",
+    "Inventory_Level": 760867
+  },
+  {
+    "Date": "2020-06-02",
+    "Inventory_Level": 760339
+  },
+  {
+    "Date": "2020-07-02",
+    "Inventory_Level": 759120
+  },
+  {
+    "Date": "2020-08-02",
+    "Inventory_Level": 767581
+  },
+  {
+    "Date": "2020-09-02",
+    "Inventory_Level": 763365
+  },
+  {
+    "Date": "2020-10-02",
+    "Inventory_Level": 743455
+  },
+  {
+    "Date": "2020-11-02",
+    "Inventory_Level": 737599
+  },
+  {
+    "Date": "2020-12-02",
+    "Inventory_Level": 721725
+  },
+  {
+    "Date": "2020-02-13",
+    "Inventory_Level": 735938
+  },
+  {
+    "Date": "2020-02-14",
+    "Inventory_Level": 726832
+  },
+  {
+    "Date": "2020-02-15",
+    "Inventory_Level": 708320
+  },
+  {
+    "Date": "2020-02-16",
+    "Inventory_Level": 707525
+  },
+  {
+    "Date": "2020-02-17",
+    "Inventory_Level": 685247
+  },
+  {
+    "Date": "2020-02-18",
+    "Inventory_Level": 695944
+  },
+  {
+    "Date": "2020-02-19",
+    "Inventory_Level": 691613
+  },
+  {
+    "Date": "2020-02-20",
+    "Inventory_Level": 671075
+  },
+  {
+    "Date": "2020-02-21",
+    "Inventory_Level": 651760
+  },
+  {
+    "Date": "2020-02-22",
+    "Inventory_Level": 650646
+  },
+  {
+    "Date": "2020-02-23",
+    "Inventory_Level": 635235
+  },
+  {
+    "Date": "2020-02-24",
+    "Inventory_Level": 648139
+  },
+  {
+    "Date": "2020-02-25",
+    "Inventory_Level": 642493
+  },
+  {
+    "Date": "2020-02-26",
+    "Inventory_Level": 628874
+  },
+  {
+    "Date": "2020-02-27",
+    "Inventory_Level": 633865
+  },
+  {
+    "Date": "2020-02-28",
+    "Inventory_Level": 650255
+  },
+  {
+    "Date": "2020-02-29",
+    "Inventory_Level": 672429
+  },
+  {
+    "Date": "2020-01-03",
+    "Inventory_Level": 644734
+  },
+  {
+    "Date": "2020-02-03",
+    "Inventory_Level": 635075
+  },
+  {
+    "Date": "2020-03-03",
+    "Inventory_Level": 646282
+  },
+  {
+    "Date": "2020-04-03",
+    "Inventory_Level": 662453
+  },
+  {
+    "Date": "2020-05-03",
+    "Inventory_Level": 653943
+  },
+  {
+    "Date": "2020-06-03",
+    "Inventory_Level": 664479
+  },
+  {
+    "Date": "2020-07-03",
+    "Inventory_Level": 679112
+  },
+  {
+    "Date": "2020-08-03",
+    "Inventory_Level": 660664
+  },
+  {
+    "Date": "2020-09-03",
+    "Inventory_Level": 648792
+  },
+  {
+    "Date": "2020-10-03",
+    "Inventory_Level": 682492
+  },
+  {
+    "Date": "2020-11-03",
+    "Inventory_Level": 698333
+  },
+  {
+    "Date": "2020-12-03",
+    "Inventory_Level": 684415
+  },
+  {
+    "Date": "2020-03-13",
+    "Inventory_Level": 688998
+  },
+  {
+    "Date": "2020-03-14",
+    "Inventory_Level": 686134
+  },
+  {
+    "Date": "2020-03-15",
+    "Inventory_Level": 669991
+  },
+  {
+    "Date": "2020-03-16",
+    "Inventory_Level": 657904
+  },
+  {
+    "Date": "2020-03-17",
+    "Inventory_Level": 670404
+  },
+  {
+    "Date": "2020-03-18",
+    "Inventory_Level": 667659
+  },
+  {
+    "Date": "2020-03-19",
+    "Inventory_Level": 639432
+  },
+  {
+    "Date": "2020-03-20",
+    "Inventory_Level": 658331
+  },
+  {
+    "Date": "2020-03-21",
+    "Inventory_Level": 641442
+  },
+  {
+    "Date": "2020-03-22",
+    "Inventory_Level": 647861
+  },
+  {
+    "Date": "2020-03-23",
+    "Inventory_Level": 648817
+  },
+  {
+    "Date": "2020-03-24",
+    "Inventory_Level": 654391
+  },
+  {
+    "Date": "2020-03-25",
+    "Inventory_Level": 672395
+  },
+  {
+    "Date": "2020-03-26",
+    "Inventory_Level": 668653
+  },
+  {
+    "Date": "2020-03-27",
+    "Inventory_Level": 650665
+  },
+  {
+    "Date": "2020-03-28",
+    "Inventory_Level": 639882
+  },
+  {
+    "Date": "2020-03-29",
+    "Inventory_Level": 628323
+  },
+  {
+    "Date": "2020-03-30",
+    "Inventory_Level": 640763
+  },
+  {
+    "Date": "2020-03-31",
+    "Inventory_Level": 608517
+  },
+  {
+    "Date": "2020-01-04",
+    "Inventory_Level": 602093
+  },
+  {
+    "Date": "2020-02-04",
+    "Inventory_Level": 612654
+  },
+  {
+    "Date": "2020-03-04",
+    "Inventory_Level": 620969
+  },
+  {
+    "Date": "2020-04-04",
+    "Inventory_Level": 610434
+  },
+  {
+    "Date": "2020-05-04",
+    "Inventory_Level": 626812
+  },
+  {
+    "Date": "2020-06-04",
+    "Inventory_Level": 613864
+  },
+  {
+    "Date": "2020-07-04",
+    "Inventory_Level": 604230
+  },
+  {
+    "Date": "2020-08-04",
+    "Inventory_Level": 608573
+  },
+  {
+    "Date": "2020-09-04",
+    "Inventory_Level": 632238
+  },
+  {
+    "Date": "2020-10-04",
+    "Inventory_Level": 621321
+  },
+  {
+    "Date": "2020-11-04",
+    "Inventory_Level": 628468
+  },
+  {
+    "Date": "2020-12-04",
+    "Inventory_Level": 633146
+  },
+  {
+    "Date": "2020-04-13",
+    "Inventory_Level": 614513
+  },
+  {
+    "Date": "2020-04-14",
+    "Inventory_Level": 639562
+  },
+  {
+    "Date": "2020-04-15",
+    "Inventory_Level": 624088
+  },
+  {
+    "Date": "2020-04-16",
+    "Inventory_Level": 616276
+  },
+  {
+    "Date": "2020-04-17",
+    "Inventory_Level": 612836
+  },
+  {
+    "Date": "2020-04-18",
+    "Inventory_Level": 615374
+  },
+  {
+    "Date": "2020-04-19",
+    "Inventory_Level": 613086
+  },
+  {
+    "Date": "2020-04-20",
+    "Inventory_Level": 613787
+  },
+  {
+    "Date": "2020-04-21",
+    "Inventory_Level": 621969
+  },
+  {
+    "Date": "2020-04-22",
+    "Inventory_Level": 621030
+  },
+  {
+    "Date": "2020-04-23",
+    "Inventory_Level": 619342
+  },
+  {
+    "Date": "2020-04-24",
+    "Inventory_Level": 615220
+  },
+  {
+    "Date": "2020-04-25",
+    "Inventory_Level": 633709
+  },
+  {
+    "Date": "2020-04-26",
+    "Inventory_Level": 660409
+  },
+  {
+    "Date": "2020-04-27",
+    "Inventory_Level": 666194
+  },
+  {
+    "Date": "2020-04-28",
+    "Inventory_Level": 659199
+  },
+  {
+    "Date": "2020-04-29",
+    "Inventory_Level": 644158
+  },
+  {
+    "Date": "2020-04-30",
+    "Inventory_Level": 690963
+  },
+  {
+    "Date": "2020-01-05",
+    "Inventory_Level": 696539
+  },
+  {
+    "Date": "2020-02-05",
+    "Inventory_Level": 688927
+  },
+  {
+    "Date": "2020-03-05",
+    "Inventory_Level": 684054
+  },
+  {
+    "Date": "2020-04-05",
+    "Inventory_Level": 672635
+  },
+  {
+    "Date": "2020-05-05",
+    "Inventory_Level": 669790
+  },
+  {
+    "Date": "2020-06-05",
+    "Inventory_Level": 649276
+  },
+  {
+    "Date": "2020-07-05",
+    "Inventory_Level": 648775
+  },
+  {
+    "Date": "2020-08-05",
+    "Inventory_Level": 648840
+  },
+  {
+    "Date": "2020-09-05",
+    "Inventory_Level": 646902
+  },
+  {
+    "Date": "2020-10-05",
+    "Inventory_Level": 651019
+  },
+  {
+    "Date": "2020-11-05",
+    "Inventory_Level": 664246
+  },
+  {
+    "Date": "2020-12-05",
+    "Inventory_Level": 675882
+  },
+  {
+    "Date": "2020-05-13",
+    "Inventory_Level": 673408
+  },
+  {
+    "Date": "2020-05-14",
+    "Inventory_Level": 663621
+  },
+  {
+    "Date": "2020-05-15",
+    "Inventory_Level": 643384
+  },
+  {
+    "Date": "2020-05-16",
+    "Inventory_Level": 638775
+  },
+  {
+    "Date": "2020-05-17",
+    "Inventory_Level": 641422
+  },
+  {
+    "Date": "2020-05-18",
+    "Inventory_Level": 646710
+  },
+  {
+    "Date": "2020-05-19",
+    "Inventory_Level": 621546
+  },
+  {
+    "Date": "2020-05-20",
+    "Inventory_Level": 602870
+  },
+  {
+    "Date": "2020-05-21",
+    "Inventory_Level": 597542
+  },
+  {
+    "Date": "2020-05-22",
+    "Inventory_Level": 594871
+  },
+  {
+    "Date": "2020-05-23",
+    "Inventory_Level": 583997
+  },
+  {
+    "Date": "2020-05-24",
+    "Inventory_Level": 564221
+  },
+  {
+    "Date": "2020-05-25",
+    "Inventory_Level": 568765
+  },
+  {
+    "Date": "2020-05-26",
+    "Inventory_Level": 572894
+  },
+  {
+    "Date": "2020-05-27",
+    "Inventory_Level": 575169
+  },
+  {
+    "Date": "2020-05-28",
+    "Inventory_Level": 563316
+  },
+  {
+    "Date": "2020-05-29",
+    "Inventory_Level": 558505
+  },
+  {
+    "Date": "2020-05-30",
+    "Inventory_Level": 563923
+  },
+  {
+    "Date": "2020-05-31",
+    "Inventory_Level": 563183
+  },
+  {
+    "Date": "2020-01-06",
+    "Inventory_Level": 555163
+  },
+  {
+    "Date": "2020-02-06",
+    "Inventory_Level": 547519
+  },
+  {
+    "Date": "2020-03-06",
+    "Inventory_Level": 564763
+  },
+  {
+    "Date": "2020-04-06",
+    "Inventory_Level": 566688
+  },
+  {
+    "Date": "2020-05-06",
+    "Inventory_Level": 555212
+  },
+  {
+    "Date": "2020-06-06",
+    "Inventory_Level": 562117
+  },
+  {
+    "Date": "2020-07-06",
+    "Inventory_Level": 573324
+  },
+  {
+    "Date": "2020-08-06",
+    "Inventory_Level": 576627
+  },
+  {
+    "Date": "2020-09-06",
+    "Inventory_Level": 561705
+  },
+  {
+    "Date": "2020-10-06",
+    "Inventory_Level": 561625
+  },
+  {
+    "Date": "2020-11-06",
+    "Inventory_Level": 557295
+  },
+  {
+    "Date": "2020-12-06",
+    "Inventory_Level": 548684
+  },
+  {
+    "Date": "2020-06-13",
+    "Inventory_Level": 567539
+  },
+  {
+    "Date": "2020-06-14",
+    "Inventory_Level": 576976
+  },
+  {
+    "Date": "2020-06-15",
+    "Inventory_Level": 559404
+  },
+  {
+    "Date": "2020-06-16",
+    "Inventory_Level": 530953
+  },
+  {
+    "Date": "2020-06-17",
+    "Inventory_Level": 511612
+  },
+  {
+    "Date": "2020-06-18",
+    "Inventory_Level": 512295
+  },
+  {
+    "Date": "2020-06-19",
+    "Inventory_Level": 506899
+  },
+  {
+    "Date": "2020-06-20",
+    "Inventory_Level": 494320
+  },
+  {
+    "Date": "2020-06-21",
+    "Inventory_Level": 488667
+  },
+  {
+    "Date": "2020-06-22",
+    "Inventory_Level": 503827
+  },
+  {
+    "Date": "2020-06-23",
+    "Inventory_Level": 500815
+  },
+  {
+    "Date": "2020-06-24",
+    "Inventory_Level": 513005
+  },
+  {
+    "Date": "2020-06-25",
+    "Inventory_Level": 494123
+  },
+  {
+    "Date": "2020-06-26",
+    "Inventory_Level": 485281
+  },
+  {
+    "Date": "2020-06-27",
+    "Inventory_Level": 478577
+  },
+  {
+    "Date": "2020-06-28",
+    "Inventory_Level": 483802
+  },
+  {
+    "Date": "2020-06-29",
+    "Inventory_Level": 484873
+  },
+  {
+    "Date": "2020-06-30",
+    "Inventory_Level": 474907
+  },
+  {
+    "Date": "2020-01-07",
+    "Inventory_Level": 472134
+  },
+  {
+    "Date": "2020-02-07",
+    "Inventory_Level": 477471
+  },
+  {
+    "Date": "2020-03-07",
+    "Inventory_Level": 474643
+  },
+  {
+    "Date": "2020-04-07",
+    "Inventory_Level": 476516
+  },
+  {
+    "Date": "2020-05-07",
+    "Inventory_Level": 473184
+  },
+  {
+    "Date": "2020-06-07",
+    "Inventory_Level": 473283
+  },
+  {
+    "Date": "2020-07-07",
+    "Inventory_Level": 487559
+  },
+  {
+    "Date": "2020-08-07",
+    "Inventory_Level": 478738
+  },
+  {
+    "Date": "2020-09-07",
+    "Inventory_Level": 505893
+  },
+  {
+    "Date": "2020-10-07",
+    "Inventory_Level": 515999
+  },
+  {
+    "Date": "2020-11-07",
+    "Inventory_Level": 507774
+  },
+  {
+    "Date": "2020-12-07",
+    "Inventory_Level": 509388
+  },
+  {
+    "Date": "2020-07-13",
+    "Inventory_Level": 527615
+  },
+  {
+    "Date": "2020-07-14",
+    "Inventory_Level": 515198
+  },
+  {
+    "Date": "2020-07-15",
+    "Inventory_Level": 515234
+  },
+  {
+    "Date": "2020-07-16",
+    "Inventory_Level": 538002
+  },
+  {
+    "Date": "2020-07-17",
+    "Inventory_Level": 539888
+  },
+  {
+    "Date": "2020-07-18",
+    "Inventory_Level": 540259
+  },
+  {
+    "Date": "2020-07-19",
+    "Inventory_Level": 550818
+  },
+  {
+    "Date": "2020-07-20",
+    "Inventory_Level": 541187
+  },
+  {
+    "Date": "2020-07-21",
+    "Inventory_Level": 553539
+  },
+  {
+    "Date": "2020-07-22",
+    "Inventory_Level": 538786
+  },
+  {
+    "Date": "2020-07-23",
+    "Inventory_Level": 542409
+  },
+  {
+    "Date": "2020-07-24",
+    "Inventory_Level": 553385
+  },
+  {
+    "Date": "2020-07-25",
+    "Inventory_Level": 543316
+  },
+  {
+    "Date": "2020-07-26",
+    "Inventory_Level": 538218
+  },
+  {
+    "Date": "2020-07-27",
+    "Inventory_Level": 506306
+  },
+  {
+    "Date": "2020-07-28",
+    "Inventory_Level": 496355
+  },
+  {
+    "Date": "2020-07-29",
+    "Inventory_Level": 500386
+  },
+  {
+    "Date": "2020-07-30",
+    "Inventory_Level": 509089
+  },
+  {
+    "Date": "2020-07-31",
+    "Inventory_Level": 488056
+  },
+  {
+    "Date": "2020-01-08",
+    "Inventory_Level": 514658
+  },
+  {
+    "Date": "2020-02-08",
+    "Inventory_Level": 552662
+  },
+  {
+    "Date": "2020-03-08",
+    "Inventory_Level": 550962
+  },
+  {
+    "Date": "2020-04-08",
+    "Inventory_Level": 577704
+  },
+  {
+    "Date": "2020-05-08",
+    "Inventory_Level": 610624
+  },
+  {
+    "Date": "2020-06-08",
+    "Inventory_Level": 605811
+  },
+  {
+    "Date": "2020-07-08",
+    "Inventory_Level": 612213
+  },
+  {
+    "Date": "2020-08-08",
+    "Inventory_Level": 583236
+  },
+  {
+    "Date": "2020-09-08",
+    "Inventory_Level": 569120
+  },
+  {
+    "Date": "2020-10-08",
+    "Inventory_Level": 537635
+  },
+  {
+    "Date": "2020-11-08",
+    "Inventory_Level": 551050
+  },
+  {
+    "Date": "2020-12-08",
+    "Inventory_Level": 566718
+  },
+  {
+    "Date": "2020-08-13",
+    "Inventory_Level": 625693
+  },
+  {
+    "Date": "2020-08-14",
+    "Inventory_Level": 657004
+  },
+  {
+    "Date": "2020-08-15",
+    "Inventory_Level": 661570
+  },
+  {
+    "Date": "2020-08-16",
+    "Inventory_Level": 672992
+  },
+  {
+    "Date": "2020-08-17",
+    "Inventory_Level": 654808
+  },
+  {
+    "Date": "2020-08-18",
+    "Inventory_Level": 667568
+  },
+  {
+    "Date": "2020-08-19",
+    "Inventory_Level": 683320
+  },
+  {
+    "Date": "2020-08-20",
+    "Inventory_Level": 657922
+  },
+  {
+    "Date": "2020-08-21",
+    "Inventory_Level": 660005
+  },
+  {
+    "Date": "2020-08-22",
+    "Inventory_Level": 671334
+  },
+  {
+    "Date": "2020-08-23",
+    "Inventory_Level": 680492
+  },
+  {
+    "Date": "2020-08-24",
+    "Inventory_Level": 673421
+  },
+  {
+    "Date": "2020-08-25",
+    "Inventory_Level": 661509
+  },
+  {
+    "Date": "2020-08-26",
+    "Inventory_Level": 665989
+  },
+  {
+    "Date": "2020-08-27",
+    "Inventory_Level": 681986
+  },
+  {
+    "Date": "2020-08-28",
+    "Inventory_Level": 676860
+  },
+  {
+    "Date": "2020-08-29",
+    "Inventory_Level": 670374
+  },
+  {
+    "Date": "2020-08-30",
+    "Inventory_Level": 681896
+  },
+  {
+    "Date": "2020-08-31",
+    "Inventory_Level": 674783
+  },
+  {
+    "Date": "2020-01-09",
+    "Inventory_Level": 683437
+  },
+  {
+    "Date": "2020-02-09",
+    "Inventory_Level": 664764
+  },
+  {
+    "Date": "2020-03-09",
+    "Inventory_Level": 681167
+  },
+  {
+    "Date": "2020-04-09",
+    "Inventory_Level": 688453
+  },
+  {
+    "Date": "2020-05-09",
+    "Inventory_Level": 674611
+  },
+  {
+    "Date": "2020-06-09",
+    "Inventory_Level": 688741
+  },
+  {
+    "Date": "2020-07-09",
+    "Inventory_Level": 671881
+  },
+  {
+    "Date": "2020-08-09",
+    "Inventory_Level": 663056
+  },
+  {
+    "Date": "2020-09-09",
+    "Inventory_Level": 676959
+  },
+  {
+    "Date": "2020-10-09",
+    "Inventory_Level": 698385
+  },
+  {
+    "Date": "2020-11-09",
+    "Inventory_Level": 675687
+  },
+  {
+    "Date": "2020-12-09",
+    "Inventory_Level": 691354
+  },
+  {
+    "Date": "2020-09-13",
+    "Inventory_Level": 720005
+  },
+  {
+    "Date": "2020-09-14",
+    "Inventory_Level": 738479
+  },
+  {
+    "Date": "2020-09-15",
+    "Inventory_Level": 726559
+  },
+  {
+    "Date": "2020-09-16",
+    "Inventory_Level": 719975
+  },
+  {
+    "Date": "2020-09-17",
+    "Inventory_Level": 731134
+  },
+  {
+    "Date": "2020-09-18",
+    "Inventory_Level": 720536
+  },
+  {
+    "Date": "2020-09-19",
+    "Inventory_Level": 727447
+  },
+  {
+    "Date": "2020-09-20",
+    "Inventory_Level": 735983
+  },
+  {
+    "Date": "2020-09-21",
+    "Inventory_Level": 741521
+  },
+  {
+    "Date": "2020-09-22",
+    "Inventory_Level": 745429
+  },
+  {
+    "Date": "2020-09-23",
+    "Inventory_Level": 721171
+  },
+  {
+    "Date": "2020-09-24",
+    "Inventory_Level": 752421
+  },
+  {
+    "Date": "2020-09-25",
+    "Inventory_Level": 736245
+  },
+  {
+    "Date": "2020-09-26",
+    "Inventory_Level": 727500
+  },
+  {
+    "Date": "2020-09-27",
+    "Inventory_Level": 740809
+  },
+  {
+    "Date": "2020-09-28",
+    "Inventory_Level": 732116
+  },
+  {
+    "Date": "2020-09-29",
+    "Inventory_Level": 701421
+  },
+  {
+    "Date": "2020-09-30",
+    "Inventory_Level": 702129
+  },
+  {
+    "Date": "2020-01-10",
+    "Inventory_Level": 691988
+  },
+  {
+    "Date": "2020-02-10",
+    "Inventory_Level": 673880
+  },
+  {
+    "Date": "2020-03-10",
+    "Inventory_Level": 647883
+  },
+  {
+    "Date": "2020-04-10",
+    "Inventory_Level": 645309
+  },
+  {
+    "Date": "2020-05-10",
+    "Inventory_Level": 668338
+  },
+  {
+    "Date": "2020-06-10",
+    "Inventory_Level": 663612
+  },
+  {
+    "Date": "2020-07-10",
+    "Inventory_Level": 643523
+  },
+  {
+    "Date": "2020-08-10",
+    "Inventory_Level": 633658
+  },
+  {
+    "Date": "2020-09-10",
+    "Inventory_Level": 612271
+  },
+  {
+    "Date": "2020-10-10",
+    "Inventory_Level": 623066
+  },
+  {
+    "Date": "2020-11-10",
+    "Inventory_Level": 619989
+  },
+  {
+    "Date": "2020-12-10",
+    "Inventory_Level": 626154
+  },
+  {
+    "Date": "2020-10-13",
+    "Inventory_Level": 604450
+  },
+  {
+    "Date": "2020-10-14",
+    "Inventory_Level": 608257
+  },
+  {
+    "Date": "2020-10-15",
+    "Inventory_Level": 623080
+  },
+  {
+    "Date": "2020-10-16",
+    "Inventory_Level": 612638
+  },
+  {
+    "Date": "2020-10-17",
+    "Inventory_Level": 611928
+  },
+  {
+    "Date": "2020-10-18",
+    "Inventory_Level": 621877
+  },
+  {
+    "Date": "2020-10-19",
+    "Inventory_Level": 612480
+  },
+  {
+    "Date": "2020-10-20",
+    "Inventory_Level": 614679
+  },
+  {
+    "Date": "2020-10-21",
+    "Inventory_Level": 602581
+  },
+  {
+    "Date": "2020-10-22",
+    "Inventory_Level": 606270
+  },
+  {
+    "Date": "2020-10-23",
+    "Inventory_Level": 578757
+  },
+  {
+    "Date": "2020-10-24",
+    "Inventory_Level": 574631
+  },
+  {
+    "Date": "2020-10-25",
+    "Inventory_Level": 570707
+  },
+  {
+    "Date": "2020-10-26",
+    "Inventory_Level": 575966
+  },
+  {
+    "Date": "2020-10-27",
+    "Inventory_Level": 579028
+  },
+  {
+    "Date": "2020-10-28",
+    "Inventory_Level": 570233
+  },
+  {
+    "Date": "2020-10-29",
+    "Inventory_Level": 595960
+  },
+  {
+    "Date": "2020-10-30",
+    "Inventory_Level": 625810
+  },
+  {
+    "Date": "2020-10-31",
+    "Inventory_Level": 641963
+  },
+  {
+    "Date": "2020-01-11",
+    "Inventory_Level": 640581
+  },
+  {
+    "Date": "2020-02-11",
+    "Inventory_Level": 639419
+  },
+  {
+    "Date": "2020-03-11",
+    "Inventory_Level": 655808
+  },
+  {
+    "Date": "2020-04-11",
+    "Inventory_Level": 632500
+  },
+  {
+    "Date": "2020-05-11",
+    "Inventory_Level": 631875
+  },
+  {
+    "Date": "2020-06-11",
+    "Inventory_Level": 622133
+  },
+  {
+    "Date": "2020-07-11",
+    "Inventory_Level": 616307
+  },
+  {
+    "Date": "2020-08-11",
+    "Inventory_Level": 643192
+  },
+  {
+    "Date": "2020-09-11",
+    "Inventory_Level": 660923
+  },
+  {
+    "Date": "2020-10-11",
+    "Inventory_Level": 656448
+  },
+  {
+    "Date": "2020-11-11",
+    "Inventory_Level": 662357
+  },
+  {
+    "Date": "2020-12-11",
+    "Inventory_Level": 651204
+  },
+  {
+    "Date": "2020-11-13",
+    "Inventory_Level": 627641
+  },
+  {
+    "Date": "2020-11-14",
+    "Inventory_Level": 616800
+  },
+  {
+    "Date": "2020-11-15",
+    "Inventory_Level": 654006
+  },
+  {
+    "Date": "2020-11-16",
+    "Inventory_Level": 661897
+  },
+  {
+    "Date": "2020-11-17",
+    "Inventory_Level": 665409
+  },
+  {
+    "Date": "2020-11-18",
+    "Inventory_Level": 686240
+  },
+  {
+    "Date": "2020-11-19",
+    "Inventory_Level": 708819
+  },
+  {
+    "Date": "2020-11-20",
+    "Inventory_Level": 733205
+  },
+  {
+    "Date": "2020-11-21",
+    "Inventory_Level": 741435
+  },
+  {
+    "Date": "2020-11-22",
+    "Inventory_Level": 756805
+  },
+  {
+    "Date": "2020-11-23",
+    "Inventory_Level": 750863
+  },
+  {
+    "Date": "2020-11-24",
+    "Inventory_Level": 754510
+  },
+  {
+    "Date": "2020-11-25",
+    "Inventory_Level": 757617
+  },
+  {
+    "Date": "2020-11-26",
+    "Inventory_Level": 763776
+  },
+  {
+    "Date": "2020-11-27",
+    "Inventory_Level": 762160
+  },
+  {
+    "Date": "2020-11-28",
+    "Inventory_Level": 770746
+  },
+  {
+    "Date": "2020-11-29",
+    "Inventory_Level": 751920
+  },
+  {
+    "Date": "2020-11-30",
+    "Inventory_Level": 760990
+  },
+  {
+    "Date": "2020-01-12",
+    "Inventory_Level": 757561
+  },
+  {
+    "Date": "2020-02-12",
+    "Inventory_Level": 760161
+  },
+  {
+    "Date": "2020-03-12",
+    "Inventory_Level": 782565
+  },
+  {
+    "Date": "2020-04-12",
+    "Inventory_Level": 782484
+  },
+  {
+    "Date": "2020-05-12",
+    "Inventory_Level": 771279
+  },
+  {
+    "Date": "2020-06-12",
+    "Inventory_Level": 789904
+  },
+  {
+    "Date": "2020-07-12",
+    "Inventory_Level": 812829
+  },
+  {
+    "Date": "2020-08-12",
+    "Inventory_Level": 797468
+  },
+  {
+    "Date": "2020-09-12",
+    "Inventory_Level": 765862
+  },
+  {
+    "Date": "2020-10-12",
+    "Inventory_Level": 752554
+  },
+  {
+    "Date": "2020-11-12",
+    "Inventory_Level": 736693
+  },
+  {
+    "Date": "2020-12-12",
+    "Inventory_Level": 701992
+  },
+  {
+    "Date": "2020-12-13",
+    "Inventory_Level": 708128
+  },
+  {
+    "Date": "2020-12-14",
+    "Inventory_Level": 715418
+  },
+  {
+    "Date": "2020-12-15",
+    "Inventory_Level": 701081
+  },
+  {
+    "Date": "2020-12-16",
+    "Inventory_Level": 716137
+  },
+  {
+    "Date": "2020-12-17",
+    "Inventory_Level": 735684
+  },
+  {
+    "Date": "2020-12-18",
+    "Inventory_Level": 716872
+  },
+  {
+    "Date": "2020-12-19",
+    "Inventory_Level": 730130
+  },
+  {
+    "Date": "2020-12-20",
+    "Inventory_Level": 760549
+  },
+  {
+    "Date": "2020-12-21",
+    "Inventory_Level": 776137
+  },
+  {
+    "Date": "2020-12-22",
+    "Inventory_Level": 768203
+  },
+  {
+    "Date": "2020-12-23",
+    "Inventory_Level": 770223
+  },
+  {
+    "Date": "2020-12-24",
+    "Inventory_Level": 758926
+  },
+  {
+    "Date": "2020-12-25",
+    "Inventory_Level": 784446
+  },
+  {
+    "Date": "2020-12-26",
+    "Inventory_Level": 805919
+  },
+  {
+    "Date": "2020-12-27",
+    "Inventory_Level": 807194
+  },
+  {
+    "Date": "2020-12-28",
+    "Inventory_Level": 785584
+  },
+  {
+    "Date": "2020-12-29",
+    "Inventory_Level": 792325
+  },
+  {
+    "Date": "2020-12-30",
+    "Inventory_Level": 807633
+  },
+  {
+    "Date": "2020-12-31",
+    "Inventory_Level": 841716
+  },
+  {
+    "Date": "2021-01-01",
+    "Inventory_Level": 842973
+  },
+  {
+    "Date": "2021-02-01",
+    "Inventory_Level": 869205
+  },
+  {
+    "Date": "2021-03-01",
+    "Inventory_Level": 849315
+  },
+  {
+    "Date": "2021-04-01",
+    "Inventory_Level": 838910
+  },
+  {
+    "Date": "2021-05-01",
+    "Inventory_Level": 831056
+  },
+  {
+    "Date": "2021-06-01",
+    "Inventory_Level": 842055
+  },
+  {
+    "Date": "2021-07-01",
+    "Inventory_Level": 828747
+  },
+  {
+    "Date": "2021-08-01",
+    "Inventory_Level": 790118
+  },
+  {
+    "Date": "2021-09-01",
+    "Inventory_Level": 812088
+  },
+  {
+    "Date": "2021-10-01",
+    "Inventory_Level": 798837
+  },
+  {
+    "Date": "2021-11-01",
+    "Inventory_Level": 771826
+  },
+  {
+    "Date": "2021-12-01",
+    "Inventory_Level": 770418
+  },
+  {
+    "Date": "2021-01-13",
+    "Inventory_Level": 789213
+  },
+  {
+    "Date": "2021-01-14",
+    "Inventory_Level": 813935
+  },
+  {
+    "Date": "2021-01-15",
+    "Inventory_Level": 797046
+  },
+  {
+    "Date": "2021-01-16",
+    "Inventory_Level": 792317
+  },
+  {
+    "Date": "2021-01-17",
+    "Inventory_Level": 776134
+  },
+  {
+    "Date": "2021-01-18",
+    "Inventory_Level": 804649
+  },
+  {
+    "Date": "2021-01-19",
+    "Inventory_Level": 820404
+  },
+  {
+    "Date": "2021-01-20",
+    "Inventory_Level": 824812
+  },
+  {
+    "Date": "2021-01-21",
+    "Inventory_Level": 813559
+  },
+  {
+    "Date": "2021-01-22",
+    "Inventory_Level": 797281
+  },
+  {
+    "Date": "2021-01-23",
+    "Inventory_Level": 816431
+  },
+  {
+    "Date": "2021-01-24",
+    "Inventory_Level": 799763
+  },
+  {
+    "Date": "2021-01-25",
+    "Inventory_Level": 777537
+  },
+  {
+    "Date": "2021-01-26",
+    "Inventory_Level": 758083
+  },
+  {
+    "Date": "2021-01-27",
+    "Inventory_Level": 763792
+  },
+  {
+    "Date": "2021-01-28",
+    "Inventory_Level": 787202
+  },
+  {
+    "Date": "2021-01-29",
+    "Inventory_Level": 821954
+  },
+  {
+    "Date": "2021-01-30",
+    "Inventory_Level": 809846
+  },
+  {
+    "Date": "2021-01-31",
+    "Inventory_Level": 802316
+  },
+  {
+    "Date": "2021-01-02",
+    "Inventory_Level": 798387
+  },
+  {
+    "Date": "2021-02-02",
+    "Inventory_Level": 796245
+  },
+  {
+    "Date": "2021-03-02",
+    "Inventory_Level": 815030
+  },
+  {
+    "Date": "2021-04-02",
+    "Inventory_Level": 807158
+  },
+  {
+    "Date": "2021-05-02",
+    "Inventory_Level": 807356
+  },
+  {
+    "Date": "2021-06-02",
+    "Inventory_Level": 784601
+  },
+  {
+    "Date": "2021-07-02",
+    "Inventory_Level": 737276
+  },
+  {
+    "Date": "2021-08-02",
+    "Inventory_Level": 737316
+  },
+  {
+    "Date": "2021-09-02",
+    "Inventory_Level": 703389
+  },
+  {
+    "Date": "2021-10-02",
+    "Inventory_Level": 712091
+  },
+  {
+    "Date": "2021-11-02",
+    "Inventory_Level": 707578
+  },
+  {
+    "Date": "2021-12-02",
+    "Inventory_Level": 691643
+  },
+  {
+    "Date": "2021-02-13",
+    "Inventory_Level": 689078
+  },
+  {
+    "Date": "2021-02-14",
+    "Inventory_Level": 695735
+  },
+  {
+    "Date": "2021-02-15",
+    "Inventory_Level": 704858
+  },
+  {
+    "Date": "2021-02-16",
+    "Inventory_Level": 700066
+  },
+  {
+    "Date": "2021-02-17",
+    "Inventory_Level": 703391
+  },
+  {
+    "Date": "2021-02-18",
+    "Inventory_Level": 700844
+  },
+  {
+    "Date": "2021-02-19",
+    "Inventory_Level": 705466
+  },
+  {
+    "Date": "2021-02-20",
+    "Inventory_Level": 678820
+  },
+  {
+    "Date": "2021-02-21",
+    "Inventory_Level": 673173
+  },
+  {
+    "Date": "2021-02-22",
+    "Inventory_Level": 646761
+  },
+  {
+    "Date": "2021-02-23",
+    "Inventory_Level": 650067
+  },
+  {
+    "Date": "2021-02-24",
+    "Inventory_Level": 659953
+  },
+  {
+    "Date": "2021-02-25",
+    "Inventory_Level": 642534
+  },
+  {
+    "Date": "2021-02-26",
+    "Inventory_Level": 658951
+  },
+  {
+    "Date": "2021-02-27",
+    "Inventory_Level": 651630
+  },
+  {
+    "Date": "2021-02-28",
+    "Inventory_Level": 653173
+  },
+  {
+    "Date": "2021-01-03",
+    "Inventory_Level": 605785
+  },
+  {
+    "Date": "2021-02-03",
+    "Inventory_Level": 606761
+  },
+  {
+    "Date": "2021-03-03",
+    "Inventory_Level": 625425
+  },
+  {
+    "Date": "2021-04-03",
+    "Inventory_Level": 592980
+  },
+  {
+    "Date": "2021-05-03",
+    "Inventory_Level": 592431
+  },
+  {
+    "Date": "2021-06-03",
+    "Inventory_Level": 580993
+  },
+  {
+    "Date": "2021-07-03",
+    "Inventory_Level": 585563
+  },
+  {
+    "Date": "2021-08-03",
+    "Inventory_Level": 603765
+  },
+  {
+    "Date": "2021-09-03",
+    "Inventory_Level": 589552
+  },
+  {
+    "Date": "2021-10-03",
+    "Inventory_Level": 601279
+  },
+  {
+    "Date": "2021-11-03",
+    "Inventory_Level": 601723
+  },
+  {
+    "Date": "2021-12-03",
+    "Inventory_Level": 621690
+  },
+  {
+    "Date": "2021-03-13",
+    "Inventory_Level": 627364
+  },
+  {
+    "Date": "2021-03-14",
+    "Inventory_Level": 614712
+  },
+  {
+    "Date": "2021-03-15",
+    "Inventory_Level": 635057
+  },
+  {
+    "Date": "2021-03-16",
+    "Inventory_Level": 647393
+  },
+  {
+    "Date": "2021-03-17",
+    "Inventory_Level": 643619
+  },
+  {
+    "Date": "2021-03-18",
+    "Inventory_Level": 630714
+  },
+  {
+    "Date": "2021-03-19",
+    "Inventory_Level": 655301
+  },
+  {
+    "Date": "2021-03-20",
+    "Inventory_Level": 653654
+  },
+  {
+    "Date": "2021-03-21",
+    "Inventory_Level": 638909
+  },
+  {
+    "Date": "2021-03-22",
+    "Inventory_Level": 603544
+  },
+  {
+    "Date": "2021-03-23",
+    "Inventory_Level": 605798
+  },
+  {
+    "Date": "2021-03-24",
+    "Inventory_Level": 599233
+  },
+  {
+    "Date": "2021-03-25",
+    "Inventory_Level": 625002
+  },
+  {
+    "Date": "2021-03-26",
+    "Inventory_Level": 632337
+  },
+  {
+    "Date": "2021-03-27",
+    "Inventory_Level": 655575
+  },
+  {
+    "Date": "2021-03-28",
+    "Inventory_Level": 672947
+  },
+  {
+    "Date": "2021-03-29",
+    "Inventory_Level": 659439
+  },
+  {
+    "Date": "2021-03-30",
+    "Inventory_Level": 644785
+  },
+  {
+    "Date": "2021-03-31",
+    "Inventory_Level": 651408
+  },
+  {
+    "Date": "2021-01-04",
+    "Inventory_Level": 657682
+  },
+  {
+    "Date": "2021-02-04",
+    "Inventory_Level": 645318
+  },
+  {
+    "Date": "2021-03-04",
+    "Inventory_Level": 666735
+  },
+  {
+    "Date": "2021-04-04",
+    "Inventory_Level": 652932
+  },
+  {
+    "Date": "2021-05-04",
+    "Inventory_Level": 650630
+  },
+  {
+    "Date": "2021-06-04",
+    "Inventory_Level": 655071
+  },
+  {
+    "Date": "2021-07-04",
+    "Inventory_Level": 654929
+  },
+  {
+    "Date": "2021-08-04",
+    "Inventory_Level": 643735
+  },
+  {
+    "Date": "2021-09-04",
+    "Inventory_Level": 609665
+  },
+  {
+    "Date": "2021-10-04",
+    "Inventory_Level": 613664
+  },
+  {
+    "Date": "2021-11-04",
+    "Inventory_Level": 614609
+  },
+  {
+    "Date": "2021-12-04",
+    "Inventory_Level": 604057
+  },
+  {
+    "Date": "2021-04-13",
+    "Inventory_Level": 602518
+  },
+  {
+    "Date": "2021-04-14",
+    "Inventory_Level": 615830
+  },
+  {
+    "Date": "2021-04-15",
+    "Inventory_Level": 610108
+  },
+  {
+    "Date": "2021-04-16",
+    "Inventory_Level": 605722
+  },
+  {
+    "Date": "2021-04-17",
+    "Inventory_Level": 603195
+  },
+  {
+    "Date": "2021-04-18",
+    "Inventory_Level": 598787
+  },
+  {
+    "Date": "2021-04-19",
+    "Inventory_Level": 614956
+  },
+  {
+    "Date": "2021-04-20",
+    "Inventory_Level": 601461
+  },
+  {
+    "Date": "2021-04-21",
+    "Inventory_Level": 626624
+  },
+  {
+    "Date": "2021-04-22",
+    "Inventory_Level": 643229
+  },
+  {
+    "Date": "2021-04-23",
+    "Inventory_Level": 640928
+  },
+  {
+    "Date": "2021-04-24",
+    "Inventory_Level": 664142
+  },
+  {
+    "Date": "2021-04-25",
+    "Inventory_Level": 648117
+  },
+  {
+    "Date": "2021-04-26",
+    "Inventory_Level": 644201
+  },
+  {
+    "Date": "2021-04-27",
+    "Inventory_Level": 659722
+  },
+  {
+    "Date": "2021-04-28",
+    "Inventory_Level": 667066
+  },
+  {
+    "Date": "2021-04-29",
+    "Inventory_Level": 675233
+  },
+  {
+    "Date": "2021-04-30",
+    "Inventory_Level": 668317
+  },
+  {
+    "Date": "2021-01-05",
+    "Inventory_Level": 658924
+  },
+  {
+    "Date": "2021-02-05",
+    "Inventory_Level": 663981
+  },
+  {
+    "Date": "2021-03-05",
+    "Inventory_Level": 657275
+  },
+  {
+    "Date": "2021-04-05",
+    "Inventory_Level": 679318
+  },
+  {
+    "Date": "2021-05-05",
+    "Inventory_Level": 667971
+  },
+  {
+    "Date": "2021-06-05",
+    "Inventory_Level": 683967
+  },
+  {
+    "Date": "2021-07-05",
+    "Inventory_Level": 701937
+  },
+  {
+    "Date": "2021-08-05",
+    "Inventory_Level": 689311
+  },
+  {
+    "Date": "2021-09-05",
+    "Inventory_Level": 682157
+  },
+  {
+    "Date": "2021-10-05",
+    "Inventory_Level": 702257
+  },
+  {
+    "Date": "2021-11-05",
+    "Inventory_Level": 717673
+  },
+  {
+    "Date": "2021-12-05",
+    "Inventory_Level": 733133
+  },
+  {
+    "Date": "2021-05-13",
+    "Inventory_Level": 731065
+  },
+  {
+    "Date": "2021-05-14",
+    "Inventory_Level": 717928
+  },
+  {
+    "Date": "2021-05-15",
+    "Inventory_Level": 715566
+  },
+  {
+    "Date": "2021-05-16",
+    "Inventory_Level": 705045
+  },
+  {
+    "Date": "2021-05-17",
+    "Inventory_Level": 699527
+  },
+  {
+    "Date": "2021-05-18",
+    "Inventory_Level": 697017
+  },
+  {
+    "Date": "2021-05-19",
+    "Inventory_Level": 693293
+  },
+  {
+    "Date": "2021-05-20",
+    "Inventory_Level": 699502
+  },
+  {
+    "Date": "2021-05-21",
+    "Inventory_Level": 679706
+  },
+  {
+    "Date": "2021-05-22",
+    "Inventory_Level": 683197
+  },
+  {
+    "Date": "2021-05-23",
+    "Inventory_Level": 678535
+  },
+  {
+    "Date": "2021-05-24",
+    "Inventory_Level": 677175
+  },
+  {
+    "Date": "2021-05-25",
+    "Inventory_Level": 667200
+  },
+  {
+    "Date": "2021-05-26",
+    "Inventory_Level": 687881
+  },
+  {
+    "Date": "2021-05-27",
+    "Inventory_Level": 694349
+  },
+  {
+    "Date": "2021-05-28",
+    "Inventory_Level": 675200
+  },
+  {
+    "Date": "2021-05-29",
+    "Inventory_Level": 674282
+  },
+  {
+    "Date": "2021-05-30",
+    "Inventory_Level": 671610
+  },
+  {
+    "Date": "2021-05-31",
+    "Inventory_Level": 660426
+  },
+  {
+    "Date": "2021-01-06",
+    "Inventory_Level": 638832
+  },
+  {
+    "Date": "2021-02-06",
+    "Inventory_Level": 598305
+  },
+  {
+    "Date": "2021-03-06",
+    "Inventory_Level": 586735
+  },
+  {
+    "Date": "2021-04-06",
+    "Inventory_Level": 570089
+  },
+  {
+    "Date": "2021-05-06",
+    "Inventory_Level": 548515
+  },
+  {
+    "Date": "2021-06-06",
+    "Inventory_Level": 548353
+  },
+  {
+    "Date": "2021-07-06",
+    "Inventory_Level": 516227
+  },
+  {
+    "Date": "2021-08-06",
+    "Inventory_Level": 538858
+  },
+  {
+    "Date": "2021-09-06",
+    "Inventory_Level": 513431
+  },
+  {
+    "Date": "2021-10-06",
+    "Inventory_Level": 516301
+  },
+  {
+    "Date": "2021-11-06",
+    "Inventory_Level": 555081
+  },
+  {
+    "Date": "2021-12-06",
+    "Inventory_Level": 545750
+  },
+  {
+    "Date": "2021-06-13",
+    "Inventory_Level": 530993
+  },
+  {
+    "Date": "2021-06-14",
+    "Inventory_Level": 528806
+  },
+  {
+    "Date": "2021-06-15",
+    "Inventory_Level": 522839
+  },
+  {
+    "Date": "2021-06-16",
+    "Inventory_Level": 514687
+  },
+  {
+    "Date": "2021-06-17",
+    "Inventory_Level": 494863
+  },
+  {
+    "Date": "2021-06-18",
+    "Inventory_Level": 502861
+  },
+  {
+    "Date": "2021-06-19",
+    "Inventory_Level": 504710
+  },
+  {
+    "Date": "2021-06-20",
+    "Inventory_Level": 500369
+  },
+  {
+    "Date": "2021-06-21",
+    "Inventory_Level": 527448
+  },
+  {
+    "Date": "2021-06-22",
+    "Inventory_Level": 555984
+  },
+  {
+    "Date": "2021-06-23",
+    "Inventory_Level": 559303
+  },
+  {
+    "Date": "2021-06-24",
+    "Inventory_Level": 564215
+  },
+  {
+    "Date": "2021-06-25",
+    "Inventory_Level": 568210
+  },
+  {
+    "Date": "2021-06-26",
+    "Inventory_Level": 573371
+  },
+  {
+    "Date": "2021-06-27",
+    "Inventory_Level": 571101
+  },
+  {
+    "Date": "2021-06-28",
+    "Inventory_Level": 570446
+  },
+  {
+    "Date": "2021-06-29",
+    "Inventory_Level": 582601
+  },
+  {
+    "Date": "2021-06-30",
+    "Inventory_Level": 572270
+  },
+  {
+    "Date": "2021-01-07",
+    "Inventory_Level": 563638
+  },
+  {
+    "Date": "2021-02-07",
+    "Inventory_Level": 557202
+  },
+  {
+    "Date": "2021-03-07",
+    "Inventory_Level": 563088
+  },
+  {
+    "Date": "2021-04-07",
+    "Inventory_Level": 553611
+  },
+  {
+    "Date": "2021-05-07",
+    "Inventory_Level": 557023
+  },
+  {
+    "Date": "2021-06-07",
+    "Inventory_Level": 552809
+  },
+  {
+    "Date": "2021-07-07",
+    "Inventory_Level": 554500
+  },
+  {
+    "Date": "2021-08-07",
+    "Inventory_Level": 560406
+  },
+  {
+    "Date": "2021-09-07",
+    "Inventory_Level": 564586
+  },
+  {
+    "Date": "2021-10-07",
+    "Inventory_Level": 579389
+  },
+  {
+    "Date": "2021-11-07",
+    "Inventory_Level": 582461
+  },
+  {
+    "Date": "2021-12-07",
+    "Inventory_Level": 596682
+  },
+  {
+    "Date": "2021-07-13",
+    "Inventory_Level": 598707
+  },
+  {
+    "Date": "2021-07-14",
+    "Inventory_Level": 596707
+  },
+  {
+    "Date": "2021-07-15",
+    "Inventory_Level": 568919
+  },
+  {
+    "Date": "2021-07-16",
+    "Inventory_Level": 549646
+  },
+  {
+    "Date": "2021-07-17",
+    "Inventory_Level": 540363
+  },
+  {
+    "Date": "2021-07-18",
+    "Inventory_Level": 528224
+  },
+  {
+    "Date": "2021-07-19",
+    "Inventory_Level": 536550
+  },
+  {
+    "Date": "2021-07-20",
+    "Inventory_Level": 530588
+  },
+  {
+    "Date": "2021-07-21",
+    "Inventory_Level": 533973
+  },
+  {
+    "Date": "2021-07-22",
+    "Inventory_Level": 524125
+  },
+  {
+    "Date": "2021-07-23",
+    "Inventory_Level": 523702
+  },
+  {
+    "Date": "2021-07-24",
+    "Inventory_Level": 523061
+  },
+  {
+    "Date": "2021-07-25",
+    "Inventory_Level": 539475
+  },
+  {
+    "Date": "2021-07-26",
+    "Inventory_Level": 551222
+  },
+  {
+    "Date": "2021-07-27",
+    "Inventory_Level": 554256
+  },
+  {
+    "Date": "2021-07-28",
+    "Inventory_Level": 552186
+  },
+  {
+    "Date": "2021-07-29",
+    "Inventory_Level": 562736
+  },
+  {
+    "Date": "2021-07-30",
+    "Inventory_Level": 562196
+  },
+  {
+    "Date": "2021-07-31",
+    "Inventory_Level": 552163
+  },
+  {
+    "Date": "2021-01-08",
+    "Inventory_Level": 584712
+  },
+  {
+    "Date": "2021-02-08",
+    "Inventory_Level": 572669
+  },
+  {
+    "Date": "2021-03-08",
+    "Inventory_Level": 579302
+  },
+  {
+    "Date": "2021-04-08",
+    "Inventory_Level": 613854
+  },
+  {
+    "Date": "2021-05-08",
+    "Inventory_Level": 607895
+  },
+  {
+    "Date": "2021-06-08",
+    "Inventory_Level": 634069
+  },
+  {
+    "Date": "2021-07-08",
+    "Inventory_Level": 660543
+  },
+  {
+    "Date": "2021-08-08",
+    "Inventory_Level": 684298
+  },
+  {
+    "Date": "2021-09-08",
+    "Inventory_Level": 681658
+  },
+  {
+    "Date": "2021-10-08",
+    "Inventory_Level": 683969
+  },
+  {
+    "Date": "2021-11-08",
+    "Inventory_Level": 702875
+  },
+  {
+    "Date": "2021-12-08",
+    "Inventory_Level": 710119
+  },
+  {
+    "Date": "2021-08-13",
+    "Inventory_Level": 713995
+  },
+  {
+    "Date": "2021-08-14",
+    "Inventory_Level": 686335
+  },
+  {
+    "Date": "2021-08-15",
+    "Inventory_Level": 678167
+  },
+  {
+    "Date": "2021-08-16",
+    "Inventory_Level": 654487
+  },
+  {
+    "Date": "2021-08-17",
+    "Inventory_Level": 703858
+  },
+  {
+    "Date": "2021-08-18",
+    "Inventory_Level": 696317
+  },
+  {
+    "Date": "2021-08-19",
+    "Inventory_Level": 695274
+  },
+  {
+    "Date": "2021-08-20",
+    "Inventory_Level": 679833
+  },
+  {
+    "Date": "2021-08-21",
+    "Inventory_Level": 670480
+  },
+  {
+    "Date": "2021-08-22",
+    "Inventory_Level": 679365
+  },
+  {
+    "Date": "2021-08-23",
+    "Inventory_Level": 668252
+  },
+  {
+    "Date": "2021-08-24",
+    "Inventory_Level": 666975
+  },
+  {
+    "Date": "2021-08-25",
+    "Inventory_Level": 667519
+  },
+  {
+    "Date": "2021-08-26",
+    "Inventory_Level": 663907
+  },
+  {
+    "Date": "2021-08-27",
+    "Inventory_Level": 683517
+  },
+  {
+    "Date": "2021-08-28",
+    "Inventory_Level": 664272
+  },
+  {
+    "Date": "2021-08-29",
+    "Inventory_Level": 662769
+  },
+  {
+    "Date": "2021-08-30",
+    "Inventory_Level": 663248
+  },
+  {
+    "Date": "2021-08-31",
+    "Inventory_Level": 688138
+  },
+  {
+    "Date": "2021-01-09",
+    "Inventory_Level": 693478
+  },
+  {
+    "Date": "2021-02-09",
+    "Inventory_Level": 679182
+  },
+  {
+    "Date": "2021-03-09",
+    "Inventory_Level": 667024
+  },
+  {
+    "Date": "2021-04-09",
+    "Inventory_Level": 634997
+  },
+  {
+    "Date": "2021-05-09",
+    "Inventory_Level": 646414
+  },
+  {
+    "Date": "2021-06-09",
+    "Inventory_Level": 651533
+  },
+  {
+    "Date": "2021-07-09",
+    "Inventory_Level": 649476
+  },
+  {
+    "Date": "2021-08-09",
+    "Inventory_Level": 642942
+  },
+  {
+    "Date": "2021-09-09",
+    "Inventory_Level": 652021
+  },
+  {
+    "Date": "2021-10-09",
+    "Inventory_Level": 646125
+  },
+  {
+    "Date": "2021-11-09",
+    "Inventory_Level": 638671
+  },
+  {
+    "Date": "2021-12-09",
+    "Inventory_Level": 652539
+  },
+  {
+    "Date": "2021-09-13",
+    "Inventory_Level": 632627
+  },
+  {
+    "Date": "2021-09-14",
+    "Inventory_Level": 635758
+  },
+  {
+    "Date": "2021-09-15",
+    "Inventory_Level": 626511
+  },
+  {
+    "Date": "2021-09-16",
+    "Inventory_Level": 622849
+  },
+  {
+    "Date": "2021-09-17",
+    "Inventory_Level": 680191
+  },
+  {
+    "Date": "2021-09-18",
+    "Inventory_Level": 657634
+  },
+  {
+    "Date": "2021-09-19",
+    "Inventory_Level": 652002
+  },
+  {
+    "Date": "2021-09-20",
+    "Inventory_Level": 642792
+  },
+  {
+    "Date": "2021-09-21",
+    "Inventory_Level": 638914
+  },
+  {
+    "Date": "2021-09-22",
+    "Inventory_Level": 657163
+  },
+  {
+    "Date": "2021-09-23",
+    "Inventory_Level": 653057
+  },
+  {
+    "Date": "2021-09-24",
+    "Inventory_Level": 656589
+  },
+  {
+    "Date": "2021-09-25",
+    "Inventory_Level": 675509
+  },
+  {
+    "Date": "2021-09-26",
+    "Inventory_Level": 688610
+  },
+  {
+    "Date": "2021-09-27",
+    "Inventory_Level": 678939
+  },
+  {
+    "Date": "2021-09-28",
+    "Inventory_Level": 676168
+  },
+  {
+    "Date": "2021-09-29",
+    "Inventory_Level": 664145
+  },
+  {
+    "Date": "2021-09-30",
+    "Inventory_Level": 663105
+  },
+  {
+    "Date": "2021-01-10",
+    "Inventory_Level": 657916
+  },
+  {
+    "Date": "2021-02-10",
+    "Inventory_Level": 644959
+  },
+  {
+    "Date": "2021-03-10",
+    "Inventory_Level": 635876
+  },
+  {
+    "Date": "2021-04-10",
+    "Inventory_Level": 634575
+  },
+  {
+    "Date": "2021-05-10",
+    "Inventory_Level": 629546
+  },
+  {
+    "Date": "2021-06-10",
+    "Inventory_Level": 589371
+  },
+  {
+    "Date": "2021-07-10",
+    "Inventory_Level": 592511
+  },
+  {
+    "Date": "2021-08-10",
+    "Inventory_Level": 591523
+  },
+  {
+    "Date": "2021-09-10",
+    "Inventory_Level": 577304
+  },
+  {
+    "Date": "2021-10-10",
+    "Inventory_Level": 614393
+  },
+  {
+    "Date": "2021-11-10",
+    "Inventory_Level": 598543
+  },
+  {
+    "Date": "2021-12-10",
+    "Inventory_Level": 601149
+  },
+  {
+    "Date": "2021-10-13",
+    "Inventory_Level": 606203
+  },
+  {
+    "Date": "2021-10-14",
+    "Inventory_Level": 617069
+  },
+  {
+    "Date": "2021-10-15",
+    "Inventory_Level": 634190
+  },
+  {
+    "Date": "2021-10-16",
+    "Inventory_Level": 644591
+  },
+  {
+    "Date": "2021-10-17",
+    "Inventory_Level": 649350
+  },
+  {
+    "Date": "2021-10-18",
+    "Inventory_Level": 613562
+  },
+  {
+    "Date": "2021-10-19",
+    "Inventory_Level": 621632
+  },
+  {
+    "Date": "2021-10-20",
+    "Inventory_Level": 639254
+  },
+  {
+    "Date": "2021-10-21",
+    "Inventory_Level": 633997
+  },
+  {
+    "Date": "2021-10-22",
+    "Inventory_Level": 662079
+  },
+  {
+    "Date": "2021-10-23",
+    "Inventory_Level": 686847
+  },
+  {
+    "Date": "2021-10-24",
+    "Inventory_Level": 717443
+  },
+  {
+    "Date": "2021-10-25",
+    "Inventory_Level": 700241
+  },
+  {
+    "Date": "2021-10-26",
+    "Inventory_Level": 700581
+  },
+  {
+    "Date": "2021-10-27",
+    "Inventory_Level": 712106
+  },
+  {
+    "Date": "2021-10-28",
+    "Inventory_Level": 720144
+  },
+  {
+    "Date": "2021-10-29",
+    "Inventory_Level": 725447
+  },
+  {
+    "Date": "2021-10-30",
+    "Inventory_Level": 727081
+  },
+  {
+    "Date": "2021-10-31",
+    "Inventory_Level": 738174
+  },
+  {
+    "Date": "2021-01-11",
+    "Inventory_Level": 759632
+  },
+  {
+    "Date": "2021-02-11",
+    "Inventory_Level": 748704
+  },
+  {
+    "Date": "2021-03-11",
+    "Inventory_Level": 772103
+  },
+  {
+    "Date": "2021-04-11",
+    "Inventory_Level": 765774
+  },
+  {
+    "Date": "2021-05-11",
+    "Inventory_Level": 770700
+  },
+  {
+    "Date": "2021-06-11",
+    "Inventory_Level": 752651
+  },
+  {
+    "Date": "2021-07-11",
+    "Inventory_Level": 764619
+  },
+  {
+    "Date": "2021-08-11",
+    "Inventory_Level": 758381
+  },
+  {
+    "Date": "2021-09-11",
+    "Inventory_Level": 749358
+  },
+  {
+    "Date": "2021-10-11",
+    "Inventory_Level": 756764
+  },
+  {
+    "Date": "2021-11-11",
+    "Inventory_Level": 762176
+  },
+  {
+    "Date": "2021-12-11",
+    "Inventory_Level": 732793
+  },
+  {
+    "Date": "2021-11-13",
+    "Inventory_Level": 720741
+  },
+  {
+    "Date": "2021-11-14",
+    "Inventory_Level": 719719
+  },
+  {
+    "Date": "2021-11-15",
+    "Inventory_Level": 705869
+  },
+  {
+    "Date": "2021-11-16",
+    "Inventory_Level": 689633
+  },
+  {
+    "Date": "2021-11-17",
+    "Inventory_Level": 661596
+  },
+  {
+    "Date": "2021-11-18",
+    "Inventory_Level": 651394
+  },
+  {
+    "Date": "2021-11-19",
+    "Inventory_Level": 677142
+  },
+  {
+    "Date": "2021-11-20",
+    "Inventory_Level": 690139
+  },
+  {
+    "Date": "2021-11-21",
+    "Inventory_Level": 697053
+  },
+  {
+    "Date": "2021-11-22",
+    "Inventory_Level": 698781
+  },
+  {
+    "Date": "2021-11-23",
+    "Inventory_Level": 702616
+  },
+  {
+    "Date": "2021-11-24",
+    "Inventory_Level": 713541
+  },
+  {
+    "Date": "2021-11-25",
+    "Inventory_Level": 716754
+  },
+  {
+    "Date": "2021-11-26",
+    "Inventory_Level": 721823
+  },
+  {
+    "Date": "2021-11-27",
+    "Inventory_Level": 738929
+  },
+  {
+    "Date": "2021-11-28",
+    "Inventory_Level": 715135
+  },
+  {
+    "Date": "2021-11-29",
+    "Inventory_Level": 706355
+  },
+  {
+    "Date": "2021-11-30",
+    "Inventory_Level": 681541
+  },
+  {
+    "Date": "2021-01-12",
+    "Inventory_Level": 702417
+  },
+  {
+    "Date": "2021-02-12",
+    "Inventory_Level": 722499
+  },
+  {
+    "Date": "2021-03-12",
+    "Inventory_Level": 731583
+  },
+  {
+    "Date": "2021-04-12",
+    "Inventory_Level": 730671
+  },
+  {
+    "Date": "2021-05-12",
+    "Inventory_Level": 737960
+  },
+  {
+    "Date": "2021-06-12",
+    "Inventory_Level": 728901
+  },
+  {
+    "Date": "2021-07-12",
+    "Inventory_Level": 740337
+  },
+  {
+    "Date": "2021-08-12",
+    "Inventory_Level": 743352
+  },
+  {
+    "Date": "2021-09-12",
+    "Inventory_Level": 737175
+  },
+  {
+    "Date": "2021-10-12",
+    "Inventory_Level": 742358
+  },
+  {
+    "Date": "2021-11-12",
+    "Inventory_Level": 730943
+  },
+  {
+    "Date": "2021-12-12",
+    "Inventory_Level": 730775
+  },
+  {
+    "Date": "2021-12-13",
+    "Inventory_Level": 738536
+  },
+  {
+    "Date": "2021-12-14",
+    "Inventory_Level": 763784
+  },
+  {
+    "Date": "2021-12-15",
+    "Inventory_Level": 749308
+  },
+  {
+    "Date": "2021-12-16",
+    "Inventory_Level": 761771
+  },
+  {
+    "Date": "2021-12-17",
+    "Inventory_Level": 779961
+  },
+  {
+    "Date": "2021-12-18",
+    "Inventory_Level": 746271
+  },
+  {
+    "Date": "2021-12-19",
+    "Inventory_Level": 730703
+  },
+  {
+    "Date": "2021-12-20",
+    "Inventory_Level": 740080
+  },
+  {
+    "Date": "2021-12-21",
+    "Inventory_Level": 745202
+  },
+  {
+    "Date": "2021-12-22",
+    "Inventory_Level": 747991
+  },
+  {
+    "Date": "2021-12-23",
+    "Inventory_Level": 751751
+  },
+  {
+    "Date": "2021-12-24",
+    "Inventory_Level": 769035
+  },
+  {
+    "Date": "2021-12-25",
+    "Inventory_Level": 783790
+  },
+  {
+    "Date": "2021-12-26",
+    "Inventory_Level": 776653
+  },
+  {
+    "Date": "2021-12-27",
+    "Inventory_Level": 800995
+  },
+  {
+    "Date": "2021-12-28",
+    "Inventory_Level": 816394
+  },
+  {
+    "Date": "2021-12-29",
+    "Inventory_Level": 828427
+  },
+  {
+    "Date": "2021-12-30",
+    "Inventory_Level": 825997
+  },
+  {
+    "Date": "2021-12-31",
+    "Inventory_Level": 821995
+  },
+  {
+    "Date": "2022-01-01",
+    "Inventory_Level": 831392
+  },
+  {
+    "Date": "2022-02-01",
+    "Inventory_Level": 860154
+  },
+  {
+    "Date": "2022-03-01",
+    "Inventory_Level": 842924
+  },
+  {
+    "Date": "2022-04-01",
+    "Inventory_Level": 846883
+  },
+  {
+    "Date": "2022-05-01",
+    "Inventory_Level": 869941
+  },
+  {
+    "Date": "2022-06-01",
+    "Inventory_Level": 896113
+  },
+  {
+    "Date": "2022-07-01",
+    "Inventory_Level": 902899
+  },
+  {
+    "Date": "2022-08-01",
+    "Inventory_Level": 896175
+  },
+  {
+    "Date": "2022-09-01",
+    "Inventory_Level": 905977
+  },
+  {
+    "Date": "2022-10-01",
+    "Inventory_Level": 898728
+  },
+  {
+    "Date": "2022-11-01",
+    "Inventory_Level": 905999
+  },
+  {
+    "Date": "2022-12-01",
+    "Inventory_Level": 851108
+  },
+  {
+    "Date": "2022-01-13",
+    "Inventory_Level": 859035
+  },
+  {
+    "Date": "2022-01-14",
+    "Inventory_Level": 843063
+  },
+  {
+    "Date": "2022-01-15",
+    "Inventory_Level": 812003
+  },
+  {
+    "Date": "2022-01-16",
+    "Inventory_Level": 823723
+  },
+  {
+    "Date": "2022-01-17",
+    "Inventory_Level": 837011
+  },
+  {
+    "Date": "2022-01-18",
+    "Inventory_Level": 842160
+  },
+  {
+    "Date": "2022-01-19",
+    "Inventory_Level": 836270
+  },
+  {
+    "Date": "2022-01-20",
+    "Inventory_Level": 857296
+  },
+  {
+    "Date": "2022-01-21",
+    "Inventory_Level": 846742
+  },
+  {
+    "Date": "2022-01-22",
+    "Inventory_Level": 848870
+  },
+  {
+    "Date": "2022-01-23",
+    "Inventory_Level": 876822
+  },
+  {
+    "Date": "2022-01-24",
+    "Inventory_Level": 903224
+  },
+  {
+    "Date": "2022-01-25",
+    "Inventory_Level": 906340
+  },
+  {
+    "Date": "2022-01-26",
+    "Inventory_Level": 910896
+  },
+  {
+    "Date": "2022-01-27",
+    "Inventory_Level": 883110
+  },
+  {
+    "Date": "2022-01-28",
+    "Inventory_Level": 872457
+  },
+  {
+    "Date": "2022-01-29",
+    "Inventory_Level": 888808
+  },
+  {
+    "Date": "2022-01-30",
+    "Inventory_Level": 922763
+  },
+  {
+    "Date": "2022-01-31",
+    "Inventory_Level": 927741
+  },
+  {
+    "Date": "2022-01-02",
+    "Inventory_Level": 913511
+  },
+  {
+    "Date": "2022-02-02",
+    "Inventory_Level": 928535
+  },
+  {
+    "Date": "2022-03-02",
+    "Inventory_Level": 936021
+  },
+  {
+    "Date": "2022-04-02",
+    "Inventory_Level": 912586
+  },
+  {
+    "Date": "2022-05-02",
+    "Inventory_Level": 923388
+  },
+  {
+    "Date": "2022-06-02",
+    "Inventory_Level": 900910
+  },
+  {
+    "Date": "2022-07-02",
+    "Inventory_Level": 898215
+  },
+  {
+    "Date": "2022-08-02",
+    "Inventory_Level": 884933
+  },
+  {
+    "Date": "2022-09-02",
+    "Inventory_Level": 834709
+  },
+  {
+    "Date": "2022-10-02",
+    "Inventory_Level": 812674
+  },
+  {
+    "Date": "2022-11-02",
+    "Inventory_Level": 788690
+  },
+  {
+    "Date": "2022-12-02",
+    "Inventory_Level": 802052
+  },
+  {
+    "Date": "2022-02-13",
+    "Inventory_Level": 770172
+  },
+  {
+    "Date": "2022-02-14",
+    "Inventory_Level": 781793
+  },
+  {
+    "Date": "2022-02-15",
+    "Inventory_Level": 766584
+  },
+  {
+    "Date": "2022-02-16",
+    "Inventory_Level": 757617
+  },
+  {
+    "Date": "2022-02-17",
+    "Inventory_Level": 728454
+  },
+  {
+    "Date": "2022-02-18",
+    "Inventory_Level": 744596
+  },
+  {
+    "Date": "2022-02-19",
+    "Inventory_Level": 717304
+  },
+  {
+    "Date": "2022-02-20",
+    "Inventory_Level": 724276
+  },
+  {
+    "Date": "2022-02-21",
+    "Inventory_Level": 736977
+  },
+  {
+    "Date": "2022-02-22",
+    "Inventory_Level": 731319
+  },
+  {
+    "Date": "2022-02-23",
+    "Inventory_Level": 728667
+  },
+  {
+    "Date": "2022-02-24",
+    "Inventory_Level": 727775
+  },
+  {
+    "Date": "2022-02-25",
+    "Inventory_Level": 746568
+  },
+  {
+    "Date": "2022-02-26",
+    "Inventory_Level": 738561
+  },
+  {
+    "Date": "2022-02-27",
+    "Inventory_Level": 744977
+  },
+  {
+    "Date": "2022-02-28",
+    "Inventory_Level": 724681
+  },
+  {
+    "Date": "2022-01-03",
+    "Inventory_Level": 728761
+  },
+  {
+    "Date": "2022-02-03",
+    "Inventory_Level": 718133
+  },
+  {
+    "Date": "2022-03-03",
+    "Inventory_Level": 710786
+  },
+  {
+    "Date": "2022-04-03",
+    "Inventory_Level": 699570
+  },
+  {
+    "Date": "2022-05-03",
+    "Inventory_Level": 706911
+  },
+  {
+    "Date": "2022-06-03",
+    "Inventory_Level": 700420
+  },
+  {
+    "Date": "2022-07-03",
+    "Inventory_Level": 701557
+  },
+  {
+    "Date": "2022-08-03",
+    "Inventory_Level": 666155
+  },
+  {
+    "Date": "2022-09-03",
+    "Inventory_Level": 677123
+  },
+  {
+    "Date": "2022-10-03",
+    "Inventory_Level": 690117
+  },
+  {
+    "Date": "2022-11-03",
+    "Inventory_Level": 684984
+  },
+  {
+    "Date": "2022-12-03",
+    "Inventory_Level": 689133
+  },
+  {
+    "Date": "2022-03-13",
+    "Inventory_Level": 674346
+  },
+  {
+    "Date": "2022-03-14",
+    "Inventory_Level": 678748
+  },
+  {
+    "Date": "2022-03-15",
+    "Inventory_Level": 689213
+  },
+  {
+    "Date": "2022-03-16",
+    "Inventory_Level": 693845
+  },
+  {
+    "Date": "2022-03-17",
+    "Inventory_Level": 696624
+  },
+  {
+    "Date": "2022-03-18",
+    "Inventory_Level": 696736
+  },
+  {
+    "Date": "2022-03-19",
+    "Inventory_Level": 686669
+  },
+  {
+    "Date": "2022-03-20",
+    "Inventory_Level": 685096
+  },
+  {
+    "Date": "2022-03-21",
+    "Inventory_Level": 668575
+  },
+  {
+    "Date": "2022-03-22",
+    "Inventory_Level": 648825
+  },
+  {
+    "Date": "2022-03-23",
+    "Inventory_Level": 642158
+  },
+  {
+    "Date": "2022-03-24",
+    "Inventory_Level": 675521
+  },
+  {
+    "Date": "2022-03-25",
+    "Inventory_Level": 656087
+  },
+  {
+    "Date": "2022-03-26",
+    "Inventory_Level": 651497
+  },
+  {
+    "Date": "2022-03-27",
+    "Inventory_Level": 632693
+  },
+  {
+    "Date": "2022-03-28",
+    "Inventory_Level": 632399
+  },
+  {
+    "Date": "2022-03-29",
+    "Inventory_Level": 639727
+  },
+  {
+    "Date": "2022-03-30",
+    "Inventory_Level": 647019
+  },
+  {
+    "Date": "2022-03-31",
+    "Inventory_Level": 634898
+  },
+  {
+    "Date": "2022-01-04",
+    "Inventory_Level": 640101
+  },
+  {
+    "Date": "2022-02-04",
+    "Inventory_Level": 657707
+  },
+  {
+    "Date": "2022-03-04",
+    "Inventory_Level": 655549
+  },
+  {
+    "Date": "2022-04-04",
+    "Inventory_Level": 663622
+  },
+  {
+    "Date": "2022-05-04",
+    "Inventory_Level": 686844
+  },
+  {
+    "Date": "2022-06-04",
+    "Inventory_Level": 689890
+  },
+  {
+    "Date": "2022-07-04",
+    "Inventory_Level": 705203
+  },
+  {
+    "Date": "2022-08-04",
+    "Inventory_Level": 699322
+  },
+  {
+    "Date": "2022-09-04",
+    "Inventory_Level": 709297
+  },
+  {
+    "Date": "2022-10-04",
+    "Inventory_Level": 726750
+  },
+  {
+    "Date": "2022-11-04",
+    "Inventory_Level": 729613
+  },
+  {
+    "Date": "2022-12-04",
+    "Inventory_Level": 725591
+  },
+  {
+    "Date": "2022-04-13",
+    "Inventory_Level": 732610
+  },
+  {
+    "Date": "2022-04-14",
+    "Inventory_Level": 743773
+  },
+  {
+    "Date": "2022-04-15",
+    "Inventory_Level": 781721
+  },
+  {
+    "Date": "2022-04-16",
+    "Inventory_Level": 782327
+  },
+  {
+    "Date": "2022-04-17",
+    "Inventory_Level": 814978
+  },
+  {
+    "Date": "2022-04-18",
+    "Inventory_Level": 798941
+  },
+  {
+    "Date": "2022-04-19",
+    "Inventory_Level": 803714
+  },
+  {
+    "Date": "2022-04-20",
+    "Inventory_Level": 785013
+  },
+  {
+    "Date": "2022-04-21",
+    "Inventory_Level": 779645
+  },
+  {
+    "Date": "2022-04-22",
+    "Inventory_Level": 787721
+  },
+  {
+    "Date": "2022-04-23",
+    "Inventory_Level": 800084
+  },
+  {
+    "Date": "2022-04-24",
+    "Inventory_Level": 782507
+  },
+  {
+    "Date": "2022-04-25",
+    "Inventory_Level": 788645
+  },
+  {
+    "Date": "2022-04-26",
+    "Inventory_Level": 758430
+  },
+  {
+    "Date": "2022-04-27",
+    "Inventory_Level": 723121
+  },
+  {
+    "Date": "2022-04-28",
+    "Inventory_Level": 733518
+  },
+  {
+    "Date": "2022-04-29",
+    "Inventory_Level": 719574
+  },
+  {
+    "Date": "2022-04-30",
+    "Inventory_Level": 745334
+  },
+  {
+    "Date": "2022-01-05",
+    "Inventory_Level": 744837
+  },
+  {
+    "Date": "2022-02-05",
+    "Inventory_Level": 729000
+  },
+  {
+    "Date": "2022-03-05",
+    "Inventory_Level": 695167
+  },
+  {
+    "Date": "2022-04-05",
+    "Inventory_Level": 703094
+  },
+  {
+    "Date": "2022-05-05",
+    "Inventory_Level": 687044
+  },
+  {
+    "Date": "2022-06-05",
+    "Inventory_Level": 699164
+  },
+  {
+    "Date": "2022-07-05",
+    "Inventory_Level": 683678
+  },
+  {
+    "Date": "2022-08-05",
+    "Inventory_Level": 687002
+  },
+  {
+    "Date": "2022-09-05",
+    "Inventory_Level": 701449
+  },
+  {
+    "Date": "2022-10-05",
+    "Inventory_Level": 704217
+  },
+  {
+    "Date": "2022-11-05",
+    "Inventory_Level": 699960
+  },
+  {
+    "Date": "2022-12-05",
+    "Inventory_Level": 692484
+  },
+  {
+    "Date": "2022-05-13",
+    "Inventory_Level": 712298
+  },
+  {
+    "Date": "2022-05-14",
+    "Inventory_Level": 735680
+  },
+  {
+    "Date": "2022-05-15",
+    "Inventory_Level": 715428
+  },
+  {
+    "Date": "2022-05-16",
+    "Inventory_Level": 707715
+  },
+  {
+    "Date": "2022-05-17",
+    "Inventory_Level": 703463
+  },
+  {
+    "Date": "2022-05-18",
+    "Inventory_Level": 688733
+  },
+  {
+    "Date": "2022-05-19",
+    "Inventory_Level": 682306
+  },
+  {
+    "Date": "2022-05-20",
+    "Inventory_Level": 703398
+  },
+  {
+    "Date": "2022-05-21",
+    "Inventory_Level": 725817
+  },
+  {
+    "Date": "2022-05-22",
+    "Inventory_Level": 715847
+  },
+  {
+    "Date": "2022-05-23",
+    "Inventory_Level": 721096
+  },
+  {
+    "Date": "2022-05-24",
+    "Inventory_Level": 725922
+  },
+  {
+    "Date": "2022-05-25",
+    "Inventory_Level": 696110
+  },
+  {
+    "Date": "2022-05-26",
+    "Inventory_Level": 682750
+  },
+  {
+    "Date": "2022-05-27",
+    "Inventory_Level": 691587
+  },
+  {
+    "Date": "2022-05-28",
+    "Inventory_Level": 702895
+  },
+  {
+    "Date": "2022-05-29",
+    "Inventory_Level": 701993
+  },
+  {
+    "Date": "2022-05-30",
+    "Inventory_Level": 684215
+  },
+  {
+    "Date": "2022-05-31",
+    "Inventory_Level": 696384
+  },
+  {
+    "Date": "2022-01-06",
+    "Inventory_Level": 696342
+  },
+  {
+    "Date": "2022-02-06",
+    "Inventory_Level": 716144
+  },
+  {
+    "Date": "2022-03-06",
+    "Inventory_Level": 737128
+  },
+  {
+    "Date": "2022-04-06",
+    "Inventory_Level": 729939
+  },
+  {
+    "Date": "2022-05-06",
+    "Inventory_Level": 706836
+  },
+  {
+    "Date": "2022-06-06",
+    "Inventory_Level": 705390
+  },
+  {
+    "Date": "2022-07-06",
+    "Inventory_Level": 720736
+  },
+  {
+    "Date": "2022-08-06",
+    "Inventory_Level": 698624
+  },
+  {
+    "Date": "2022-09-06",
+    "Inventory_Level": 710040
+  },
+  {
+    "Date": "2022-10-06",
+    "Inventory_Level": 684717
+  },
+  {
+    "Date": "2022-11-06",
+    "Inventory_Level": 691959
+  },
+  {
+    "Date": "2022-12-06",
+    "Inventory_Level": 689241
+  },
+  {
+    "Date": "2022-06-13",
+    "Inventory_Level": 688643
+  },
+  {
+    "Date": "2022-06-14",
+    "Inventory_Level": 660742
+  },
+  {
+    "Date": "2022-06-15",
+    "Inventory_Level": 647176
+  },
+  {
+    "Date": "2022-06-16",
+    "Inventory_Level": 644645
+  },
+  {
+    "Date": "2022-06-17",
+    "Inventory_Level": 663216
+  },
+  {
+    "Date": "2022-06-18",
+    "Inventory_Level": 668463
+  },
+  {
+    "Date": "2022-06-19",
+    "Inventory_Level": 673363
+  },
+  {
+    "Date": "2022-06-20",
+    "Inventory_Level": 671791
+  },
+  {
+    "Date": "2022-06-21",
+    "Inventory_Level": 666811
+  },
+  {
+    "Date": "2022-06-22",
+    "Inventory_Level": 667255
+  },
+  {
+    "Date": "2022-06-23",
+    "Inventory_Level": 633401
+  },
+  {
+    "Date": "2022-06-24",
+    "Inventory_Level": 650475
+  },
+  {
+    "Date": "2022-06-25",
+    "Inventory_Level": 656968
+  },
+  {
+    "Date": "2022-06-26",
+    "Inventory_Level": 669112
+  },
+  {
+    "Date": "2022-06-27",
+    "Inventory_Level": 652883
+  },
+  {
+    "Date": "2022-06-28",
+    "Inventory_Level": 658655
+  },
+  {
+    "Date": "2022-06-29",
+    "Inventory_Level": 665983
+  },
+  {
+    "Date": "2022-06-30",
+    "Inventory_Level": 663438
+  },
+  {
+    "Date": "2022-01-07",
+    "Inventory_Level": 661079
+  },
+  {
+    "Date": "2022-02-07",
+    "Inventory_Level": 656992
+  },
+  {
+    "Date": "2022-03-07",
+    "Inventory_Level": 639878
+  },
+  {
+    "Date": "2022-04-07",
+    "Inventory_Level": 637377
+  },
+  {
+    "Date": "2022-05-07",
+    "Inventory_Level": 647877
+  },
+  {
+    "Date": "2022-06-07",
+    "Inventory_Level": 663062
+  },
+  {
+    "Date": "2022-07-07",
+    "Inventory_Level": 635755
+  },
+  {
+    "Date": "2022-08-07",
+    "Inventory_Level": 618952
+  },
+  {
+    "Date": "2022-09-07",
+    "Inventory_Level": 648660
+  },
+  {
+    "Date": "2022-10-07",
+    "Inventory_Level": 650394
+  },
+  {
+    "Date": "2022-11-07",
+    "Inventory_Level": 660838
+  },
+  {
+    "Date": "2022-12-07",
+    "Inventory_Level": 655337
+  },
+  {
+    "Date": "2022-07-13",
+    "Inventory_Level": 675600
+  },
+  {
+    "Date": "2022-07-14",
+    "Inventory_Level": 692060
+  },
+  {
+    "Date": "2022-07-15",
+    "Inventory_Level": 694064
+  },
+  {
+    "Date": "2022-07-16",
+    "Inventory_Level": 704390
+  },
+  {
+    "Date": "2022-07-17",
+    "Inventory_Level": 697006
+  },
+  {
+    "Date": "2022-07-18",
+    "Inventory_Level": 725648
+  },
+  {
+    "Date": "2022-07-19",
+    "Inventory_Level": 726028
+  },
+  {
+    "Date": "2022-07-20",
+    "Inventory_Level": 733259
+  },
+  {
+    "Date": "2022-07-21",
+    "Inventory_Level": 732194
+  },
+  {
+    "Date": "2022-07-22",
+    "Inventory_Level": 732209
+  },
+  {
+    "Date": "2022-07-23",
+    "Inventory_Level": 717742
+  },
+  {
+    "Date": "2022-07-24",
+    "Inventory_Level": 706002
+  },
+  {
+    "Date": "2022-07-25",
+    "Inventory_Level": 718728
+  },
+  {
+    "Date": "2022-07-26",
+    "Inventory_Level": 722854
+  },
+  {
+    "Date": "2022-07-27",
+    "Inventory_Level": 738640
+  },
+  {
+    "Date": "2022-07-28",
+    "Inventory_Level": 732111
+  },
+  {
+    "Date": "2022-07-29",
+    "Inventory_Level": 734778
+  },
+  {
+    "Date": "2022-07-30",
+    "Inventory_Level": 740493
+  },
+  {
+    "Date": "2022-07-31",
+    "Inventory_Level": 727662
+  },
+  {
+    "Date": "2022-01-08",
+    "Inventory_Level": 713407
+  },
+  {
+    "Date": "2022-02-08",
+    "Inventory_Level": 713642
+  },
+  {
+    "Date": "2022-03-08",
+    "Inventory_Level": 721234
+  },
+  {
+    "Date": "2022-04-08",
+    "Inventory_Level": 711126
+  },
+  {
+    "Date": "2022-05-08",
+    "Inventory_Level": 726278
+  },
+  {
+    "Date": "2022-06-08",
+    "Inventory_Level": 732159
+  },
+  {
+    "Date": "2022-07-08",
+    "Inventory_Level": 720929
+  },
+  {
+    "Date": "2022-08-08",
+    "Inventory_Level": 719337
+  },
+  {
+    "Date": "2022-09-08",
+    "Inventory_Level": 750516
+  },
+  {
+    "Date": "2022-10-08",
+    "Inventory_Level": 741033
+  },
+  {
+    "Date": "2022-11-08",
+    "Inventory_Level": 752183
+  },
+  {
+    "Date": "2022-12-08",
+    "Inventory_Level": 784859
+  },
+  {
+    "Date": "2022-08-13",
+    "Inventory_Level": 779522
+  },
+  {
+    "Date": "2022-08-14",
+    "Inventory_Level": 763270
+  },
+  {
+    "Date": "2022-08-15",
+    "Inventory_Level": 760719
+  },
+  {
+    "Date": "2022-08-16",
+    "Inventory_Level": 764259
+  },
+  {
+    "Date": "2022-08-17",
+    "Inventory_Level": 757093
+  },
+  {
+    "Date": "2022-08-18",
+    "Inventory_Level": 788536
+  },
+  {
+    "Date": "2022-08-19",
+    "Inventory_Level": 796837
+  },
+  {
+    "Date": "2022-08-20",
+    "Inventory_Level": 781869
+  },
+  {
+    "Date": "2022-08-21",
+    "Inventory_Level": 761032
+  },
+  {
+    "Date": "2022-08-22",
+    "Inventory_Level": 781976
+  },
+  {
+    "Date": "2022-08-23",
+    "Inventory_Level": 777602
+  },
+  {
+    "Date": "2022-08-24",
+    "Inventory_Level": 789640
+  },
+  {
+    "Date": "2022-08-25",
+    "Inventory_Level": 788522
+  },
+  {
+    "Date": "2022-08-26",
+    "Inventory_Level": 796246
+  },
+  {
+    "Date": "2022-08-27",
+    "Inventory_Level": 799774
+  },
+  {
+    "Date": "2022-08-28",
+    "Inventory_Level": 818219
+  },
+  {
+    "Date": "2022-08-29",
+    "Inventory_Level": 836936
+  },
+  {
+    "Date": "2022-08-30",
+    "Inventory_Level": 808518
+  },
+  {
+    "Date": "2022-08-31",
+    "Inventory_Level": 822615
+  },
+  {
+    "Date": "2022-01-09",
+    "Inventory_Level": 814052
+  },
+  {
+    "Date": "2022-02-09",
+    "Inventory_Level": 801885
+  },
+  {
+    "Date": "2022-03-09",
+    "Inventory_Level": 814809
+  },
+  {
+    "Date": "2022-04-09",
+    "Inventory_Level": 833202
+  },
+  {
+    "Date": "2022-05-09",
+    "Inventory_Level": 813096
+  },
+  {
+    "Date": "2022-06-09",
+    "Inventory_Level": 811161
+  },
+  {
+    "Date": "2022-07-09",
+    "Inventory_Level": 804486
+  },
+  {
+    "Date": "2022-08-09",
+    "Inventory_Level": 801098
+  },
+  {
+    "Date": "2022-09-09",
+    "Inventory_Level": 774224
+  },
+  {
+    "Date": "2022-10-09",
+    "Inventory_Level": 754962
+  },
+  {
+    "Date": "2022-11-09",
+    "Inventory_Level": 767769
+  },
+  {
+    "Date": "2022-12-09",
+    "Inventory_Level": 746108
+  },
+  {
+    "Date": "2022-09-13",
+    "Inventory_Level": 742822
+  },
+  {
+    "Date": "2022-09-14",
+    "Inventory_Level": 732485
+  },
+  {
+    "Date": "2022-09-15",
+    "Inventory_Level": 743682
+  },
+  {
+    "Date": "2022-09-16",
+    "Inventory_Level": 744178
+  },
+  {
+    "Date": "2022-09-17",
+    "Inventory_Level": 723496
+  },
+  {
+    "Date": "2022-09-18",
+    "Inventory_Level": 735642
+  },
+  {
+    "Date": "2022-09-19",
+    "Inventory_Level": 741927
+  },
+  {
+    "Date": "2022-09-20",
+    "Inventory_Level": 734904
+  },
+  {
+    "Date": "2022-09-21",
+    "Inventory_Level": 728412
+  },
+  {
+    "Date": "2022-09-22",
+    "Inventory_Level": 743572
+  },
+  {
+    "Date": "2022-09-23",
+    "Inventory_Level": 761369
+  },
+  {
+    "Date": "2022-09-24",
+    "Inventory_Level": 767886
+  },
+  {
+    "Date": "2022-09-25",
+    "Inventory_Level": 766980
+  },
+  {
+    "Date": "2022-09-26",
+    "Inventory_Level": 766463
+  },
+  {
+    "Date": "2022-09-27",
+    "Inventory_Level": 755853
+  },
+  {
+    "Date": "2022-09-28",
+    "Inventory_Level": 726152
+  },
+  {
+    "Date": "2022-09-29",
+    "Inventory_Level": 732350
+  },
+  {
+    "Date": "2022-09-30",
+    "Inventory_Level": 731947
+  },
+  {
+    "Date": "2022-01-10",
+    "Inventory_Level": 723200
+  },
+  {
+    "Date": "2022-02-10",
+    "Inventory_Level": 710027
+  },
+  {
+    "Date": "2022-03-10",
+    "Inventory_Level": 705451
+  },
+  {
+    "Date": "2022-04-10",
+    "Inventory_Level": 695090
+  },
+  {
+    "Date": "2022-05-10",
+    "Inventory_Level": 698790
+  },
+  {
+    "Date": "2022-06-10",
+    "Inventory_Level": 670741
+  },
+  {
+    "Date": "2022-07-10",
+    "Inventory_Level": 683168
+  },
+  {
+    "Date": "2022-08-10",
+    "Inventory_Level": 698232
+  },
+  {
+    "Date": "2022-09-10",
+    "Inventory_Level": 717982
+  },
+  {
+    "Date": "2022-10-10",
+    "Inventory_Level": 681997
+  },
+  {
+    "Date": "2022-11-10",
+    "Inventory_Level": 692357
+  },
+  {
+    "Date": "2022-12-10",
+    "Inventory_Level": 691349
+  },
+  {
+    "Date": "2022-10-13",
+    "Inventory_Level": 679902
+  },
+  {
+    "Date": "2022-10-14",
+    "Inventory_Level": 685111
+  },
+  {
+    "Date": "2022-10-15",
+    "Inventory_Level": 692040
+  },
+  {
+    "Date": "2022-10-16",
+    "Inventory_Level": 695529
+  },
+  {
+    "Date": "2022-10-17",
+    "Inventory_Level": 684973
+  },
+  {
+    "Date": "2022-10-18",
+    "Inventory_Level": 691425
+  },
+  {
+    "Date": "2022-10-19",
+    "Inventory_Level": 689060
+  },
+  {
+    "Date": "2022-10-20",
+    "Inventory_Level": 711653
+  },
+  {
+    "Date": "2022-10-21",
+    "Inventory_Level": 749584
+  },
+  {
+    "Date": "2022-10-22",
+    "Inventory_Level": 778113
+  },
+  {
+    "Date": "2022-10-23",
+    "Inventory_Level": 771370
+  },
+  {
+    "Date": "2022-10-24",
+    "Inventory_Level": 754147
+  },
+  {
+    "Date": "2022-10-25",
+    "Inventory_Level": 732852
+  },
+  {
+    "Date": "2022-10-26",
+    "Inventory_Level": 730903
+  },
+  {
+    "Date": "2022-10-27",
+    "Inventory_Level": 724165
+  },
+  {
+    "Date": "2022-10-28",
+    "Inventory_Level": 743526
+  },
+  {
+    "Date": "2022-10-29",
+    "Inventory_Level": 751824
+  },
+  {
+    "Date": "2022-10-30",
+    "Inventory_Level": 764811
+  },
+  {
+    "Date": "2022-10-31",
+    "Inventory_Level": 737729
+  },
+  {
+    "Date": "2022-01-11",
+    "Inventory_Level": 749363
+  },
+  {
+    "Date": "2022-02-11",
+    "Inventory_Level": 752962
+  },
+  {
+    "Date": "2022-03-11",
+    "Inventory_Level": 769095
+  },
+  {
+    "Date": "2022-04-11",
+    "Inventory_Level": 767248
+  },
+  {
+    "Date": "2022-05-11",
+    "Inventory_Level": 786971
+  },
+  {
+    "Date": "2022-06-11",
+    "Inventory_Level": 785861
+  },
+  {
+    "Date": "2022-07-11",
+    "Inventory_Level": 799692
+  },
+  {
+    "Date": "2022-08-11",
+    "Inventory_Level": 802720
+  },
+  {
+    "Date": "2022-09-11",
+    "Inventory_Level": 805703
+  },
+  {
+    "Date": "2022-10-11",
+    "Inventory_Level": 815898
+  },
+  {
+    "Date": "2022-11-11",
+    "Inventory_Level": 787187
+  },
+  {
+    "Date": "2022-12-11",
+    "Inventory_Level": 773428
+  },
+  {
+    "Date": "2022-11-13",
+    "Inventory_Level": 791839
+  },
+  {
+    "Date": "2022-11-14",
+    "Inventory_Level": 798197
+  },
+  {
+    "Date": "2022-11-15",
+    "Inventory_Level": 793602
+  },
+  {
+    "Date": "2022-11-16",
+    "Inventory_Level": 792540
+  },
+  {
+    "Date": "2022-11-17",
+    "Inventory_Level": 784441
+  },
+  {
+    "Date": "2022-11-18",
+    "Inventory_Level": 757969
+  },
+  {
+    "Date": "2022-11-19",
+    "Inventory_Level": 743630
+  },
+  {
+    "Date": "2022-11-20",
+    "Inventory_Level": 725564
+  },
+  {
+    "Date": "2022-11-21",
+    "Inventory_Level": 765171
+  },
+  {
+    "Date": "2022-11-22",
+    "Inventory_Level": 762590
+  },
+  {
+    "Date": "2022-11-23",
+    "Inventory_Level": 769162
+  },
+  {
+    "Date": "2022-11-24",
+    "Inventory_Level": 767183
+  },
+  {
+    "Date": "2022-11-25",
+    "Inventory_Level": 776361
+  },
+  {
+    "Date": "2022-11-26",
+    "Inventory_Level": 777606
+  },
+  {
+    "Date": "2022-11-27",
+    "Inventory_Level": 781612
+  },
+  {
+    "Date": "2022-11-28",
+    "Inventory_Level": 795019
+  },
+  {
+    "Date": "2022-11-29",
+    "Inventory_Level": 790791
+  },
+  {
+    "Date": "2022-11-30",
+    "Inventory_Level": 782027
+  },
+  {
+    "Date": "2022-01-12",
+    "Inventory_Level": 790666
+  },
+  {
+    "Date": "2022-02-12",
+    "Inventory_Level": 803043
+  },
+  {
+    "Date": "2022-03-12",
+    "Inventory_Level": 817250
+  },
+  {
+    "Date": "2022-04-12",
+    "Inventory_Level": 839893
+  },
+  {
+    "Date": "2022-05-12",
+    "Inventory_Level": 835507
+  },
+  {
+    "Date": "2022-06-12",
+    "Inventory_Level": 835811
+  },
+  {
+    "Date": "2022-07-12",
+    "Inventory_Level": 855127
+  },
+  {
+    "Date": "2022-08-12",
+    "Inventory_Level": 850903
+  },
+  {
+    "Date": "2022-09-12",
+    "Inventory_Level": 887986
+  },
+  {
+    "Date": "2022-10-12",
+    "Inventory_Level": 914130
+  },
+  {
+    "Date": "2022-11-12",
+    "Inventory_Level": 920907
+  },
+  {
+    "Date": "2022-12-12",
+    "Inventory_Level": 906220
+  },
+  {
+    "Date": "2022-12-13",
+    "Inventory_Level": 912904
+  },
+  {
+    "Date": "2022-12-14",
+    "Inventory_Level": 925714
+  },
+  {
+    "Date": "2022-12-15",
+    "Inventory_Level": 929893
+  },
+  {
+    "Date": "2022-12-16",
+    "Inventory_Level": 929686
+  },
+  {
+    "Date": "2022-12-17",
+    "Inventory_Level": 938998
+  },
+  {
+    "Date": "2022-12-18",
+    "Inventory_Level": 935406
+  },
+  {
+    "Date": "2022-12-19",
+    "Inventory_Level": 927329
+  },
+  {
+    "Date": "2022-12-20",
+    "Inventory_Level": 936822
+  },
+  {
+    "Date": "2022-12-21",
+    "Inventory_Level": 929400
+  },
+  {
+    "Date": "2022-12-22",
+    "Inventory_Level": 956350
+  },
+  {
+    "Date": "2022-12-23",
+    "Inventory_Level": 945175
+  },
+  {
+    "Date": "2022-12-24",
+    "Inventory_Level": 936342
+  },
+  {
+    "Date": "2022-12-25",
+    "Inventory_Level": 930526
+  },
+  {
+    "Date": "2022-12-26",
+    "Inventory_Level": 971128
+  },
+  {
+    "Date": "2022-12-27",
+    "Inventory_Level": 970543
+  },
+  {
+    "Date": "2022-12-28",
+    "Inventory_Level": 947143
+  },
+  {
+    "Date": "2022-12-29",
+    "Inventory_Level": 925720
+  },
+  {
+    "Date": "2022-12-30",
+    "Inventory_Level": 929153
+  },
+  {
+    "Date": "2022-12-31",
+    "Inventory_Level": 940582
+  }
+]
